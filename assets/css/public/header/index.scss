@@ -1,0 +1,16 @@
+.the-header {
+  position: fixed;
+  z-index: 2000;
+  top: 0;
+  right: 0;
+  left: 0;
+  width: 100%;
+  height: 60px;
+  border-bottom: 1px solid #dfdfeb;
+  background: #fff;
+  .the-header__container {
+    -webkit-box-align: center;
+    @include common_center;
+    height: 100%;
+  }
+}

@@ -1,0 +1,52 @@
+.the-header__left {
+  display: flex;
+  -webkit-box-pack: start;
+  justify-content: flex-start;
+  white-space: nowrap;
+  .the-logo {
+    margin-right: 12px;
+    line-height: 200%;
+    @include common_center;
+  }
+  .nav-manu {
+    height: 100%;
+    .nav-manu__contanier {
+      display: -webkit-box;
+      display: flex;
+      height: 100%;
+      .menu-item {
+        height: 100%;
+        margin-right: 10px;
+        .base-popover {
+          height: 100%;
+          .base-popover__target {
+            position: relative;
+            display: -webkit-box;
+            display: flex;
+            -webkit-box-align: center;
+            align-items: center;
+            height: 100%;
+            .menu-item__title {
+              display: block;
+              height: 100%;
+              padding: 10px 8px;
+              color: #40354e;
+              border-bottom: 4px solid #fff;
+              background: #fff;
+              font-size: 22px;
+              //line-height: 200%;
+            }
+            .base-popover__target-arrow {
+              position: absolute;
+              display: block;
+              width: 0;
+              height: 0;
+              content: "";
+              border-style: solid;
+            }
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,20 @@
+@mixin common_bg-pic ($url) {
+  background-image: url($url);
+}
+@mixin common_center {
+  display: -webkit-box;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+@mixin common_img_center {
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+@mixin common_img_center-contain {
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
