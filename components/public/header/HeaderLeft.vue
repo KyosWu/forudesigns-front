@@ -2,8 +2,8 @@
   <div class="the-header__left">
     <!--网站logo-->
     <div class="the-logo">
-      <a href="" class="the-logo_link">
-      </a>
+      <nuxt-link to="/" class="the-logo_link">
+      </nuxt-link>
     </div>
     <!--nav导航-->
     <div class="nav-manu">
@@ -11,9 +11,9 @@
         <li class="menu-item">
           <div class="base-popover">
             <div class="base-popover__target">
-              <a href="" class="menu-item__title">
+              <nuxt-link to="/shop" class="menu-item__title">
                 Shop
-              </a>
+              </nuxt-link>
               <span style="display: none" class="base-popover__target-arrow"></span>
             </div>
             <!--书包移动上去 滑动的详细面板-->
@@ -58,9 +58,9 @@
         <li class="menu-item">
           <div class="base-popover">
             <div class="base-popover__target">
-              <a href="" class="menu-item__title">
+              <nuxt-link to="/artworks" class="menu-item__title">
                 Collections
-              </a>
+              </nuxt-link>
               <span style="display: none" class="base-popover__target-arrow"></span>
             </div>
             <!--书包移动上去 滑动的详细面板-->
@@ -142,9 +142,9 @@
         <li class="menu-item">
           <div class="base-popover">
             <div class="base-popover__target">
-              <a href="" class="menu-item__title">
+              <nuxt-link to="/create" class="menu-item__title">
                 Create
-              </a>
+              </nuxt-link>
               <span style="display: none" class="base-popover__target-arrow"></span>
             </div>
             <!--书包移动上去 滑动的详细面板-->
@@ -226,9 +226,9 @@
         <li class="menu-item">
           <div class="base-popover">
             <div class="base-popover__target">
-              <a href="" class="menu-item__title">
+              <nuxt-link to="/artists" class="menu-item__title">
                 Artist
-              </a>
+              </nuxt-link>
               <span style="display: none" class="base-popover__target-arrow"></span>
             </div>
             <!--书包移动上去 滑动的详细面板-->
@@ -310,9 +310,9 @@
         <li class="menu-item">
           <div class="base-popover">
             <div class="base-popover__target">
-              <a href="" class="menu-item__title">
+              <nuxt-link to="/business" class="menu-item__title">
                 Business
-              </a>
+              </nuxt-link>
               <span style="display: none" class="base-popover__target-arrow"></span>
             </div>
             <!--书包移动上去 滑动的详细面板-->

@@ -17,8 +17,7 @@
         <nuxt-link to="">Blog</nuxt-link>
       </div>
       <div class="the-footer__links">
-        <nuxt-link to="" class="myLogo common_hw">
-        </nuxt-link>
+        <nuxt-link to="" class="myLogo common_hw"></nuxt-link>
         <nuxt-link to="" class="facebook common_hw"></nuxt-link>
         <nuxt-link to="" class="twitter common_hw"></nuxt-link>
         <nuxt-link to="" class="ins common_hw"></nuxt-link>

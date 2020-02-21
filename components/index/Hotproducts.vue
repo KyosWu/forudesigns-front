@@ -8,7 +8,7 @@
             <div class="image-outer triangle-tag"
                  data-name="Hot"
                  style="width: 265px;height: 265px;">
-              <img :src="item.src" alt="" class="image__inner" style="width: 265px;height: 265px;">
+              <img v-lazy="item.src" alt="" class="image__inner" style="width: 265px;height: 265px;">
             </div>
           </div>
           <div class="card-name">

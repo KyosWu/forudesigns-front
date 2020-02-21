@@ -10,12 +10,12 @@
               <li v-for="item2 in item1.all2" :key="item2" style="width: 308.75px;">
                 <div class="img-list" v-for="item3 in item2.conner" :key="item3" style="width: 152px; height: 152px;">
                   <div style="width: 98px; height: 98px;">
-                    <img :src="item3.src" alt="" class="img_inner">
+                    <img v-lazy="item3.src" alt="" class="img_inner">
                   </div>
                 </div>
                 <div class="head-img" v-for="item4 in item2.center" :key="item4" style="width: 70px; height: 70px;">
                   <div class="img_avatar">
-                    <img :src="item4.src" alt="" class="img_inner">
+                    <img v-lazy="item4.src" alt="" class="img_inner">
                   </div>
                 </div>
                 <div class="bg-hover" style="display: block">

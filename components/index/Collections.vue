@@ -9,7 +9,7 @@
         <nuxt-link to="">
           <div class="img-warp">
             <div class="img-outer">
-              <img :src="item.src" alt="" class="img-inner">
+              <img v-lazy="item.src" alt="" class="img-inner">
             </div>
           </div>
         </nuxt-link>

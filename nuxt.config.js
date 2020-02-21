@@ -36,6 +36,7 @@ export default {
   */
   plugins: [
     '@/plugins/element-ui',
+    "@/plugins/vue-lazyload",
     // nprogress 加载进度条
     {src:'@/plugins/loading', ssr:false }
   ],
