@@ -30,13 +30,16 @@ export default {
   css: [
     'element-ui/lib/theme-chalk/index.css',
     '@/assets/css/main.css',
+    { src: "swiper/dist/css/swiper.css" }
   ],
   /*
   ** Plugins to load before mounting the App
   */
   plugins: [
     '@/plugins/element-ui',
-    "@/plugins/vue-lazyload",
+    '@/plugins/vue-lazyload',
+    { src: "@/plugins/vue-swiper.js", ssr: false },
+    // { src: "@/plugins/vue-waterfall.js", ssr: false },
     // nprogress 加载进度条
     {src:'@/plugins/loading', ssr:false }
   ],

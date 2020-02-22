@@ -1,28 +1,39 @@
 <template>
-    <div>
+    <main class="banner-layout__main">
       <div class="banner">
         <nuxt-link to="">
           <div class="banner-image" style="width: 1920px; height: 245px;">
-            <img v-lazy="" alt="" class="img-inner">
+            <img src="../assets/images/shop/1.jpeg" alt="" class="img-inner">
           </div>
         </nuxt-link>
       </div>
       <main class="banner-layout__content">
         <div class="clear-both">
           <!--tags标签-->
-          <div class="tags-wrap"></div>
-          <!--分类框-->
-          <div class="el-collapse"></div>
-          <!--list商品主目录-->
-          <div class="list-wrap fr"></div>
+          <Tags/>
+          <div style="display: flex">
+            <!--分类框-->
+            <Collapse/>
+            <!--list商品主目录-->
+            <List/>
+          </div>
+
         </div>
       </main>
-    </div>
+    </main>
 </template>
 
 <script>
+  import Tags from '../components/shop/Tags'
+  import Collapse from '../components/shop/Collapse'
+  import List from '../components/shop/List'
     export default {
-        name: "shop"
+        name: "shop",
+        components: {
+          Tags,
+          Collapse,
+          List
+        }
     }
 </script>
 
@@ -50,10 +61,15 @@
         width: 100%;
         height: 100%;
         vertical-align: middle;
-        background-image: url("../assets/images/shop/1.jpeg");
+        /*background-image: url("../assets/images/shop/1.jpeg");*/
       }
-
     }
   }
-
+  .banner-layout__main {
+    padding-bottom: 20px;
+  }
+  .banner-layout__content {
+    width: 1280px;
+    margin: 0 auto;
+  }
 </style>
