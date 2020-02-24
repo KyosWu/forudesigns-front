@@ -2,7 +2,7 @@
   <div class="design-wrapper" style="width: 1280px;">
     <h2 class="design-title">Hot Products</h2>
     <ul class="design-ul">
-      <li v-for="item in list" :key="item" style="width: 310px;height: 345px;">
+      <li v-for="(item,index) in list" :key="index" style="width: 310px;height: 345px;">
         <nuxt-link to="" style="width: 310px;">
           <div class="img-container" style="width: 265px;height: 265px;">
             <div class="image-outer triangle-tag"

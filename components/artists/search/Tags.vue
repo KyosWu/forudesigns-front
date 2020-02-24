@@ -15,7 +15,7 @@
       </swiper>
 
       <!-- 分页器 -->
-      <!--<div class="swiper-pagination"  slot="pagination"></div>-->
+      <div class="swiper-pagination"  slot="pagination"></div>
       <!-- 左右箭头 -->
       <div class="swiper-button-prev" slot="button-prev"
            tabindex="0" role="button" aria-label="Previous-slide">

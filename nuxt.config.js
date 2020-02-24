@@ -23,7 +23,9 @@ export default {
   /*
   ** Customize the progress-bar color
   */
-  loading: { color: '#fff' },
+  loading: { color: '#ff6e7c' },
+  // 禁用默认进度条，改用nprogress，免冲突
+  // loading: false,
   /*
   ** Global CSS
   */
@@ -36,12 +38,13 @@ export default {
   ** Plugins to load before mounting the App
   */
   plugins: [
+    // nprogress 加载进度条
+    {src:'@/plugins/loading', ssr:false },
     '@/plugins/element-ui',
     '@/plugins/vue-lazyload',
+    // '@/plugins/vue-notifications',
     { src: "@/plugins/vue-swiper.js", ssr: false },
-    // { src: "@/plugins/vue-waterfall.js", ssr: false },
-    // nprogress 加载进度条
-    {src:'@/plugins/loading', ssr:false }
+
   ],
   /*
   ** Nuxt.js dev-modules

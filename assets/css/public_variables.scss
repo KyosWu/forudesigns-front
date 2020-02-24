@@ -2,10 +2,12 @@
   background-image: url($url);
 }
 @mixin common_center {
-  display: -webkit-box;
   display: flex;
   justify-content: center;
   align-items: center;
+  display: -webkit-box;
+  -webkit-box-align: center;
+  -webkit-box-pack: center;
 }
 @mixin common_img_center {
   background-position: center center;

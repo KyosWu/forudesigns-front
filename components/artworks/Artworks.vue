@@ -15,40 +15,46 @@
       </div>
     </div>
     <div class="content">
-      <div class="waterfall">
-        <waterfall :line-gap="200" :watch="list" style="height: 1910.52px; overflow: hidden;">
-          <!-- each component is wrapped by a waterfall slot -->
-          <waterfall-slot
-            v-for="(item, index) in list"
-            :width="item.width"
-            :height="item.height"
-            :order="index"
-            :key="item.id"
-          >
-            {{item.name}}
-            <!--
-              your component
-            -->
-          </waterfall-slot>
-        </waterfall>
+      <div class="waterfall"  style="display: flex;flex-wrap: wrap">
+
+        <div v-for="(item,index) in list" :key="index" style="width: 320px;">
+          <div class="list-image">
+            <div class="img-outer">
+              <img v-lazy="item.src" alt="" class="img-inner">
+            </div>
+            <div class="work-info">
+              <span class="work-name">The gnomes visit paradise places on earth</span>
+              <div class="work-designer">
+                <nuxt-link to="">
+                  Pepita Selles
+                </nuxt-link>
+              </div>
+              <span class="toggle-collect-image-button collect"></span>
+            </div>
+          </div>
+        </div>
+
+
       </div>
     </div>
   </div>
 </template>
 
 <script>
-  import Waterfall from '../../node_modules/vue-waterfall/lib/waterfall'
-  import WaterfallSlot from '../../node_modules/vue-waterfall/lib/waterfall-slot'
     export default {
         name: "Artworks",
-      components: {
-        'waterfall': Waterfall.waterfall,
-        'waterfall-slot': Waterfall.waterfallSlot
-      },
         data () {
           return {
+            //后端计算图片宽度和高度
             list: [
-              {id: 1, name: 'hah',width: '30px',height:'60px'}
+              {id: 1, name: 'hah', src: require("../../assets/images/artworks/content/1.jpeg"),width:320,height:456},
+              {id: 2, name: 'hah', src: require("../../assets/images/artworks/content/2.jpeg"),width:320,height:426},
+              {id: 3, name: 'hah', src: require("../../assets/images/artworks/content/3.jpeg"),width:320,height:303},
+              {id: 4, name: 'hah', src: require("../../assets/images/artworks/content/4.jpeg"),width:320,height:456},
+              {id: 5, name: 'hah', src: require("../../assets/images/artworks/content/1.jpeg"),width:320,height:456},
+              {id: 6, name: 'hah', src: require("../../assets/images/artworks/content/2.jpeg"),width:320,height:426},
+              {id: 7, name: 'hah', src: require("../../assets/images/artworks/content/3.jpeg"),width:320,height:303},
+              {id: 8, name: 'hah', src: require("../../assets/images/artworks/content/4.jpeg"),width:320,height:456},
             ]
           }
         }
@@ -111,4 +117,72 @@
     }
   }
 
+  .list-image {
+    /*position: absolute;*/
+    top: 0;
+    overflow: hidden;
+    width: 310px;
+    border-radius: 4px;
+    background: #fff;
+    cursor: pointer;
+    box-shadow: 0 0 11.44px 1.56px rgba(0,0,70,.05);
+    .img-outer {
+      width: 290px;
+      margin: 10px;
+      cursor: pointer;
+      border-radius: 4px;
+      .img-inner {
+        width: 100%;
+        height: 100%;
+        vertical-align: middle;
+      }
+    }
+    .work-info {
+      position: relative;
+      height: 55px;
+      padding: 0 13px 0 8px;
+      text-align: left;
+      .work-name {
+        display: block;
+        overflow: hidden;
+        width: 195px;
+        white-space: nowrap;
+        text-transform: capitalize;
+        text-overflow: ellipsis;
+        color: #40354e;
+        font-size: 14px;
+      }
+      .work-designer {
+        cursor: pointer;
+        text-decoration: underline;
+        text-transform: capitalize;
+        color: #8c95a5;
+        font-size: 12px;
+      }
+      .toggle-collect-image-button {
+        display: -webkit-inline-box;
+        display: inline-flex;
+        -webkit-box-align: center;
+        align-items: center;
+        -webkit-box-pack: center;
+        justify-content: center;
+        width: 35px;
+        height: 35px;
+        cursor: pointer;
+        color: #8c95a5;
+        border-radius: 100%;
+        background: #fff;
+        font-size: 18px;
+      }
+      .collect {
+        position: absolute;
+        top: 5px;
+        right: 13px;
+        @include common_img_center-contain;
+        width: 20px;
+        height: 20px;
+        background-image: url("../../assets/images/artworks/content/收藏.svg");
+      }
+    }
+  }
 </style>

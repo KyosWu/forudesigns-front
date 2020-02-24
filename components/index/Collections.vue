@@ -5,7 +5,7 @@
     </h2>
     <ul class="collections-content clear-both">
       <!--加style 保证不移动自适配-->
-      <li v-for="item in list" :key="item" style="width: 310px;height:310px">
+      <li v-for="(item,index) in list" :key="index" style="width: 310px;height:310px">
         <nuxt-link to="">
           <div class="img-warp">
             <div class="img-outer">

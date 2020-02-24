@@ -5,15 +5,15 @@
       <!--<el-carousel height="680px" direction="vertical" :autoplay="false">-->
       <el-carousel direction="vertical" :autoplay="false"
                    style="height: 680px">
-        <el-carousel-item v-for="item in list" :key="item" class="carousel-wrapper" style="height: 680px;">
-          <ul v-for="item1 in item.all" :key="item1" style="width: 308.75px;">
-              <li v-for="item2 in item1.all2" :key="item2" style="width: 308.75px;">
-                <div class="img-list" v-for="item3 in item2.conner" :key="item3" style="width: 152px; height: 152px;">
+        <el-carousel-item v-for="(item,index) in list" :key="index" class="carousel-wrapper" style="height: 680px;">
+          <ul v-for="(item1,j) in item.all" :key="j" style="width: 308.75px;">
+              <li v-for="(item2,k) in item1.all2" :key="k" style="width: 308.75px;">
+                <div class="img-list" v-for="(item3,f) in item2.conner" :key="f" style="width: 152px; height: 152px;">
                   <div style="width: 98px; height: 98px;">
                     <img v-lazy="item3.src" alt="" class="img_inner">
                   </div>
                 </div>
-                <div class="head-img" v-for="item4 in item2.center" :key="item4" style="width: 70px; height: 70px;">
+                <div class="head-img" v-for="(item4,z) in item2.center" :key="z" style="width: 70px; height: 70px;">
                   <div class="img_avatar">
                     <img v-lazy="item4.src" alt="" class="img_inner">
                   </div>
