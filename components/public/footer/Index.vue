@@ -95,19 +95,19 @@
           background-image: url("../../../assets/images/public/my.jpg");
         }
         .facebook {
-          background-image: url("../../../assets/images/public/footer/facebook.svg");
+          background-image: url("../../../assets/images/public/corporation_logo/facebook.svg");
         }
         .twitter {
-          background-image: url("../../../assets/images/public/footer/twitter.svg");
+          background-image: url("../../../assets/images/public/corporation_logo/twitter.svg");
         }
         .ins {
-          background-image: url("../../../assets/images/public/footer/instagram.svg");
+          background-image: url("../../../assets/images/public/corporation_logo/instagram.svg");
         }
         .youtube {
-          background-image: url("../../../assets/images/public/footer/you_tube.svg");
+          background-image: url("../../../assets/images/public/corporation_logo/you_tube.svg");
         }
         .pin {
-          background-image: url("../../../assets/images/public/footer/pintrest.svg");
+          background-image: url("../../../assets/images/public/corporation_logo/pintrest.svg");
         }
       }
     }

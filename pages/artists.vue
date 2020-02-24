@@ -13,6 +13,8 @@
       <div class="artists-list-main" style="width: 1280px">
         <Search/>
         <List/>
+        <JoinUs/>
+        <CardsPanel/>
       </div>
 
     </main>
@@ -23,11 +25,15 @@
 <script>
   import Search from '../components/artists/Search'
   import List from '../components/artists/List'
+  import JoinUs from '../components/artists/JoinUs'
+  import CardsPanel from '../components/artists/Cards-panel'
     export default {
         name: "artists",
       components: {
           Search,
-        List
+        List,
+        JoinUs,
+        CardsPanel
       }
     }
 </script>

@@ -2,6 +2,7 @@
   -webkit-box-pack: end;
   justify-content: flex-end;
   height: 100%;
+  margin-left: 20px;
   .the-header__right__inner-warp {
     position: relative;
     display: -webkit-box;
@@ -38,6 +39,7 @@
       }
     }
     .login-btn {
+      line-height: 1px;
       margin-left: 10px;
       .login-btn__btn {
         margin: 0;

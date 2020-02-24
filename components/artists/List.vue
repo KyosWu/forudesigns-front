@@ -30,7 +30,7 @@
                 </div>
                 <div class="btn-01">
                   <i></i>
-                  <span data-follow="Follow" data-unfollow="Unfollow">Follow</span>
+                  <span data-follow="Follow" data-unfollow="Unfollow" @click="toFollow">Follow</span>
                 </div>
               </div>
             </div>
@@ -51,13 +51,26 @@
       </ul>
     </div>
 
-    <div class="pagination"></div>
+    <!--分页-->
+    <Pagunation/>
+
+    <!--需要放到layout页面-->
+    <!--测试login登录框-->
+    <Login v-show="isFollow"/>
+
+
   </div>
 </template>
 
 <script>
+  import Pagunation from '../../components/artists/search/Pagination'
+  import Login from '../public/login/Login-model'
     export default {
         name: "List",
+      components: {
+        Pagunation,
+        Login
+      },
       data () {
           return {
             list: [
@@ -121,8 +134,15 @@
                   {src: require('../../assets/images/artists/list/4.jpeg')},
                 ]
               },
-            ]
+            ],
+            isFollow: false
           }
+      },
+      methods: {
+        //  关注创作者按钮触发
+        toFollow(){
+          this.isFollow = !this.isFollow
+        }
       }
     }
 </script>
@@ -231,7 +251,6 @@
       }
     }
   }
-
 
   .btn-01 {
     display: -webkit-inline-box;

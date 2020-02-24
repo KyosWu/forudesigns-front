@@ -8,7 +8,9 @@
   height: 60px;
   border-bottom: 1px solid #dfdfeb;
   background: #fff;
+  @include common_center;
   .the-header__container {
+    width: 1280px;
     -webkit-box-align: center;
     @include common_center;
     height: 100%;

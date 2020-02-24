@@ -1,28 +1,35 @@
 <template>
-  <div class="pagination">
-    <ul class="pagination-content">
-      <!--左 加-->
-      <li><button><i class="el-icon-d-arrow-left"></i></button></li>
-      <!--左-->
-      <li><button><i class="el-icon-arrow-left"></i></button></li>
-      <!--页数-->
-      <li class="pagination-input">
-        <input max="15" min="1" type="number" class="page-to">
-        <span class="pagination-info">2 of 15</span>
-      </li>
-      <!--右-->
-      <li><button><i class="el-icon-arrow-right"></i></button></li>
-      <!--右 加-->
-      <li><button><i class="el-icon-d-arrow-right"></i></button>
-      </li>
-    </ul>
-  </div>
+    <div class="pagination">
+      <ul class="pagination-content">
+        <!--回到顶部-->
+        <li>
+          <el-button class="back-to-top-button">
+            <i class="el-icon-arrow-up"></i>
+          </el-button>
+          <span class="back-to-top">Back-to-top</span>
+        </li>
+        <!--左 加-->
+        <li><button><i class="el-icon-d-arrow-left"></i></button></li>
+        <!--左-->
+        <li><button><i class="el-icon-arrow-left"></i></button></li>
+        <!--页数-->
+        <li class="pagination-input">
+          <input max="15" min="1" type="number" class="page-to">
+          <span class="pagination-info">2 of 15</span>
+        </li>
+        <!--右-->
+        <li><button><i class="el-icon-arrow-right"></i></button></li>
+        <!--右 加-->
+        <li><button><i class="el-icon-d-arrow-right"></i></button>
+        </li>
+      </ul>
+    </div>
 </template>
 
 <script>
-  export default {
-    name: "pagination"
-  }
+    export default {
+        name: "pagination"
+    }
 </script>
 
 <style lang="scss" scoped>
@@ -30,7 +37,7 @@
     display: -webkit-inline-box;
     display: inline-flex;
     -webkit-box-pack: end;
-    justify-content: center;
+    justify-content: flex-end;
     width: 100%;
     .pagination-content {
       display: -webkit-inline-box;
@@ -49,6 +56,12 @@
           border: 1px solid #dfdfeb;
           background: #fff;
           line-height: 37px;
+        }
+        .back-to-top {
+          margin-left: 11px;
+          color: #40354e;
+          font-size: 14px;
+          font-weight: 700;
         }
         button {
           width: 37px;

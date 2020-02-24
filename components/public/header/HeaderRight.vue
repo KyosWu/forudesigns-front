@@ -2,8 +2,6 @@
   <div class="the-header__right">
     <div class="the-header__right__inner-warp">
       <!--购物车-->
-
-
       <div class="base-popover">
         <div class="base-popover__target">
           <nuxt-link to="#">

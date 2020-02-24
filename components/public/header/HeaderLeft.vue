@@ -2,7 +2,8 @@
   <div class="the-header__left">
     <!--网站logo-->
     <div class="the-logo">
-      <nuxt-link to="/" class="the-logo_link">
+      <nuxt-link to="/">
+        <img src="../../../assets/images/public/my.jpg" alt="" class="the-logo_link">
       </nuxt-link>
     </div>
     <!--nav导航-->
@@ -408,7 +409,6 @@
   .the-logo_link {
     width: 33px;
     height: 33px;
-    @include common_bg-pic("../../../assets/images/public/my.jpg");
-    @include common_img_center;
+    @include common_img_center_contain;
   }
 </style>
