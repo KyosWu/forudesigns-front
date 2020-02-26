@@ -1,15 +1,16 @@
 <template>
-    <main class="defalut-layout__main">
-      <div class="auth">
-        <div class="auth-container">
-          <div class="auth-content">
-            <h2 class="auth-title">
-              WELCOME TO FORUDESIGNS
-            </h2>
+  <main class="defalut-layout__main">
+    <div class="auth">
+      <div class="auth-container">
+        <div class="auth-content">
+          <h2 class="auth-title">
+            WELCOME TO FORUDESIGNS
+          </h2>
 
-            <LoginMain/>
-            <!--政策条款详细-->
-            <div class="policy-info">
+          <!--注册区域-->
+          <RegisterMain/>
+          <!--政策条款详细-->
+          <div class="policy-info">
               <span class="light">
                 Login and Create your account ,you agree with
                 <nuxt-link to="" class="bold">
@@ -21,21 +22,21 @@
                 </nuxt-link>
                 ,Thanks
               </span>
-            </div>
           </div>
         </div>
       </div>
-    </main>
+    </div>
+  </main>
 </template>
 
 <script>
-  import LoginMain from '../components/public/login/Login-main'
-    export default {
-        name: "login",
-        components: {
-            LoginMain
-        }
+  import RegisterMain from '../components/public/register/Register-main'
+  export default {
+    name: "register",
+    components: {
+      RegisterMain
     }
+  }
 </script>
 
 <style lang="scss" scoped>

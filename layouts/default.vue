@@ -7,9 +7,15 @@
 </template>
 
 <script>
+  import { mapGetters } from 'vuex'
   import MyHeader from '../components/public/header/Index.vue'
   import MyFooter from '../components/public/footer/Index.vue'
   export default {
+    computed: {
+      ...mapGetters([
+        'isModelShow'
+      ]),
+    },
     components:{
       MyHeader,
       MyFooter

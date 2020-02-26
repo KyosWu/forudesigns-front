@@ -30,7 +30,7 @@
                 </div>
                 <div class="btn-01">
                   <i></i>
-                  <span data-follow="Follow" data-unfollow="Unfollow" @click="toFollow">Follow</span>
+                  <span data-follow="Follow" data-unfollow="Unfollow" @click="ShowModel_LoginOrRegister_Func">Follow</span>
                 </div>
               </div>
             </div>
@@ -54,22 +54,21 @@
     <!--分页-->
     <Pagunation/>
 
-    <!--需要放到layout页面-->
-    <!--测试login登录框-->
-    <Login v-show="isFollow"/>
-
-
   </div>
 </template>
 
 <script>
+  import { mapGetters, mapActions } from 'vuex'
   import Pagunation from '../../components/artists/search/Pagination'
-  import Login from '../public/login/Login-model'
     export default {
         name: "List",
       components: {
         Pagunation,
-        Login
+      },
+      computed: {
+        ...mapGetters([
+          'isShowModel'
+        ]),
       },
       data () {
           return {
@@ -134,14 +133,16 @@
                   {src: require('../../assets/images/artists/list/4.jpeg')},
                 ]
               },
-            ],
-            isFollow: false
+            ]
           }
       },
       methods: {
+          ...mapActions([
+            'ShowModel'
+          ]),
         //  关注创作者按钮触发
-        toFollow(){
-          this.isFollow = !this.isFollow
+        ShowModel_LoginOrRegister_Func(){
+          this.ShowModel(!this.isShowModel)
         }
       }
     }

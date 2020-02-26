@@ -19,7 +19,7 @@
 
         <div v-for="(item,index) in list" :key="index" style="width: 320px;">
           <div class="list-image">
-            <div class="img-outer">
+            <div class="img-outer" @click="ShowModel_ArtworkDetail_Func(item)">
               <img v-lazy="item.src" alt="" class="img-inner">
             </div>
             <div class="work-info">
@@ -34,18 +34,18 @@
           </div>
         </div>
 
-
       </div>
     </div>
   </div>
 </template>
 
 <script>
+  import { mapGetters, mapActions } from 'vuex'
     export default {
         name: "Artworks",
         data () {
           return {
-            //后端计算图片宽度和高度
+            // 后端计算图片宽度和高度
             list: [
               {id: 1, name: 'hah', src: require("../../assets/images/artworks/content/1.jpeg"),width:320,height:456},
               {id: 2, name: 'hah', src: require("../../assets/images/artworks/content/2.jpeg"),width:320,height:426},
@@ -57,7 +57,23 @@
               {id: 8, name: 'hah', src: require("../../assets/images/artworks/content/4.jpeg"),width:320,height:456},
             ]
           }
+        },
+      computed: {
+        ...mapGetters([
+          'isShowModel'
+        ]),
+      },
+      methods: {
+          ...mapActions([
+           'ShowModel'
+          ]),
+        //  显示艺术作者详细内容
+        ShowModel_ArtworkDetail_Func (index) {
+            // 根据点击的图片ID值，向后端发送那个请求，得到的数据，存储到model渲染
+            console.log(index)
+          this.ShowModel(!this.isShowModel)
         }
+      }
     }
 </script>
 

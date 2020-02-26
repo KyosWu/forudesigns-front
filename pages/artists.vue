@@ -16,13 +16,17 @@
         <JoinUs/>
         <CardsPanel/>
       </div>
-
     </main>
-
+    <!--测试login登录框-->
+    <Login v-if="isShowModel"/>
   </div>
 </template>
 
 <script>
+  import { mapGetters } from 'vuex'
+
+  import Login from '../components/model/Login-model'
+
   import Search from '../components/artists/Search'
   import List from '../components/artists/List'
   import JoinUs from '../components/artists/JoinUs'
@@ -30,11 +34,17 @@
     export default {
         name: "artists",
       components: {
+        Login,
           Search,
         List,
         JoinUs,
         CardsPanel
-      }
+      },
+      computed: {
+        ...mapGetters([
+          'isShowModel'
+        ]),
+      },
     }
 </script>
 

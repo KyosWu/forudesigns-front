@@ -13,20 +13,32 @@
         <!--<Tags/>-->
         <!--瀑布流-->
         <Artworks/>
+
       </div>
     </main>
+    <!--测试 艺术家作品详细弹框model-->
+    <WorksModel v-if="isShowModel"/>
   </main>
 </template>
 
 <script>
+  import { mapGetters } from 'vuex'
+  // 测试
+  import WorksModel from '../components/model/Works-modal'
   import Tags from '../components/artworks/Tags'
   import Artworks from '../components/artworks/Artworks'
     export default {
         name: "artworks",
         components: {
           Tags,
-          Artworks
-        }
+          Artworks,
+          WorksModel
+        },
+      computed: {
+        ...mapGetters([
+          'isShowModel'
+        ]),
+      },
     }
 </script>
 

@@ -1,102 +1,84 @@
 <template>
-  <div class="login-modal-wrap" style="width: 500px">
-    <div class="login-modal-content">
-      <h2 class="auth-title">
-        WELCOME TO FORUDESIGNS
-      </h2>
-      <div class="login-form">
-        <div class="auth-inner-layout">
-          <div class="auth-sub-title">
-            <span class="title">Need an account?</span>
-            <nuxt-link to="" class="link">
-              Sign up>
-            </nuxt-link>
-          </div>
-          <div class="">
-            <!--提示信息-->
-            <div class="inline-message info-message" style="display: none">
-              <div class="remind-wrap">
-                <div class="remind"></div>
+    <!--登录区域-->
+    <div class="login-form">
+      <div class="auth-inner-layout">
+        <div class="auth-sub-title">
+          <span class="title">Need an account?</span>
+          <nuxt-link to="/register" class="link">
+            Sign up>
+          </nuxt-link>
+        </div>
+        <div class="">
+          <!--提示信息-->
+          <div class="inline-message info-message" style="display: none">
+            <div class="remind-wrap">
+              <div class="remind"></div>
+            </div>
+            <div class="info">
+              <div>
+                If you haven't received the email, please check your spam folder first. You could request another one in
               </div>
-              <div class="info">
-                <div>
-                  If you haven't received the email, please check your spam folder first. You could request another one in
-                </div>
-                <span> 60</span>
-                "s."
+              <span> 60</span>
+              "s."
+            </div>
+          </div>
+          <!--信息填写和确认区域-->
+          <form action="">
+            <!--邮箱和密码输入框-->
+            <div class="input">
+              <div class="field">
+                <el-input type="text" autocomplete="off" name="email"
+                          placeholder="Enter your Email">
+                </el-input>
+              </div>
+              <div class="field">
+                <el-input type="password" autocomplete="off" name="password"
+                          placeholder="Enter your password">
+                </el-input>
               </div>
             </div>
-            <!--信息填写和确认区域-->
-            <form action="">
-              <!--邮箱和密码输入框-->
-              <div class="input">
-                <div class="field">
-                  <el-input type="text" autocomplete="off" name="email"
-                            placeholder="Enter your Email">
-                  </el-input>
-                </div>
-                <div class="field">
-                  <el-input type="password" autocomplete="off" name="password"
-                            placeholder="Enter your password">
-                  </el-input>
-                </div>
+            <!--信息确认区域-->
+            <div class="check">
+              <div>
+                <el-checkbox v-model="checked">Remember Me</el-checkbox>
+                <el-tooltip :content="el_tooltip_content" placement="bottom" effect="light"
+                            class="size-guide">
+                  <i class="el-icon-warning-outline"></i>
+                </el-tooltip>
               </div>
-              <!--信息确认区域-->
-              <div class="check">
-                <div>
-                  <el-checkbox v-model="checked">Remember Me</el-checkbox>
-                  <el-tooltip :content="el_tooltip_content" placement="bottom" effect="light"
-                              class="size-guide">
-                    <i class="el-icon-warning-outline"></i>
-                  </el-tooltip>
-                </div>
-                <!--忘记密码-->
-                <label for="" class="forget">
-                  <nuxt-link to="">
-                    Forget Password?
-                  </nuxt-link>
-                </label>
-              </div>
-              <!--登录按钮-->
-              <button class="sign btn-01">
-                Login
-              </button>
-            </form>
-          </div>
-          <!--第三方登录-->
-          <div class="login-with">
-            <div class="login-with__title">
-              <div class="login-with__title__line"></div>
-              <div class="login-with__title__content">
-                Or Login With
-              </div>
-              <div class="login-with__title__line"></div>
+              <!--忘记密码-->
+              <label for="" class="forget">
+                <nuxt-link to="">
+                  Forget Password?
+                </nuxt-link>
+              </label>
             </div>
-            <div class="login-with__content">
-              <div v-for="(item, index) in login_with_logo" :key="index">
-                <img v-lazy="item.src" alt="" class="img-inner">
-              </div>
+            <!--登录按钮-->
+            <button class="sign btn-01">
+              Login
+            </button>
+          </form>
+        </div>
+        <!--第三方登录-->
+        <div class="login-with">
+          <div class="login-with__title">
+            <div class="login-with__title__line"></div>
+            <div class="login-with__title__content">
+              Or Login With
+            </div>
+            <div class="login-with__title__line"></div>
+          </div>
+          <div class="login-with__content">
+            <div v-for="(item, index) in login_with_logo" :key="index">
+              <!--不懒加载-->
+              <img :src="item.src" alt="" class="img-inner">
+            </div>
 
-            </div>
-          </div>
-          <!--政策条款详细-->
-          <div class="policy-info">
-                <span class="light">
-                  Login and Create your account ,you agree with
-                  <nuxt-link to="" class="bold">
-                  FORUDESIGNS Term of Service
-                  </nuxt-link>
-                  and
-                  <nuxt-link to="" class="bold">
-                    Privacy Policy
-                  </nuxt-link>
-                  ,Thanks
-                </span>
           </div>
         </div>
+
       </div>
     </div>
-  </div>
 </template>
 
 <script>
@@ -104,6 +86,8 @@
         name: "Login-main",
       data () {
         return {
+          // 条款确认框
+          checked: false,
           login_with_logo: [
             {src: require('../../../assets/images/public/corporation_logo/facebook.svg')},
             {src: require('../../../assets/images/public/corporation_logo/google.svg')},
@@ -116,21 +100,6 @@
 </script>
 
 <style lang="scss" scoped>
-  .login-modal-wrap {
-    width: 500px;
-    margin: 0 auto;
-    padding: 50px 0;
-    .login-modal-content {
-    }
-  }
-  .auth-title {
-    margin: 0;
-    text-align: center;
-    text-transform: uppercase;
-    color: #000;
-    font-size: 27px;
-    line-height: 34px;
-  }
   .login-form {
     .auth-inner-layout {
       .auth-sub-title {
@@ -281,21 +250,6 @@
             @include common_img_center-contain;
           }
         }
-      }
-      .policy-info {
-        margin-top: 20px;
-        text-align: center;
-        .light {
-          color: #8c95a5;
-          font-size: 14px;
-          line-height: 16px;
-          .bold {
-            font-size: 16px;
-            margin-bottom: 36px;
-            color: #40354e;
-          }
-        }
-
       }
     }
   }
