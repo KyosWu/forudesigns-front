@@ -3,7 +3,7 @@
       <div class="banner">
         <nuxt-link to="">
           <div class="banner-image" style="width: 1920px; height: 245px;">
-            <img src="../assets/images/shop/1.jpeg" alt="" class="img-inner">
+            <img src="../../assets/images/shop/1.jpeg" alt="" class="img-inner">
           </div>
         </nuxt-link>
       </div>
@@ -24,16 +24,36 @@
 </template>
 
 <script>
-  import Tags from '../components/shop/Tags'
-  import Collapse from '../components/shop/Collapse'
-  import List from '../components/shop/List'
+  import { mapGetters } from 'vuex'
+  import Tags from '../../components/shop/Tags'
+  import Collapse from '../../components/shop/Collapse'
+  import List from '../../components/shop/List'
     export default {
         name: "shop",
         components: {
           Tags,
           Collapse,
           List
+        },
+      computed: {
+        ...mapGetters([
+          'Shop_Head_Title'
+        ])
+      },
+      created () {
+        //  需要判断是否是客户端
+        if (process.client) {
+          // 进入前创造title
+          document.title = this.Shop_Head_Title
         }
+      },
+      destroyed() {
+        //  需要判断是否是客户端
+        if (process.client) {
+          //  离开时销毁title
+          document.title = ''
+        }
+      }
     }
 </script>
 

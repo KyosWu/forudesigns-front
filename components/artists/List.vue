@@ -67,7 +67,7 @@
       },
       computed: {
         ...mapGetters([
-          'isShowModel'
+          'isShowLoginOrRegisterModel'
         ]),
       },
       data () {
@@ -138,11 +138,11 @@
       },
       methods: {
           ...mapActions([
-            'ShowModel'
+            'ShowModel_LoginOrRegister'
           ]),
         //  关注创作者按钮触发
         ShowModel_LoginOrRegister_Func(){
-          this.ShowModel(!this.isShowModel)
+          this.ShowModel_LoginOrRegister(!this.isShowLoginOrRegisterModel)
         }
       }
     }

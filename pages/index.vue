@@ -14,6 +14,7 @@
 </template>
 
 <script>
+import { mapGetters } from 'vuex'
 import Carousel from '../components/index/Carousel'
 import Collections from '../components/index/Collections'
 import Feed from '../components/index/Feed'
@@ -25,6 +26,25 @@ export default {
     Collections,
     Feed,
     Hotproducts
+  },
+  computed: {
+    ...mapGetters([
+      'Index_Head_Title'
+    ])
+  },
+  created () {
+    //  需要判断是否是客户端
+    if (process.client) {
+      // 进入前创造title
+      document.title = this.Index_Head_Title
+    }
+  },
+  destroyed() {
+    //  需要判断是否是客户端
+    if (process.client) {
+      //  离开时销毁title
+      document.title = ''
+    }
   }
 }
 </script>

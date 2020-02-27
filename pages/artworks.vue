@@ -18,11 +18,16 @@
     </main>
     <!--测试 艺术家作品详细弹框model-->
     <WorksModel v-if="isShowModel"/>
+
+    <!--测试login登录框-->
+    <Login v-if="isShowLoginOrRegisterModel"/>
   </main>
 </template>
 
 <script>
   import { mapGetters } from 'vuex'
+
+  import Login from '../components/model/Login-model'
   // 测试
   import WorksModel from '../components/model/Works-modal'
   import Tags from '../components/artworks/Tags'
@@ -30,15 +35,32 @@
     export default {
         name: "artworks",
         components: {
+          Login,
           Tags,
           Artworks,
           WorksModel
         },
       computed: {
         ...mapGetters([
-          'isShowModel'
+          'Artworks_Head_Title',
+          'isShowModel',
+          'isShowLoginOrRegisterModel'
         ]),
       },
+      created () {
+        //  需要判断是否是客户端
+        if (process.client) {
+          // 进入前创造title
+          document.title = this.Artworks_Head_Title
+        }
+      },
+      destroyed() {
+        //  需要判断是否是客户端
+        if (process.client) {
+          //  离开时销毁title
+          document.title = ''
+        }
+      }
     }
 </script>
 

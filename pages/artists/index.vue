@@ -3,7 +3,7 @@
     <div class="banner">
       <nuxt-link to="">
         <div class="banner-image" style="width: 1920px; height: 245px;">
-          <img src="../assets/images/artists/1.jpeg" alt="" class="img-inner">
+          <img src="../../assets/images/artists/1.jpeg" alt="" class="img-inner">
         </div>
       </nuxt-link>
     </div>
@@ -18,19 +18,19 @@
       </div>
     </main>
     <!--测试login登录框-->
-    <Login v-if="isShowModel"/>
+    <Login v-if="isShowLoginOrRegisterModel"/>
   </div>
 </template>
 
 <script>
   import { mapGetters } from 'vuex'
 
-  import Login from '../components/model/Login-model'
+  import Login from '../../components/model/Login-model'
 
-  import Search from '../components/artists/Search'
-  import List from '../components/artists/List'
-  import JoinUs from '../components/artists/JoinUs'
-  import CardsPanel from '../components/artists/Cards-panel'
+  import Search from '../../components/artists/Search'
+  import List from '../../components/artists/List'
+  import JoinUs from '../../components/artists/JoinUs'
+  import CardsPanel from '../../components/artists/Cards-panel'
     export default {
         name: "artists",
       components: {
@@ -42,9 +42,24 @@
       },
       computed: {
         ...mapGetters([
-          'isShowModel'
+          'Artist_Head_Title',
+          'isShowLoginOrRegisterModel'
         ]),
       },
+      created () {
+        //  需要判断是否是客户端
+        if (process.client) {
+          // 进入前创造title
+          document.title = this.Artist_Head_Title
+        }
+      },
+      destroyed() {
+        //  需要判断是否是客户端
+        if (process.client) {
+          //  离开时销毁title
+          document.title = ''
+        }
+      }
     }
 </script>
 

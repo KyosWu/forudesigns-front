@@ -11,6 +11,8 @@
   import MyHeader from '../components/public/header/Index.vue'
   import MyFooter from '../components/public/footer/Index.vue'
   export default {
+    // 中间件测试
+    middleware: 'test',
     computed: {
       ...mapGetters([
         'isModelShow'

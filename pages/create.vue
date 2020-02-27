@@ -24,6 +24,7 @@
 </template>
 
 <script>
+  import { mapGetters } from 'vuex'
   import Tab from '../components/create/CreateTab'
   import List from '../components/create/list'
   import Collapse from '../components/create/Collapse'
@@ -33,6 +34,25 @@
           Tab,
           List,
         Collapse
+      },
+      computed: {
+        ...mapGetters([
+          'Create_Head_Title'
+        ])
+      },
+      created () {
+        //  需要判断是否是客户端
+        if (process.client) {
+          // 进入前创造title
+          document.title = this.Create_Head_Title
+        }
+      },
+      destroyed() {
+        //  需要判断是否是客户端
+        if (process.client) {
+          //  离开时销毁title
+          document.title = ''
+        }
       }
     }
 </script>

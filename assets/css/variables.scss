@@ -19,4 +19,7 @@
   background-repeat: no-repeat;
   background-size: contain;
 }
-
+@mixin display_flex {
+  display: -webkit-box;
+  display: flex;
+}

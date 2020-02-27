@@ -1,10 +1,10 @@
 @charset "utf-8";
 *{
   margin:0; padding:0;
+  box-sizing: border-box;
 }
 body, div, dl, dt, dd, ul, ol, li, h1, h2, h3, h4, h5, h6, pre, code, form, fieldset, legend, input, button, textarea, p, blockquote, th, td { margin: 0; padding: 0;  font-family: "微软雅黑"; }
 fieldset, img { border: 0; }
-ul, ol, li { list-style: none; font-family:'Microsoft YaHei'; }
 
 /* remember to define focus styles! */
 :focus { outline: 0; }
@@ -20,7 +20,6 @@ a:hover{
 /*@purpose To enable resizing for IE */
 /*@branch For IE6-Win, IE7-Win */
 input, button, textarea{ *font-size: 100%;}
-ol, ul { list-style: none; }
 li, ol, ul {
   margin: 0;
   padding: 0;

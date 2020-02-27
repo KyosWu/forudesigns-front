@@ -2,7 +2,7 @@
     <div class="cards">
       <ul class="clear-both">
         <li v-for="(item, index) in list" :key="index">
-          <nuxt-link to="">
+          <nuxt-link :to="`/shop/`+item.name">
             <div class="card">
               <div class="img-wrap">
                 <div class="img-outer">
@@ -29,19 +29,20 @@
 </template>
 
 <script>
+  import { replaceString } from '../../../utils/common'
     export default {
         name: "cards",
         data () {
           return {
             list: [
-              {src: require('../../../assets/images/shop/cards/1.jpg'), name: 'red Mesh Heightening Rocking Shoes', price: 2.5},
-              {src: require('../../../assets/images/shop/cards/1.jpg'), name: 'red Mesh Heightening Rocking Shoes', price: 2.5},
-              {src: require('../../../assets/images/shop/cards/1.jpg'), name: 'red Mesh Heightening Rocking Shoes', price: 2.5},
-              {src: require('../../../assets/images/shop/cards/1.jpg'), name: 'red Mesh Heightening Rocking Shoes', price: 2.5},
-              {src: require('../../../assets/images/shop/cards/1.jpg'), name: 'red Mesh Heightening Rocking Shoes', price: 2.5},
-              {src: require('../../../assets/images/shop/cards/1.jpg'), name: 'red Mesh Heightening Rocking Shoes', price: 2.5},
-              {src: require('../../../assets/images/shop/cards/1.jpg'), name: 'red Mesh Heightening Rocking Shoes', price: 2.5},
-              {src: require('../../../assets/images/shop/cards/1.jpg'), name: 'red Mesh Heightening Rocking Shoes', price: 2.5},
+              {id: 1, src: require('../../../assets/images/shop/list/cards/1.jpg'), name: 'red Mesh Heightening Rocking Shoes', price: 2.5},
+              {id: 2, src: require('../../../assets/images/shop/list/cards/1.jpg'), name: 'red Mesh Heightening Rocking Shoes', price: 2.5},
+              {id: 3, src: require('../../../assets/images/shop/list/cards/1.jpg'), name: 'red Mesh Heightening Rocking Shoes', price: 2.5},
+              {id: 4, src: require('../../../assets/images/shop/list/cards/1.jpg'), name: 'red Mesh Heightening Rocking Shoes', price: 2.5},
+              {id: 5, src: require('../../../assets/images/shop/list/cards/1.jpg'), name: 'red Mesh Heightening Rocking Shoes', price: 2.5},
+              {id: 6, src: require('../../../assets/images/shop/list/cards/1.jpg'), name: 'red Mesh Heightening Rocking Shoes', price: 2.5},
+              {id: 7, src: require('../../../assets/images/shop/list/cards/1.jpg'), name: 'red Mesh Heightening Rocking Shoes', price: 2.5},
+              {id: 8, src: require('../../../assets/images/shop/list/cards/1.jpg'), name: 'red Mesh Heightening Rocking Shoes', price: 2.5},
             ]
           }
         }
@@ -115,13 +116,13 @@
       @include common_img_center_contain
     }
     .thumbs-up {
-      background-image: url("../../../assets/images/shop/cards/点赞.svg");
+      background-image: url("../../../assets/images/shop/list/cards/点赞.svg");
     }
     .collection {
-      background-image: url("../../../assets/images/shop/cards/收藏.svg");
+      background-image: url("../../../assets/images/shop/list/cards/收藏.svg");
     }
     .forward {
-      background-image: url("../../../assets/images/shop/cards/转发.svg");
+      background-image: url("../../../assets/images/shop/list/cards/转发.svg");
     }
   }
 

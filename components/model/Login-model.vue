@@ -22,7 +22,7 @@
 
 <script>
   import { mapGetters, mapActions } from 'vuex'
-  import Masks from './Masks'
+  import Masks from './Login-mask'
   import LoginMain from '../public/login/Login-main'
     export default {
         name: "Login-model",
@@ -32,15 +32,15 @@
       },
       computed: {
         ...mapGetters([
-          'isShowModel'
+          'isShowLoginOrRegisterModel'
         ]),
       },
       methods: {
           ...mapActions([
-            'ShowModel'
+            'ShowModel_LoginOrRegister'
           ]),
         close_model_func () {
-          this.ShowModel(!this.isShowModel)
+          this.ShowModel_LoginOrRegister(!this.isShowLoginOrRegisterModel)
         }
       }
     }

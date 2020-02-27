@@ -23,9 +23,9 @@ export default {
   /*
   ** Customize the progress-bar color
   */
-  loading: { color: '#ff6e7c' },
+  // loading: { color: '#ff6e7c' },
   // 禁用默认进度条，改用nprogress，免冲突
-  // loading: false,
+  loading: false,
   /*
   ** Global CSS
   */
@@ -59,7 +59,7 @@ export default {
     '@nuxtjs/style-resources'
   ],
   styleResources: {
-    scss: ['./assets/css/public_variables.scss']
+    scss: ['./assets/css/public.scss']
     // less: './assets/css/variables.less'
     // sass: ...
   },

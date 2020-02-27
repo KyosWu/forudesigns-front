@@ -1,23 +1,23 @@
 <template>
-  <div id="Masks" @click="close_model_func" v-if="isShowModel">
+  <div id="Masks" @click="close_model_func" v-if="isShowLoginOrRegisterModel">
   </div>
 </template>
 
 <script>
   import { mapGetters, mapActions } from 'vuex'
     export default {
-        name: "Masks",
+        name: "Login-mask",
       computed: {
         ...mapGetters([
-          'isShowModel'
+          'isShowLoginOrRegisterModel'
         ]),
       },
       methods: {
         ...mapActions([
-          'ShowModel'
+          'ShowModel_LoginOrRegister'
         ]),
         close_model_func () {
-          this.ShowModel(!this.isShowModel)
+          this.ShowModel_LoginOrRegister(!this.isShowLoginOrRegisterModel)
         }
       }
     }
@@ -25,7 +25,7 @@
 
 <style lang="scss" scoped>
   #Masks {
-    z-index: 9899;
+    z-index: 9991;
     width: 100%;
     height: 100%;
     position: fixed;
