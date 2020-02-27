@@ -5,10 +5,14 @@
       <div class="design-show">
         <!--大图展示-->
         <div class="zooming-img-wrap" style="width: 633px; height: 633px;">
-          <div class="immg-outer zooming-img"
+          <div class="img-outer"
                v-for="(item,index) in bigList" :key="index"
-               style="max-width: 633px; max-height: 633px;">
-            <img :src="item.src" alt="" class="img-inner" style="width: 633px; height: 633px;">
+               :class="[{normal:isNormal},{Large:!isNormal}]"
+               @click="enlarge"
+               @mouseenter="enter_pic"
+               @mousemove="move_pic($event)"
+               @mouseleave="leave_pic">
+            <img :src="item.src" alt="" class="img-inner img-zooming">
           </div>
         </div>
         <!--小图选择-->
@@ -123,9 +127,10 @@
 
 <script>
     export default {
-        name: "commodity-content",
+        name: "Commodity-content",
       data () {
           return {
+            isNormal: true,
             list: [
               {id: 1, src: require('../../../assets/images/shop/_goods/1.jpg')},
               {id: 2, src: require('../../../assets/images/shop/_goods/2.jpg')},
@@ -155,7 +160,12 @@
               label: '北京烤鸭'
             }],
             // 设置默认值
-            value: '选项1'
+            value: '选项1',
+          //  鼠标移动x y 值
+            x: '',
+            y: '',
+            // 用来判断已点击查看大图
+            isEnlarge: false
           }
       },
       created () {
@@ -184,8 +194,87 @@
           console.log('收藏了')
         },
       //  购买数量
-        handleChange(value) {
+        handleChange (value) {
           console.log(value);
+        },
+        // 获取鼠标移动x, y 值
+        mouseMoveXY(e) {
+          let evt={
+            //window.event和事件参数对象e的兼容
+            getEvent:function (evt) {
+              return window.event||evt;
+            },
+            //可视区域的横坐标的兼容代码
+            getClientX:function (evt) {
+              return this.getEvent(evt).clientX;
+            },
+            //可视区域的纵坐标的兼容代码
+            getClientY:function (evt) {
+              return this.getEvent(evt).clientY;
+            },
+            //页面向左卷曲出去的横坐标
+            getScrollLeft:function () {
+              return window.pageXOffset||document.body.scrollLeft||document.documentElement.scrollLeft||0;
+            },
+            //页面向上卷曲出去的纵坐标
+            getScrollTop:function () {
+              return window.pageYOffset||document.body.scrollTop||document.documentElement.scrollTop||0;
+            },
+            //相对于页面的横坐标(pageX或者是clientX+scrollLeft)
+            getPageX:function (evt) {
+              return this.getEvent(evt).pageX? this.getEvent(evt).pageX:this.getClientX(evt)+this.getScrollLeft();
+            },
+            //相对于页面的纵坐标(pageY或者是clientY+scrollTop)
+            getPageY:function (evt) {
+              return this.getEvent(evt).pageY?this.getEvent(evt).pageY:this.getClientY(evt)+this.getScrollTop();
+            }
+          }
+          // 鼠标混动值除2
+          this.x = -evt.getPageX(e)/2+ 400 + "px"
+          this.y = -evt.getPageY(e)/2+ 400 + "px"
+        },
+        // 重置需要放大的图片的值
+        resetImgZooming () {
+          let imgZoomingValue = document.getElementsByClassName('img-inner img-zooming')[0]
+          if (process.client) {
+            imgZoomingValue.style.margin= 0
+          }
+        },
+        // 赋值需要放大的图片
+        setImgZooming (e) {
+          this.mouseMoveXY(e)
+          let imgZoomingValue = document.getElementsByClassName('img-inner img-zooming')[0]
+          if (process.client) {
+            imgZoomingValue.style.marginLeft= this.x
+            imgZoomingValue.style.marginTop= this.y
+          }
+        },
+      //  放大大图
+        enlarge () {
+          this.isNormal = !this.isNormal
+          if(this.isNormal === true){
+            this.resetImgZooming()
+          }
+          this.isEnlarge = !this.isEnlarge
+        },
+        // 鼠标进入
+        enter_pic () {
+          if(this.isEnlarge === true){
+            this.isNormal = false
+          }
+        },
+        // 鼠标离开
+        leave_pic () {
+          this.isNormal = true
+          this.resetImgZooming()
+          this.isEnlarge = false
+        },
+      //  鼠标移动
+        move_pic (e) {
+          if(this.isNormal === false){
+            this.mouseMoveXY(e)
+            this.setImgZooming(e)
+          }
         }
       }
     }
@@ -208,23 +297,23 @@
     .zooming-img-wrap {
       position: relative;
       overflow: hidden;
-      .zooming-img {
+      /*.zooming-img {
         width: 100%;
         height: 100%;
         margin: auto;
         cursor: -webkit-zoom-in;
         cursor: zoom-in;
         vertical-align: top;
-      }
+      }*/
       .img-outer {
+        cursor: -webkit-zoom-in;
+        cursor: zoom-in;
         display: -webkit-box;
         display: flex;
         -webkit-box-align: center;
         align-items: center;
         -webkit-box-pack: center;
         justify-content: center;
-        width: 100%;
-        height: 100%;
         .img-inner {
           width: 100%;
           height: 100%;
@@ -497,5 +586,22 @@
     margin: 0;
     box-sizing: border-box;
     text-align: center;
+  }
+
+
+  .normal {
+    max-width: 633px;
+    max-height: 633px;
+    width: 100%;
+    height: 100%;
+    margin: auto;
+  }
+  .Large {
+    max-width: 1000px;
+    max-height: 1000px;
+    width: 1000px;
+    height: 1000px;
+    margin-left: -183.5px;
+    margin-top: -183.5px;
   }
 </style>

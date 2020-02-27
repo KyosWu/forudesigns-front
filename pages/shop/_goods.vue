@@ -7,10 +7,10 @@
       <div class="commodity-main">
         <!--商品主页面区 轮播图-->
         <CommodityContent/>
-
-
-        <div class="commodity-about"></div>
-        <div></div>
+        <!--商品特性描述-->
+        <CommodityAbout/>
+        <!--商品作者的其他作品-->
+        <CommodityAuthor/>
       </div>
     </div>
   </div>
@@ -18,8 +18,10 @@
 </template>
 
 <script>
-  import Breadcrumb from '../../components/shop/_goods/breadcrumb'
-  import CommodityContent from '../../components/shop/_goods/commodity-content'
+  import Breadcrumb from '../../components/shop/_goods/Breadcrumb'
+  import CommodityContent from '../../components/shop/_goods/Commodity-content'
+  import CommodityAbout from '../../components/shop/_goods/Commodity-about'
+  import CommodityAuthor from '../../components/shop/_goods/Commodity-author'
     export default {
         name: "goods_name",
       data () {
@@ -29,7 +31,9 @@
       },
       components: {
         Breadcrumb,
-        CommodityContent
+        CommodityContent,
+        CommodityAbout,
+        CommodityAuthor
       },
       created () {
         //  需要判断是否是客户端
