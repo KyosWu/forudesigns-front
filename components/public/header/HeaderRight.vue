@@ -4,7 +4,7 @@
       <!--购物车-->
       <div class="base-popover">
         <div class="base-popover__target">
-          <nuxt-link to="#">
+          <nuxt-link to="/cart">
             <div class="cart-icon"></div>
           </nuxt-link >
           <!--<span></span>-->

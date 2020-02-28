@@ -52,18 +52,18 @@
     </div>
 
     <!--分页-->
-    <Pagunation/>
+    <Pagination/>
 
   </div>
 </template>
 
 <script>
   import { mapGetters, mapActions } from 'vuex'
-  import Pagunation from '../../components/artists/search/Pagination'
+  import Pagination from '../../components/artists/search/Pagination'
     export default {
         name: "List",
       components: {
-        Pagunation,
+        Pagination,
       },
       computed: {
         ...mapGetters([

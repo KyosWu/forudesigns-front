@@ -13,7 +13,8 @@
             <li v-for="(item2,i) in item.list1" :key="i">
               <nuxt-link to="">
                 <div class="img-outer">
-                  <img :src="item2.src" alt="" class="img-inner">
+                  <img :src="item2.src" alt="" class="img-inner"
+                       style="object-fit: contain;">
                 </div>
               </nuxt-link>
             </li>

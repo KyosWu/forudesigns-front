@@ -4,7 +4,9 @@ import {
   ARTWORK_HEAD_TITLE,
   CREATE_HEAD_TITLE,
   ARTIST_HEAD_TITLE,
-  BUSINESS_HEAD_TITLE
+  BUSINESS_HEAD_TITLE,
+  CART_HEAD_TITLE,
+  ARTIST_USERS_HEAD_TITLE
 } from '../mutation-types'
 
 const state = {
@@ -13,7 +15,9 @@ const state = {
   Artworks_Head_Title: `Artworks - FORUDesigns`,
   Create_Head_Title : `Create Designs - FORUDesigns`,
   Artist_Head_Title: `Artists - FORUDesigns`,
-  Business_Head_Title: `Distribute & Dropshipping Online Customization Products`
+  Business_Head_Title: `Distribute & Dropshipping Online Customization Products`,
+  Cart_Head_Title: `Shopping Cart`,
+  Artist_Users_Head_Title: `Artist details`,
 }
 
 const getters = {
@@ -22,7 +26,9 @@ const getters = {
   Artworks_Head_Title: state => state.Artworks_Head_Title,
   Create_Head_Title: state => state.Create_Head_Title,
   Artist_Head_Title: state => state.Artist_Head_Title,
-  Business_Head_Title: state => state.Business_Head_Title
+  Business_Head_Title: state => state.Business_Head_Title,
+  Cart_Head_Title: state => state.Cart_Head_Title,
+  Artist_Users_Head_Title: state => state.Artist_Users_Head_Title
 }
 
 export default {
