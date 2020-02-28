@@ -10,7 +10,7 @@
       <main class="banner-layout__content">
         <div class="clear-both">
           <!--tags标签-->
-          <!--<Tags/>-->
+          <Tags/>
           <div style="display: flex">
             <!--分类框-->
             <Collapse/>

@@ -2,27 +2,24 @@
   <div class="tags-wrap">
     <div class="tags first-tags">
       <swiper :options="swiperOption">
-        <div v-for="(item,index) in carouselArr" :key="index">
-            <swiper-slide class="swiper-slide">
-              <div class="tag">
-                  <div class="btn">
-                    <span class="tag_name">{{item.name}}</span>
-                  </div>
-              </div>
-            </swiper-slide>
-        </div>
+
+        <swiper-slide class="swiper-slide" v-for="(item,index) in list" :key="index">
+            <div class="tag" v-for="(item2,index) in item.list1" :key="index">
+              <ul class="btn">
+                <li class="tag_name">{{item2.name}}</li>
+              </ul>
+            </div>
+        </swiper-slide>
 
       </swiper>
 
       <!-- 分页器 -->
       <!--<div class="swiper-pagination"  slot="pagination"></div>-->
       <!-- 左右箭头 -->
-      <div class="swiper-button-prev" slot="button-prev"
-           tabindex="0" role="button" aria-label="Previous-slide">
+      <div class="swiper-button-prev" slot="button-prev">
         <i class="el-icon-caret-left pre"></i>
       </div>
-      <div class="swiper-button-next" slot="button-next"
-           tabindex="0" role="button" aria-label="Next-slide">
+      <div class="swiper-button-next" slot="button-next">
         <i class="el-icon-caret-right next"></i>
       </div>
       <!-- 如果需要滚动条 -->
@@ -38,53 +35,78 @@
         name: "Tags",
         data(){
           return {
-            carouselArr: [
-              {name: 'haha'},
-              {name: 'haha'},
-              {name: 'haha'},
-              {name: 'haha'},
-              {name: 'haha'},
-              {name: 'haha'},
-              {name: 'haha'},
-              {name: 'haha'},
-              {name: 'haha'},
-              {name: 'dgdgdh'},
-              {name: '45'},
-              {name: 'ha56ha'},
-              {name: '77haha'},
-              {name: 'dgdgdh'},
-              {name: 'haha'},
-              {name: 'dgdgdh'},
-              {name: '45'},
-              {name: 'ha56ha'},
-              {name: '77haha'},
-              {name: '4444'},
+            list: [
+              {
+                list1: [
+                  {name: 'haha'},
+                  {name: 'haha'},
+                  {name: 'haha'},
+                  {name: 'haha'},
+                  {name: 'haha'},
+                  {name: 'haha'},
+                  {name: 'haha'},
+                  {name: 'haha'},
+                  {name: 'haha'},
+                  {name: 'dgdgdh'},
+                  {name: '45'},
+                  {name: 'ha56ha'},
+                  {name: 'haha'},
+                  {name: 'haha'},
+                  {name: 'dgdgdh'},
+                  {name: '45'},
+                  {name: 'ha56ha'},
+                  {name: 'ha56ha'},
+                ],
+              },
+              {
+                list1: [
+                  {name: 'haha'},
+                  {name: 'haha'},
+                  {name: 'haha'},
+                  {name: 'haha'},
+                  {name: 'haha'},
+                  {name: 'haha'},
+                  {name: 'haha'},
+                  {name: 'haha'},
+                  {name: 'haha'},
+                  {name: 'dgdgdh'},
+                  {name: '45'},
+                  {name: 'ha56ha'},
+                  {name: 'haha'},
+                  {name: 'haha'},
+                  {name: 'dgdgdh'},
+                  {name: '45'},
+                  {name: 'ha56ha'},
+                  {name: 'ha56ha'},
+                ],
+              }
             ],
+            // 注意， swiper 定义的数值必须有对应，否则会报错
             swiperOption:{
               //显示分页
-              pagination: {
-                el: '.swiper-pagination'
-              },
+              // pagination: {
+              //   el: '.swiper-pagination'
+              // },
               //设置点击箭头
               navigation: {
                 nextEl: '.swiper-button-next',
                 prevEl: '.swiper-button-prev'
               },
               // 如果需要滚动条
-              scrollbar: {
-                el: '.swiper-scrollbar',
-              },
+              // scrollbar: {
+              //   el: '.swiper-scrollbar',
+              // },
               //是一个组件自有属性，如果notNextTick设置为true，组件则不会通过NextTick来实例化swiper，也就意味着你可以在第一时间获取到swiper对象，假如你需要刚加载遍使用获取swiper对象来做什么事，那么这个属性一定要是true
-              notNextTick: true,
+              // notNextTick: true,
               //设定初始化时slide的索引
-              initialSlide: 0,
+              // initialSlide: 0,
               //滑动速度
               speed: 800,
               //滑动方向
-              direction: "horizontal",
-              //小手掌抓取滑动
-              grabCursor: true,
-              //自动轮播
+              // direction: "horizontal",
+              // 小手掌抓取滑动
+              // grabCursor: true,
+              // 自动轮播
               autoplay: false,
               // autoplay: {
               //   delay: 2000,
@@ -92,8 +114,8 @@
               //   //当用户滑动图片后继续自动轮播
               //   disableOnInteraction: false,
               // },
-              //开启循环模式
-              loop: true
+              // 循环模式
+              loop: false
             }
           }
       }

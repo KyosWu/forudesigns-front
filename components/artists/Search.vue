@@ -5,7 +5,7 @@
       <input type="text" placeholder="Enter the artist name" class="search-input">
       <i class="el-icon-search"></i>
     </form>
-    <!--<Tags/>-->
+    <Tags/>
   </div>
 </template>
 

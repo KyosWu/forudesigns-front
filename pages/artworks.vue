@@ -10,7 +10,7 @@
     <main class="banner-layout__content">
       <div class="clear-both">
         <!--tags标签-->
-        <!--<Tags/>-->
+        <Tags/>
         <!--瀑布流-->
         <Artworks/>
 
