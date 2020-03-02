@@ -63,3 +63,11 @@ p {
   margin-inline-start: 0px;
   margin-inline-end: 0px;
 }
+strong {
+  font-weight: bold;
+}
+tr {
+  display: table-row;
+  vertical-align: inherit;
+  border-color: inherit;
+}
