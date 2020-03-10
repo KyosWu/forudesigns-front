@@ -121,12 +121,13 @@
           //  存储token
           this.$axios.post(`/rbac/auth/login/`, {email:email,password:password})
             .then(res => {
+              // console.log(res.data)
               let code = res.data.code
-              if (code === 200) {
-                console.log(res.data)
-                Message.success(res.data.message)
-                let token = res.data.detail.detail[1]
-                let raw_userId = res.data.detail.detail[0]
+              // 表示登录成功
+              if (code === 2) {
+                Message.success(res.data.msg)
+                let token = res.data.token
+                let raw_userId = res.data.user_id
                 let userId = ''
                 for (let i in raw_userId) {
                   userId = raw_userId[i][i]
@@ -134,8 +135,8 @@
                 // 存储用户ID
                 this.saveUserId(userId)
                 this.saveToken(token)
-                // console.log(token)
-                // this.$axios.get('/rbac/api/users/', userId).then(
+                // console.log(token,userId)
+                // this.$axios.get('/rbac/api/users/', {id: userId}).then(
                 //   res => {
                 //     console.log(res)
                 //     // 存储用户基本信息

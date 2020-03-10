@@ -64,6 +64,7 @@
       },
       methods : {
           ...mapActions([
+            'saveToken',
             'saveUserId',
             'saveUserInfo'
           ]),
@@ -75,30 +76,32 @@
                 res => {
                   // 判断是由有错 重复邮箱
                   // 如果注册失败
-                  if (res.data.detail.code === 1) {
-                    Message.error(res.data.detail.msg)
+                  if (res.data.code === 1) {
+                    Message.error(res.data.msg)
                   }
                   // 如果注册成功
-                  if (res.data.detail.code === 2) {
-                    Message.success(res.data.detail.msg)
-                    let raw_detail = res.data.detail.detail
-                    // 获取用户ID
+                  if (res.data.code === 2) {
+                    Message.success(res.data.msg)
+                    let token = res.data.token
+                    let raw_userId = res.data.user_id
                     let userId = ''
-                    for (let i in raw_detail) {
-                      userId = raw_detail[i][i]
+                    for (let i in raw_userId) {
+                      userId = raw_userId[i][i]
                     }
                     // 存储用户ID
                     this.saveUserId(userId)
+                    this.saveToken(token)
+                    console.log(userId)
                     // 请求数据 进行页面跳转
-                     this.$axios.get('/rbac/api/users/', userId).then(
-                       res => {
-                         // 存储用户基本信息
-                         this.saveUserInfo(res)
-                         // console.log(res)
-                         // 跳转页面
-                         this.$router.push({path:'/'})
-                       }
-                     )
+                    //  this.$axios.get('/rbac/api/users/', userId).then(
+                    //    res => {
+                    //      // 存储用户基本信息
+                    //      this.saveUserInfo(res)
+                    //      // console.log(res)
+                    //      // 跳转页面
+                    //      this.$router.push({path:'/'})
+                    //    }
+                    //  )
                   }
                 })
           } else {
