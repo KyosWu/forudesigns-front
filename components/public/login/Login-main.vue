@@ -136,16 +136,16 @@
                 this.saveUserId(userId)
                 this.saveToken(token)
                 // console.log(token,userId)
-                // this.$axios.get('/rbac/api/users/', {id: userId}).then(
-                //   res => {
-                //     console.log(res)
-                //     // 存储用户基本信息
-                //     this.saveUserInfo(res)
-                //     // console.log(res)
-                //     // 跳转页面
-                //     this.$router.push({path:'/'})
-                //   }
-                // )
+                this.$axios.get(`/rbac/api/users/${userId}`).then(
+                  res => {
+                    // console.log(res)
+                    // 存储用户基本信息
+                    this.saveUserInfo(res)
+                    // console.log(res)
+                    // 跳转页面, 建议跳转到来时的路由
+                    this.$router.push({path:'/'})
+                  }
+                )
               }
             })
         }

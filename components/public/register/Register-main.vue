@@ -93,15 +93,15 @@
                     this.saveToken(token)
                     console.log(userId)
                     // 请求数据 进行页面跳转
-                    //  this.$axios.get('/rbac/api/users/', userId).then(
-                    //    res => {
-                    //      // 存储用户基本信息
-                    //      this.saveUserInfo(res)
-                    //      // console.log(res)
-                    //      // 跳转页面
-                    //      this.$router.push({path:'/'})
-                    //    }
-                    //  )
+                     this.$axios.get(`/rbac/api/users/${userId}`).then(
+                       res => {
+                         // 存储用户基本信息
+                         this.saveUserInfo(res)
+                         // console.log(res)
+                         // 跳转页面 建议跳转到来时的路由
+                         this.$router.push({path:'/'})
+                       }
+                     )
                   }
                 })
           } else {
