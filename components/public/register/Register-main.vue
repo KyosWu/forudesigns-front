@@ -7,32 +7,37 @@
           <span class="title">Already have an account?</span>
           <nuxt-link to="/login" class="link">Login</nuxt-link>
         </div>
-        <form action="">
+        <form action="" v-model="formData">
           <!--用户名-->
           <div class="field">
             <el-input type="text" autocomplete="off" name="username"
-                      placeholder="Enter User Name">
+                      placeholder="Enter User Name"
+                      v-model="formData.username">
             </el-input>
           </div>
           <!--邮箱-->
           <div class="field">
             <el-input type="text" autocomplete="off" name="email"
-                      placeholder="Enter your Email">
+                      placeholder="Enter your Email"
+                      v-model="formData.email">
             </el-input>
           </div>
           <!--密码-->
           <div class="field">
             <el-input type="password" autocomplete="off" name="password"
-                      placeholder="Enter your password">
+                      placeholder="Enter your password"
+                      v-model="formData.password1">
             </el-input>
           </div>
           <!--密码二次验证-->
           <div class="field">
             <el-input type="password" autocomplete="off" name="password_confirmation"
-                      placeholder="Password Confirmation">
+                      placeholder="Password Confirmation"
+                      v-model="formData.password2">
             </el-input>
           </div>
-          <button class="btn-01">Sign Up Now</button>
+          <!--注册按钮-->
+          <el-button class="btn-01" @click="Register_Func(formData)">Sign Up Now</el-button>
         </form>
       </div>
     </div>
@@ -40,8 +45,67 @@
 
 
 <script>
-    export default {
-        name: "Register-main"
+  import {Message} from 'element-ui'
+  import { mapActions } from 'vuex'
+  export default {
+        name: "Register-main",
+      data () {
+          return {
+            // 绑定输入框数据
+            formData: {
+              username: '',
+              email: '',
+              password1: '',
+              password2: ''
+            },
+            rules: { // 表单验证规则
+            }
+          }
+      },
+      methods : {
+          ...mapActions([
+            'saveUserId',
+            'saveUserInfo'
+          ]),
+        Register_Func (params) {
+          let {username, email, password1, password2} = params
+          if (password1 === password2) {
+            this.$axios.post(`/rbac/api/users/`, {username:username, email:email, password:password2})
+              .then(
+                res => {
+                  // 判断是由有错 重复邮箱
+                  // 如果注册失败
+                  if (res.data.detail.code === 1) {
+                    Message.error(res.data.detail.msg)
+                  }
+                  // 如果注册成功
+                  if (res.data.detail.code === 2) {
+                    Message.success(res.data.detail.msg)
+                    let raw_detail = res.data.detail.detail
+                    // 获取用户ID
+                    let userId = ''
+                    for (let i in raw_detail) {
+                      userId = raw_detail[i][i]
+                    }
+                    // 存储用户ID
+                    this.saveUserId(userId)
+                    // 请求数据 进行页面跳转
+                     this.$axios.get('/rbac/api/users/', userId).then(
+                       res => {
+                         // 存储用户基本信息
+                         this.saveUserInfo(res)
+                         // console.log(res)
+                         // 跳转页面
+                         this.$router.push({path:'/'})
+                       }
+                     )
+                  }
+                })
+          } else {
+            Message.error('password error !!!')
+          }
+        }
+      }
     }
 </script>
 

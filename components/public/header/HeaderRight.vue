@@ -164,7 +164,7 @@
       </div>
       <!--登录按钮-->
       <div class="login-btn">
-        <nuxt-link to="#">
+        <nuxt-link to="/login">
           <button class="login-btn__btn">
             Login
           </button>

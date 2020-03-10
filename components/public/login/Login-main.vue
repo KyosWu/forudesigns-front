@@ -25,14 +25,14 @@
           <!--信息填写和确认区域-->
           <form action="">
             <!--邮箱和密码输入框-->
-            <div class="input">
+            <div class="input" v-model="formData">
               <div class="field">
-                <el-input type="text" autocomplete="off" name="email"
+                <el-input type="text" autocomplete="off" name="email" v-model="formData.email"
                           placeholder="Enter your Email">
                 </el-input>
               </div>
               <div class="field">
-                <el-input type="password" autocomplete="off" name="password"
+                <el-input type="password" autocomplete="off" name="password" v-model="formData.password"
                           placeholder="Enter your password">
                 </el-input>
               </div>
@@ -54,9 +54,9 @@
               </label>
             </div>
             <!--登录按钮-->
-            <button class="sign btn-01">
+            <div class="sign btn-01" @click="Login_Func(formData)">
               Login
-            </button>
+            </div>
           </form>
         </div>
         <!--第三方登录-->
@@ -76,16 +76,22 @@
 
           </div>
         </div>
-
       </div>
     </div>
 </template>
 
 <script>
+  import { Message } from 'element-ui'
+  import { mapGetters, mapActions } from 'vuex'
     export default {
         name: "Login-main",
       data () {
         return {
+          // 绑定输入框数据
+          formData: {
+            email: '',
+            password: ''
+          },
           // 条款确认框
           checked: false,
           login_with_logo: [
@@ -94,6 +100,53 @@
           ],
           // tooltip文字提示
           el_tooltip_content: 'To keep your account secure, use this option only on your personal devices.'
+        }
+      },
+      computed: {
+        ...mapGetters([
+          'Token'
+        ])
+      },
+      methods: {
+          ...mapActions([
+            'toLogin',
+            'saveToken',
+            'saveUserId',
+            'saveUserInfo'
+          ]),
+          async Login_Func(params) {
+            let email = params.email
+            let password = params.password
+            // await this.toLogin(params).then(res => console.log(res))
+          //  存储token
+          this.$axios.post(`/rbac/auth/login/`, {email:email,password:password})
+            .then(res => {
+              let code = res.data.code
+              if (code === 200) {
+                console.log(res.data)
+                Message.success(res.data.message)
+                let token = res.data.detail.detail[1]
+                let raw_userId = res.data.detail.detail[0]
+                let userId = ''
+                for (let i in raw_userId) {
+                  userId = raw_userId[i][i]
+                }
+                // 存储用户ID
+                this.saveUserId(userId)
+                this.saveToken(token)
+                // console.log(token)
+                // this.$axios.get('/rbac/api/users/', userId).then(
+                //   res => {
+                //     console.log(res)
+                //     // 存储用户基本信息
+                //     this.saveUserInfo(res)
+                //     // console.log(res)
+                //     // 跳转页面
+                //     this.$router.push({path:'/'})
+                //   }
+                // )
+              }
+            })
         }
       }
     }

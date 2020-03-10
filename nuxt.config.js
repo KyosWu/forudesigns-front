@@ -38,13 +38,14 @@ export default {
   ** Plugins to load before mounting the App
   */
   plugins: [
-    // nprogress 加载进度条
-    {src:'@/plugins/loading', ssr:false },
     '@/plugins/element-ui',
     '@/plugins/vue-lazyload',
+    // 持久化存储
+    { src: '@/plugins/localStorage', ssr: false },
+    // nprogress 加载进度条
+    { src: '@/plugins/loading', ssr: false },
     // '@/plugins/vue-notifications',
     { src: "@/plugins/vue-swiper.js", ssr: false },
-
   ],
   /*
   ** Nuxt.js dev-modules
@@ -72,8 +73,9 @@ export default {
   // 代理
   proxy: {
     '/api': {
-      target: 'http://localhost:4444/api', // 代理地址
+      target: 'http://127.0.0.1:8000/api', // 代理地址
       changeOrigin: true,
+      ws: true, // 是否支持websocket
       pathRewrite: {
         '^/api': '', //将 /api 替换掉
       }
