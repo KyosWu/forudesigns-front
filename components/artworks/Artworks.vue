@@ -17,8 +17,8 @@
     <div class="content">
       <div class="waterfall"  style="display: flex;flex-wrap: wrap">
 
-        <div v-for="(item,index) in list" :key="index" style="width: 320px;">
-          <div class="list-image">
+        <div v-for="(el,i) in newWaterfallData" :key="i" style="width: 320px;">
+          <div class="list-image" v-for="(item,index) in el" :key="index">
             <div class="img-outer" @click="ShowModel_ArtworkDetail_Func(item)">
               <img v-lazy="item.src" alt="" class="img-inner">
             </div>
@@ -45,16 +45,17 @@
         name: "Artworks",
         data () {
           return {
-            // 后端计算图片宽度和高度
+            newWaterfallData: '',
+            waterfallDataNumber:'',
             list: [
               {id: 1, name: 'hah', src: require("../../assets/images/artworks/content/1.jpeg"),width:320,height:456},
               {id: 2, name: 'hah', src: require("../../assets/images/artworks/content/2.jpeg"),width:320,height:426},
               {id: 3, name: 'hah', src: require("../../assets/images/artworks/content/3.jpeg"),width:320,height:303},
               {id: 4, name: 'hah', src: require("../../assets/images/artworks/content/4.jpeg"),width:320,height:456},
-              {id: 5, name: 'hah', src: require("../../assets/images/artworks/content/1.jpeg"),width:320,height:456},
-              {id: 6, name: 'hah', src: require("../../assets/images/artworks/content/2.jpeg"),width:320,height:426},
-              {id: 7, name: 'hah', src: require("../../assets/images/artworks/content/3.jpeg"),width:320,height:303},
-              {id: 8, name: 'hah', src: require("../../assets/images/artworks/content/4.jpeg"),width:320,height:456},
+              {id: 5, name: 'hah', src: require("../../assets/images/artworks/content/5.jpeg"),width:320,height:456},
+              {id: 6, name: 'hah', src: require("../../assets/images/artworks/content/6.png"),width:320,height:426},
+              {id: 7, name: 'hah', src: require("../../assets/images/artworks/content/7.jpeg"),width:320,height:303},
+              {id: 8, name: 'hah', src: require("../../assets/images/artworks/content/8.jpeg"),width:320,height:456},
             ]
           }
         },
@@ -62,6 +63,25 @@
         ...mapGetters([
           'isShowModel'
         ]),
+      },
+      created() {
+        //  瀑布流组件
+        let [ ...waterfallData ]  = this.list
+        let [ ...newWaterfallData ]= [[],[],[],[]]
+        waterfallData.forEach((el,i) => {
+          console.log(i)
+          switch( i%4 ) {
+            case 0 : newWaterfallData[0].push(el)
+              break
+            case 1: newWaterfallData[1].push(el)
+              break
+            case 2: newWaterfallData[2].push(el)
+              break
+            case 3: newWaterfallData[3].push(el)
+              break
+          }
+        });
+        this.newWaterfallData = newWaterfallData
       },
       methods: {
           ...mapActions([

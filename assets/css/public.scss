@@ -71,3 +71,20 @@ tr {
   vertical-align: inherit;
   border-color: inherit;
 }
+
+
+.img-outer {
+  display: -webkit-box;
+  display: flex;
+  -webkit-box-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  .img-inner {
+    width: 100%;
+    height: 100%;
+    vertical-align: middle;
+  }
+}

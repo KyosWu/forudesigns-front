@@ -7,13 +7,16 @@ import index from './modules/index'
 import title from './modules/title'
 // 登录注册
 import login from './modules/login'
+// 导航nav model
+// import nav from './modules/nav'
 
 Vue.use(Vuex)
 
 const modules = {
   index,
   title,
-  login
+  login,
+  // nav
 }
 
 const store = () => {  // 返回store为一个函数就行了
