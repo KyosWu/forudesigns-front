@@ -1,4 +1,4 @@
-// import api from '../../api/index'
+// import api from '../../api/viewed'
 import {
   SHOW_MODEL,
   SHOW_MODEL_LOGIN_OR_REGISTER

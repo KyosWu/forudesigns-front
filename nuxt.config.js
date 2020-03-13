@@ -32,6 +32,7 @@ export default {
   css: [
     'element-ui/lib/theme-chalk/index.css',
     '@/assets/css/main.css',
+    '@/assets/css/animate.css',
     { src: "swiper/dist/css/swiper.css" }
   ],
   /*

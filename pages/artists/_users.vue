@@ -146,8 +146,8 @@
       },
     //  tabs 标签页切换
     methods: {
-      // handleClick(tab, index) {
-      //   console.log(index.toElement.innerText);
+      // handleClick(tab, viewed) {
+      //   console.log(viewed.toElement.innerText);
       // }
       Switch_Tabs_Func(index) {
         this.clickIndex = index

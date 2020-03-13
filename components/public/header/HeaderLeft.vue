@@ -19,8 +19,8 @@
               <span style="display: none" class="base-popover__target-arrow"></span>
             </div>
             <!--鼠标移动上去 滑动的详细面板-->
-            <transition name="row">
-              <div class="base-popover__content" v-show="!isshop">
+            <transition name="shop">
+              <div class="base-popover__content" v-show="isshop">
                 <div class="base-popover__content__loading">
                   <i></i>
                 </div>
@@ -90,7 +90,7 @@
               <span style="display: none" class="base-popover__target-arrow"></span>
             </div>
             <!--鼠标移动上去 滑动的详细面板-->
-            <transition name="row">
+            <transition name="col">
               <div class="base-popover__content" v-show="iscol"
               style="overflow: hidden; padding-top: 0; padding-bottom: 0;">
                 <div class="base-popover__content__loading">
@@ -430,24 +430,67 @@
   }
 
 
+  /* shop 动画*/
+  .shop-enter-active {
+    /*transition: all 0.3s ease;*/
+    animation: shop_slideup 1s ease-in-out;
+  }
+  .shop-leave-active {
+    /*transition: all 0.3s ease;*/
+    animation: shop_slidedown 0.5s ease-in-out;
+  }
   /* col 动画*/
-  .row-enter-active {
+  .col-enter-active {
     /*transition: all 0.3s ease;*/
-    animation: slideup 1s ease-in-out;
+    animation: col_slideup 1s ease-in-out;
   }
-  .row-leave-active {
+  .col-leave-active {
     /*transition: all 0.3s ease;*/
-    animation: slidedown 0.5s ease-in-out;
+    animation: col_slidedown 0.5s ease-in-out;
   }
-  @keyframes slideup
-  {
-    from {height:0;}
-    to {height:192px;}
+  @keyframes shop_slideup {
+    0% {
+      height: 0;
+    }
+    100% {
+      height: 149px;
+    }
   }
-  @keyframes slidedown
-  {
-    from {height:192px;}
-    to {height:0;}
+  /*{*/
+    /*from {height:0;}*/
+    /*to {height:192px;}*/
+  /*}*/
+  @keyframes shop_slidedown {
+    0% {
+      height: 149px;
+    }
+    100% {
+      height: 0;
+    }
+    /*from {height:192px;}*/
+    /*to {height:0;}*/
+  }
+  @keyframes col_slideup {
+    0% {
+      height: 0;
+    }
+    100% {
+      height: 212px;
+    }
+  }
+  /*{*/
+  /*from {height:0;}*/
+  /*to {height:192px;}*/
+  /*}*/
+  @keyframes col_slidedown {
+    0% {
+      height: 212px;
+    }
+    100% {
+      height: 0;
+    }
+    /*from {height:192px;}*/
+    /*to {height:0;}*/
   }
 
 

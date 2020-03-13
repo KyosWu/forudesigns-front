@@ -69,7 +69,7 @@
         let [ ...waterfallData ]  = this.list
         let [ ...newWaterfallData ]= [[],[],[],[]]
         waterfallData.forEach((el,i) => {
-          console.log(i)
+          // console.log(i)
           switch( i%4 ) {
             case 0 : newWaterfallData[0].push(el)
               break

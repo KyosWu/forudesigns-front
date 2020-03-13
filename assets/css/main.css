@@ -54,3 +54,11 @@ blockquote:before, blockquote:after, q:before, q:after { content: ''; content: n
 img {
   border: 0;
 }
+
+/*!*全局过渡动效设置*!*/
+/*.page-enter-active, .page-leave-active {*/
+  /*transition: opacity .5s;*/
+/*}*/
+/*.page-enter, .page-leave-active {*/
+  /*opacity: 0;*/
+/*}*/
