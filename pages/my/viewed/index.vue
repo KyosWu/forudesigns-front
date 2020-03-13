@@ -1,20 +1,15 @@
 <template>
   <div>
-    <MyMenu/>
     <div>
-      hshsh
+      耶斯
     </div>
   </div>
 
 </template>
 
 <script>
-  import MyMenu from '../../../components/my/My'
     export default {
         name: "index",
-      components: {
-        MyMenu
-      }
     }
 </script>
 
