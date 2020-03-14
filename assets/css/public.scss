@@ -72,7 +72,7 @@ tr {
   border-color: inherit;
 }
 
-
+// li 中 图片
 .img-outer {
   display: -webkit-box;
   display: flex;
@@ -87,4 +87,8 @@ tr {
     height: 100%;
     vertical-align: middle;
   }
+}
+.a {
+  text-decoration: none;
+  color: #4292e3;
 }

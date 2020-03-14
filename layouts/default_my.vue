@@ -30,9 +30,8 @@
           </div>
         </div>
         <!--主面板-->
-        <div class="my__right">
-          <nuxt></nuxt>
-        </div>
+        <nuxt></nuxt>
+
       </div>
     </div>
 
@@ -72,5 +71,47 @@
   }
   .the-header+div, .the-header+main {
     margin-top: 60px!important;
+  }
+
+  .my {
+    display: -webkit-box;
+    display: flex;
+    -webkit-box-pack: justify;
+    justify-content: space-between;
+    width: 1280px;
+    margin: 0 auto;
+    padding-top: 20px;
+    /*menu菜单*/
+    .my__sidebar-wrap {
+      position: relative;
+      width: 15%;
+      margin-right: 20px;
+      .sidebar {
+        width: 100%;
+        -webkit-transition: all .1s ease-in-out;
+        transition: all .1s ease-in-out;
+        .menu-list {
+          display: -webkit-box;
+          display: flex;
+          -webkit-box-orient: vertical;
+          -webkit-box-direction: normal;
+          flex-direction: column;
+          color: #40354e;
+          .menu-list__title {
+            margin: 0 0 24px;
+            font-size: 18px;
+            font-weight: 700;
+          }
+          .menu-list__list {
+            font-size: 14px;
+            li a {
+              display: block;
+              margin-bottom: 23px;
+              color: #40354e;
+            }
+          }
+        }
+      }
+    }
   }
 </style>
