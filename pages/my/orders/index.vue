@@ -2,7 +2,7 @@
   <div class="order-wrapper">
     <h2 class="order-title">
       Orders
-      <el-button class="btn-01">
+      <el-button class="btn-01" @click="toManage_address_func">
         Address Management
       </el-button>
     </h2>
@@ -205,6 +205,10 @@
           },
           handleCurrentChange(val) {
             console.log(`当前页: ${val}`);
+          },
+          //跳转到管理送货地址栏
+          toManage_address_func () {
+            this.$router.push('/my/manage-address')
           }
         },
     }

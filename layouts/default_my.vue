@@ -5,8 +5,8 @@
       <div class="my">
         <!--menu菜单-->
         <div class="my__sidebar-wrap">
-          <div class="sidebar" style="height: 350px;">
-            <div class="sidebar__inner-wrap" style="width: 189px; top: auto;">
+          <div class="sidebar" style="width: 189px;height: 350px;">
+            <div class="sidebar__inner-wrap" style="width: 189px; top: 80px;">
               <div class="menu-list">
                 <h2 class="menu-list__title">My Account</h2>
                 <ul class="menu-list__list">
@@ -87,6 +87,7 @@
       width: 15%;
       margin-right: 20px;
       .sidebar {
+        position: fixed;
         width: 100%;
         -webkit-transition: all .1s ease-in-out;
         transition: all .1s ease-in-out;
