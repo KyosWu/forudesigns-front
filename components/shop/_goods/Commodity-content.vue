@@ -180,7 +180,7 @@
         //  点击小图切换大图图片
         switch_pic_func (item, index) {
           this.clickIndex = index
-          console.log(this.clickIndex)
+          // console.log(this.clickIndex)
           if(this.bigList.length === 0){
             this.bigList.push(item)
           } else {

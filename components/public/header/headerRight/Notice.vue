@@ -1,108 +1,93 @@
 <template>
-  <div>
-    haha
-    <div class="notify-wrapper__header"
-      style="width: 350px; transform-origin: center top; z-index: 2014; display: none;">
-      <div class="mark-all-read">
-        Mark All Read
-      </div>
-      <!--主面板-->
-      <div class="el-tabs el-tabs--top">
-        <!--头-->
-        <div class="el-tabs__header is-top">
-          <div class="el-tabs__nav-wrap is-top">
-            <div class="el-tabs__nav-scroll">
-              <div class="el-tabs__nav is-top">
-                <div class="el-tabs__active-bar is-top"
-                style="width: 72px; transform: translateX(0px);">
-
-                </div>
-
-                <div class="el-tabs__item is-top is-active">
-                  All Notices
-                </div>
-                <div class="el-tabs__item is-top">
-                  Unread (0)
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <!--主-->
-        <div class="el-tabs__content">
-          <!--ALL Notices-->
-          <div role="tabpanel" class="el-tab-pane">
-            <ul>
-              <!--没有数据-->
-              <div class="no-data">
-                <div class="no-data-wrap">
-                  <!--没有数据的图片提示-->
-                  <div class="img-wrap small-img">
-                    <div class="img-outer">
-                      <img src="" alt="" class="ing-inner">
-                    </div>
-                  </div>
-                  <div class="no-data-info">
-                    <p>
-                      There is no data...
-                    </p>
-                  </div>
-                </div>
-              </div>
-              <!--信息-->
-              <li class="message__entrance">
-                <span class="message__entrance-name">
-                  message__entrance-name
-                </span>
-              </li>
-            </ul>
-            <div class="el-loading-mask" style="display: none;">
-              <div class="el-loading-spinner"></div>
-            </div>
-          </div>
-          <!--Unread-->
-          <div role="tabpane1" class="el-tab-pane">
-            <ul>
-              <!--没有数据-->
-              <div class="no-data">
-                <div class="no-data-wrap">
-                  <!--没有数据的图片提示-->
-                  <div class="img-wrap small-img">
-                    <div class="img-outer">
-                      <img src="" alt="" class="ing-inner">
-                    </div>
-                  </div>
-                  <div class="no-data-info">
-                    <p>
-                      There is no data...
-                    </p>
-                  </div>
-                </div>
-              </div>
-              <!--信息-->
-              <li class="message__entrance">
-                <span class="message__entrance-name">
-                  message__entrance-name
-                </span>
-              </li>
-            </ul>
-          </div>
-        </div>
-      </div>
-      <div class="popper__arrow"></div>
+  <div class="notify-wrapper__header"
+       style="width: 350px; transform-origin: center top; z-index: 2033; position: fixed; top: 47px; left: 1011px;">
+    <div class="mark-all-read">
+      Mark All Read
     </div>
+
+    <el-tabs v-model="activeName" type="card" @tab-click="handleClick">
+      <el-tab-pane label="All Notices" name="first">
+        <!--没有数据-->
+        <div class="no-data">
+          <div class="no-data-wrap">
+            <!--没有数据的图片提示-->
+            <div class="img-wrap small-img">
+              <div class="img-outer">
+                <img src="" alt="" class="ing-inner">
+              </div>
+            </div>
+            <div class="no-data-info">
+              <p>
+                There is no data...
+              </p>
+            </div>
+          </div>
+        </div>
+        <!--信息-->
+        <li class="message__entrance">
+                <span class="message__entrance-name">
+                  message__entrance-name
+                </span>
+        </li>
+        <div class="el-loading-mask" style="display: none;">
+          <div class="el-loading-spinner"></div>
+        </div>
+      </el-tab-pane>
+      <el-tab-pane label="Unread" name="second">
+        <div role="tabpane1" class="el-tab-pane">
+          <ul>
+            <!--没有数据-->
+            <div class="no-data">
+              <div class="no-data-wrap">
+                <!--没有数据的图片提示-->
+                <div class="img-wrap small-img">
+                  <div class="img-outer">
+                    <img src="" alt="" class="ing-inner">
+                  </div>
+                </div>
+                <div class="no-data-info">
+                  <p>
+                    There is no data...
+                  </p>
+                </div>
+              </div>
+            </div>
+            <!--信息-->
+            <li class="message__entrance">
+                <span class="message__entrance-name">
+                  message__entrance-name
+                </span>
+            </li>
+          </ul>
+        </div>
+      </el-tab-pane>
+    </el-tabs>
+
+
+    <div class="popper__arrow"></div>
   </div>
 </template>
 
 <script>
     export default {
-        name: "Notice"
+        name: "Notice",
+      data () {
+          return {
+            activeName: 'first'
+          }
+      },
+      methods: {
+        handleClick(tab, event) {
+          console.log(tab, event);
+        }
+      }
     }
 </script>
 
 <style lang="scss" scoped>
   .notify-wrapper__header {
     position: relative;
+    background-color: white;
     .mark-all-read {
       position: absolute;
       z-index: 9999;
@@ -111,6 +96,9 @@
       cursor: pointer;
       color: #4292e3;
       font-size: 12px;
+    }
+    .mark-all-read:hover {
+      text-decoration: underline;
     }
     .el-tabs__header {
       margin: -10px 0 10px;
@@ -132,6 +120,19 @@
           }
         }
       }
+    }
+  }
+
+
+  /* 没有数据 */
+  .no-data {
+    .no-data-warp {
+      display: -webkit-box;
+      display: flex;
+      -webkit-box-orient: vertical;
+      -webkit-box-direction: normal;
+      flex-direction: column;
+      padding: 30px 0!important;
     }
   }
 </style>

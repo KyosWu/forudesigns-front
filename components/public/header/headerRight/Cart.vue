@@ -1,51 +1,44 @@
 <template>
-  <div class="base-popover">
-    <div class="base-popover__target">
-      <nuxt-link to="/cart">
-        <div class="cart-icon"></div>
-      </nuxt-link >
-      <!--<span></span>-->
+
+  <!--购物车提示面板-->
+  <div class="base-popover__content">
+    <!--加载效果-->
+    <div class="base-popover__content__loading">
+      <i></i>
     </div>
-    <!--购物车提示面板-->
-    <div class="base-popover__content" style="display: none">
-      <!--加载效果-->
-      <div class="base-popover__content__loading">
-        <i></i>
-      </div>
-      <!--主面板内容-->
-      <div class="">
-        <div class="the-cart__popover">
-          <!--无订单，空的情况下-->
-          <div class="cart-empty" style="display: none">
-            <h3 class="cart-empty__title">
-              You have no items in your cart...
-            </h3>
-            <p class="cart-empty__notice">
-              You can go to shopping right now!
-            </p>
-            <div class="cart-empty__link">
-              <nuxt-link to="#">
-                <button class="cart-empty__link__btn btn_02">Shop Now</button>
-              </nuxt-link>
-            </div>
+    <!--主面板内容-->
+    <div class="">
+      <div class="the-cart__popover">
+        <!--无订单，空的情况下-->
+        <div class="cart-empty" style="display: block">
+          <h3 class="cart-empty__title">
+            You have no items in your cart...
+          </h3>
+          <p class="cart-empty__notice">
+            You can go to shopping right now!
+          </p>
+          <div class="cart-empty__link">
+            <nuxt-link to="#">
+              <button class="cart-empty__link__btn btn_02">Shop Now</button>
+            </nuxt-link>
           </div>
-          <!--有订单情况下，确认结算-->
-          <div class="cart-list" style="display: block">
-            <div class="cart-list__content">
-              <ul></ul>
-            </div>
-            <div class="cart-list__btns">
-              <a href="">
-                <button class="cart-list__btns__left btn_01">
-                  More in Cart
-                </button>
-              </a>
-              <a href="">
-                <button class="cart-list__btns__right btn_01">
-                  Check Out
-                </button>
-              </a>
-            </div>
+        </div>
+        <!--有订单情况下，确认结算-->
+        <div class="cart-list" style="display: none">
+          <div class="cart-list__content">
+            <ul></ul>
+          </div>
+          <div class="cart-list__btns">
+            <a href="">
+              <button class="cart-list__btns__left btn_01">
+                More in Cart
+              </button>
+            </a>
+            <a href="">
+              <button class="cart-list__btns__right btn_01">
+                Check Out
+              </button>
+            </a>
           </div>
         </div>
       </div>
@@ -64,7 +57,7 @@
     width: 25px;
     height: 25px;
     @include common_img_center-contain;
-    background-image: url("../../../../assets/images/public/header/购物车.svg");
+    background-image: url("../../../../assets/images/public/tools/购物车.svg");
   }
   .base-popover {
     margin: 0 10px;
@@ -103,6 +96,7 @@
     border: 1px solid #dfdfeb;
     border-radius: 4px;
     box-shadow: 0 5px 10px rgba(0,0,0,.2);
+    background-color: white;
     .the-cart__popover {
       padding: 12px 10px 30px;
       .cart-empty {

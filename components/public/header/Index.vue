@@ -1,8 +1,8 @@
 <template>
   <header class="the-header">
     <div class="the-header__container">
-      <HeaderLeft/>
-      <HeaderCenter/>
+      <Nav/>
+      <Search/>
       <HeaderRight/>
     </div>
   </header>
@@ -10,14 +10,14 @@
 </template>
 
 <script>
-  import HeaderLeft from './HeaderLeft'
-  import HeaderCenter from './HeaderCenter'
+  import Nav from './HeaderLeft'
+  import Search from './HeaderCenter'
   import HeaderRight from './HeaderRight'
     export default {
       name: "headers",
       components: {
-        HeaderLeft,
-        HeaderCenter,
+        Nav,
+        Search,
         HeaderRight
       }
     }

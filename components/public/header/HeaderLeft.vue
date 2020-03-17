@@ -3,153 +3,115 @@
     <!--网站logo-->
     <div class="the-logo">
       <nuxt-link to="/">
-        <img src="../../../assets/images/public/my.jpg" alt="" class="the-logo_link">
+          <img src="../../../assets/images/public/my.jpg" alt="" class="the-logo_link"
+               :class="{'rotate-logo':islogshow}"
+               @mouseover="enter_log_func"
+               @mouseleave="leave_log_func">
       </nuxt-link>
     </div>
     <!--nav导航-->
     <div class="nav-manu">
       <ul class="nav-manu__contanier">
-        <li class="menu-item">
+        <!--nav-->
+        <li class="menu-item" v-for="(item, j) in nav" :key="j">
           <div class="base-popover">
-            <div class="base-popover__target"
-                 @mouseenter="enter_shop_func" @mouseleave="leave_shop_func">
-              <nuxt-link to="/shop" class="menu-item__title">
-                Shop
+            <div class="base-popover__target" :class="{active: chooseindex === j}"
+                 @mouseenter="enter_func(j)" @mouseleave="leave_func(j)"
+                 @click="chooseItem(j)">
+              <nuxt-link :to="item.to" class="menu-item__title">
+                {{item.name}}
               </nuxt-link>
               <span style="display: none" class="base-popover__target-arrow"></span>
             </div>
-            <!--鼠标移动上去 滑动的详细面板-->
-            <transition name="shop">
-              <div class="base-popover__content" v-show="isshop">
-                <div class="base-popover__content__loading">
-                  <i></i>
-                </div>
-                <!--主要内容区域-->
-                <div>
-                  <keep-alive>
-                    <div class="shop-submenu el-row">
-                      <!--左侧面板-->
-                      <div class="el-col el-col-24 el-col-xs-8 el-col-sm-4 el-col-md-3">
-                        <aside>
-                          <ul v-for="(item, index) in menuArray" :key="index"
-                              @mouseenter="enter_col_menu_func(item.type)" @mouseleave="leave_col_menu_func">
-                            <li class="shop-submenu__side-menu-item">
-                              <nuxt-link to="">
-                                <span class="shop-submenu__side-menu-item__title">
-                                  {{item.name}}
-                                </span>
-                                <!--图标-->
-                                <span></span>
-                              </nuxt-link>
-                            </li>
-                          </ul>
-                        </aside>
-                      </div>
-                      <!--右侧面板-->
-                      <div v-if="kind" class="el-col el-col-24 el-col-xs-16 el-col-sm-20 el-col-md-21">
-
-                        <!--详细-->
-                        <div class="shop-submenu__content">
-                          <div class="shop-submenu__content__items-wrap el-row"
-                               style="margin-left: -12px; margin-right: -12px;"
-                               v-for="(item, index) in curdetail.child" :key="index">
-                            <div v-for="v in item.child" :key="v">
-                              <div class="shop-submenu__content__item
-                              el-col el-col-24 el-col-xs-24 el-col-sm-12 el-col-md-8 el-col-lg-6 el-col-xl-6">
-                                <nuxt-link to="">{{ v }}</nuxt-link>
-                              </div>
-                            </div>
-                          </div>
-                          <!--更多-->
-                          <div class="shop-submenu__content__all">
-                            <a href="">
-                              <span>ALL</span>
-                              <span>{{this.kind}}</span>
-                            </a>
-                          </div>
-                        </div>
-
-                      </div>
-                    </div>
-                  </keep-alive>
-
-                </div>
-              </div>
-            </transition>
           </div>
         </li>
 
-        <!--create-->
-        <li class="menu-item">
-          <div class="base-popover">
-            <div class="base-popover__target"
-                 @mouseenter="enter_col_func" @mouseleave="leave_col_func">
-              <nuxt-link to="/artworks" class="menu-item__title">
-                Collections
-              </nuxt-link>
-              <span style="display: none" class="base-popover__target-arrow"></span>
-            </div>
-            <!--鼠标移动上去 滑动的详细面板-->
-            <transition name="col">
-              <div class="base-popover__content" v-show="iscol"
-              style="overflow: hidden; padding-top: 0; padding-bottom: 0;">
-                <div class="base-popover__content__loading">
-                </div>
-                <div>
-                  <div class="artwork-submenu">
-
-                    <div class="el-row" style="margin-left: -12px; margin-right: -12px;">
-                      <div class="el-col el-col-24 el-col-xs-12 el-col-sm-8 el-col-md-6 el-col-lg-4 el-col-xl-4"
-                      style="padding-left: 12px; padding-right: 12px;"
-                           v-for="(item, index) in colArray" :key="index">
-                        <nuxt-link to="" class="artwork-submenu__link">
-                          <div class="img-outer" style="width: 60px; height: 60px;">
-                            <img :src="item.src" alt="" class="img-inner" style="width: 60px; height: 60px;">
-                          </div>
-                          <span class="artwork-submenu__link__name">{{item.name}}</span>
+      </ul>
+      <!--鼠标移动上去 滑动的详细面板-->
+      <transition name="shop">
+        <div class="base-popover__content" v-show="isshop">
+          <div class="base-popover__content__loading">
+            <i></i>
+          </div>
+          <!--主要内容区域-->
+          <div @mouseenter="enter_content_func" @mouseleave="leave_content_func">
+            <keep-alive>
+              <div class="shop-submenu el-row">
+                <!--左侧面板-->
+                <div class="el-col el-col-24 el-col-xs-8 el-col-sm-4 el-col-md-3">
+                  <aside>
+                    <ul v-for="(menuitem, k) in menuArray" :key="k"
+                        @mouseenter="enter_col_menu_func(menuitem.type, k)" @mouseleave="leave_col_menu_func">
+                      <li class="shop-submenu__side-menu-item">
+                        <nuxt-link to="">
+                                <span class="shop-submenu__side-menu-item__title" :class="{active_menu_item: menuindex === k}">
+                                  {{menuitem.name}}
+                                </span>
+                          <!--图标-->
+                          <span class="shop-submenu__side-menu-item__arrow" v-show="menuindex === k">
+                            <i class="el-icon-arrow-right"></i>
+                          </span>
                         </nuxt-link>
+                      </li>
+                    </ul>
+                  </aside>
+                </div>
+                <!--右侧面板-->
+                <div v-if="kind" class="el-col el-col-24 el-col-xs-16 el-col-sm-20 el-col-md-21">
+
+                  <!--详细-->
+                  <div class="shop-submenu__content">
+                    <div class="shop-submenu__content__items-wrap el-row"
+                         style="margin-left: -12px; margin-right: -12px;"
+                         v-for="(item, index) in curdetail.child" :key="index">
+                      <div v-for="v in item.child" :key="v" class="shop-submenu__content__item
+                        el-col el-col-24 el-col-xs-24 el-col-sm-12 el-col-md-8 el-col-lg-6 el-col-xl-6"
+                           style="padding-left: 12px; padding-right: 12px;">
+                          <nuxt-link to="">{{ v }}</nuxt-link>
                       </div>
+                    </div>
+                    <!--更多-->
+                    <div class="shop-submenu__content__all">
+                      <a href="">
+                        <span>ALL</span>
+                        <span>{{this.kind}}</span>
+                      </a>
                     </div>
                   </div>
+
                 </div>
               </div>
-            </transition>
+            </keep-alive>
+
           </div>
-        </li>
-        <!--create-->
-        <li class="menu-item">
-          <div class="base-popover">
-            <div class="base-popover__target">
-              <nuxt-link to="/create" class="menu-item__title">
-                Create
-              </nuxt-link>
-              <span style="display: none" class="base-popover__target-arrow"></span>
+        </div>
+      </transition>
+
+      <!--鼠标移动上去 滑动的详细面板-->
+      <transition name="col">
+        <div class="base-popover__content" v-show="iscol"
+             style="overflow: hidden; padding-top: 0; padding-bottom: 0;">
+          <div class="base-popover__content__loading">
+          </div>
+          <div @mouseenter="enter_content_func" @mouseleave="leave_content_func">
+            <div class="artwork-submenu">
+
+              <div class="el-row" style="margin-left: -12px; margin-right: -12px;">
+                <div class="el-col el-col-24 el-col-xs-12 el-col-sm-8 el-col-md-6 el-col-lg-4 el-col-xl-4"
+                     style="padding-left: 12px; padding-right: 12px;"
+                     v-for="(item, index) in colArray" :key="index">
+                  <nuxt-link to="" class="artwork-submenu__link">
+                    <div class="img-outer" style="width: 60px; height: 60px;">
+                      <img :src="item.src" alt="" class="img-inner" style="width: 60px; height: 60px;">
+                    </div>
+                    <span class="artwork-submenu__link__name">{{item.name}}</span>
+                  </nuxt-link>
+                </div>
+              </div>
             </div>
           </div>
-        </li>
-        <!--artist-->
-        <li class="menu-item">
-          <div class="base-popover">
-            <div class="base-popover__target">
-              <nuxt-link to="/artists" class="menu-item__title">
-                Artist
-              </nuxt-link>
-              <span style="display: none" class="base-popover__target-arrow"></span>
-            </div>
-          </div>
-        </li>
-        <!--business-->
-        <li class="menu-item">
-          <div class="base-popover">
-            <div class="base-popover__target">
-              <nuxt-link to="/business" class="menu-item__title">
-                Business
-              </nuxt-link>
-              <span style="display: none" class="base-popover__target-arrow"></span>
-            </div>
-          </div>
-        </li>
-      </ul>
+        </div>
+      </transition>
     </div>
   </div>
 </template>
@@ -161,9 +123,22 @@
     name: "Header_left",
     data () {
       return {
+        nav: [
+          {name: 'Shop', to: '/shop'},
+          {name: 'Collections', to:'/artworks'},
+          {name: 'Create', to: '/create'},
+          {name: 'Artists', to:'/artists'},
+          {name: 'Business', to: '/business'}
+        ],
+        // 鼠标静茹menu 的index 下标
+        menuindex: 0,
+        islogshow: false,
+        ischoose: false,
         kind: "Men's",
         // 判断鼠标进入离开shop
         isshop: false,
+        // 判断是否slide在模板当中
+        isContent: false,
         // 判断鼠标进入离开collection
         iscol: false,
         colArray : [
@@ -186,7 +161,14 @@
             name:"Men's",
             child:[{
               title: 'Men\'s',
-              child: ['经济型', '舒适/三星', '高档/四星', '豪华/五星']
+              child: ['Men\'s All Over Print Board Shorts',
+                'Men\'s All Over Print Board Shorts',
+                'Men\'s All Over Print Board Shorts',
+                'Men\'s All Over Print Board Shorts',
+                'New Men\'s All Over Print T-shirt',
+                'New Men\'s All Over Print T-shirt',
+                'Mesh Heightening Rocking Shoes',
+                'Mesh Heightening Rocking Shoes']
             }]
 /*              {name: "Men's All Over Print Board Shorts"},
               {name: "New Men's All Over Print T-shirt"},
@@ -230,7 +212,14 @@
             name:"Women's",
             child:[{
               title: "Women's",
-              child: ['经济型', '舒适/三星', '高档/四星', '豪华/五星']
+              child: ['Men\'s All Over Print Board Shorts',
+                'Men\'s All Over Print Board Shorts',
+                'Men\'s All Over Print Board Shorts',
+                'Men\'s All Over Print Board Shorts',
+                'New Men\'s All Over Print T-shirt',
+                'New Men\'s All Over Print T-shirt',
+                'Mesh Heightening Rocking Shoes',
+                'Mesh Heightening Rocking Shoes']
             }]
           },
           {
@@ -238,12 +227,21 @@
             name:"Kids & Babies",
             child:[{
               title: "Kids & Babies",
-              child: ['经济型', '舒适/三星', '高档/四星', '豪华/五星']
+              child: ['Men\'s All Over Print Board Shorts',
+                'Men\'s All Over Print Board Shorts',
+                'Men\'s All Over Print Board Shorts',
+                'Men\'s All Over Print Board Shorts',
+                'New Men\'s All Over Print T-shirt',
+                'New Men\'s All Over Print T-shirt',
+                'Mesh Heightening Rocking Shoes',
+                'Mesh Heightening Rocking Shoes']
             }]
           }
         ],
         menu_index: 0,
-        menu_child: []
+        menu_child: [],
+        chooseindex: '',
+        choosename: ''
       }
     },
     computed: {
@@ -252,30 +250,64 @@
       }
     },
     methods: {
-      // 鼠标进入shop
-      enter_shop_func () {
-        this.isshop = !this.isshop
+      enter_log_func () {
+        this.islogshow = true
       },
-      // 鼠标离开shop
-      leave_shop_func () {
-        this.isshop = !this.isshop
+      leave_log_func () {
+        this.islogshow = false
       },
-      // 鼠标进入col
-      enter_col_func () {
-        this.iscol = !this.iscol
+      // 鼠标进入nav
+      enter_func (index) {
+        this.chooseindex = index
+        if(index === 0) {
+          this.isshop = true
+          this.iscol = false
+          this.isContent = true
+        }
+        if(index === 1) {
+          this.iscol = true
+          this.isshop = false
+          this.isContent = true
+        }
       },
-      // 鼠标离开col
-      leave_col_func () {
-        this.iscol = !this.iscol
+      // 鼠标离开nav
+      leave_func (index) {
+        if(index === 0 && this.isContent === false) {
+          this.isshop = false
+        }
+        if(index === 1 && this.isContent === false) {
+          this.iscol = false
+        }
+        // if(this.isShopContent === false) {
+        //   this.isshop = false
+        // }
+        // if(this.isColContent === false) {
+        //   this.iscol = false
+        // }
       },
-      // // 鼠标进入menu 的side
-      enter_col_menu_func (index) {
-        this.kind = index
-        // console.log(this.menu_index)
+      // 鼠标进入content
+      enter_content_func (index) {
+        this.isContent = true
+        this.isContent = true
+      },
+      // 鼠标离开content
+      leave_content_func (index) {
+        this.iscol = false
+        this.isshop = false
+      },
+      // 鼠标进入menu 的side
+      enter_col_menu_func (type ,index) {
+        this.kind = type
+        this.menuindex = index
       },
       // 鼠标离开menu 的side
       leave_col_menu_func () {
-        // this.kind = ''
+      },
+      // 选中nav 的item
+      chooseItem (j) {
+        // 选中的索引
+        this.chooseindex = j
+        // this.ischoose = true
       }
     }
   }
@@ -285,8 +317,8 @@
 <style lang="scss" scoped>
   @import '../../../assets/css/public/header/left.scss';
   .the-logo_link {
-    width: 33px;
-    height: 33px;
+    width: 50px;
+    height: 50px;
     border-radius: 50%;
     @include common_img_center_contain;
   }
@@ -382,6 +414,16 @@
         word-break: break-all;
         color: #1a1a1a;
       }
+      .shop-submenu__side-menu-item__arrow {
+        position: absolute;
+        top: 0;
+        right: 5px;
+        color: #40354e;
+        font-size: 16px;
+        .el-icon-arrow-right {
+          font-weight: bold;
+        }
+      }
     }
     /*右侧*/
     .shop-submenu__content {
@@ -409,6 +451,9 @@
           text-transform: capitalize;
           color: #8c95a5;
           font-size: 14px;
+          a {
+            color: #8c95a5;
+          }
         }
       }
       /*更多*/
@@ -425,8 +470,44 @@
           color: #40354e
         }
       }
+      a {
+        cursor: pointer;
+        color: #40354e;
+      }
     }
+  }
 
+  /*选择每个item 地下新增下划线*/
+  .active {
+    border-bottom: 3px solid red;
+  }
+  /*menu 进入的item 效果*/
+  .active_menu_item {
+    font-weight: bold;
+  }
+
+
+  .rotate-logo {
+    -webkit-transition-property: -webkit-transform;
+    -webkit-transition-duration: 0.5s;
+    -moz-transition-property: -moz-transform;
+    -moz-transition-duration: 1s;
+    -webkit-animation: rotate 2s linear infinite;
+    -moz-animation: rotate 2s linear infinite;
+    -o-animation: rotate 2s linear infinite;
+    animation: rotate 2s linear infinite;
+  }
+  @-webkit-keyframes rotate{from{-webkit-transform: rotate(0deg)}
+    to{-webkit-transform: rotate(-360deg)}
+  }
+  @-moz-keyframes rotate{from{-moz-transform: rotate(0deg)}
+    to{-moz-transform: rotate(-359deg)}
+  }
+  @-o-keyframes rotate{from{-o-transform: rotate(0deg)}
+    to{-o-transform: rotate(-359deg)}
+  }
+  @keyframes rotate{from{transform: rotate(0deg)}
+    to{transform: rotate(-359deg)}
   }
 
 
@@ -494,6 +575,11 @@
   }
 
 
+  @media only screen and (min-width: 1200px) {
+    .el-col-lg-6 {
+      width: 25%;
+    }
+  }
   @media only screen and (min-width: 1920px) {
     .el-col-xl-4 {
       width: 16.66667%;
