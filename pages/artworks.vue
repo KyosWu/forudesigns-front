@@ -30,7 +30,7 @@
   import Login from '../components/model/Login-model'
   // 测试
   import WorksModel from '../components/model/Works-modal'
-  import Tags from '../components/artworks/Tags'
+  import Tags from '../components/public/tags/index'
   import Artworks from '../components/artworks/Artworks'
     export default {
         name: "artworks",

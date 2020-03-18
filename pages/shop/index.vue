@@ -25,8 +25,8 @@
 
 <script>
   import { mapGetters } from 'vuex'
-  import Tags from '../../components/shop/Tags'
-  import Collapse from '../../components/shop/Collapse'
+  import Tags from '../../components/public/tags/index'
+  import Collapse from '../../components/public/categories/index'
   import List from '../../components/shop/List'
     export default {
         name: "shop",
