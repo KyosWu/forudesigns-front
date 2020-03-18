@@ -5,8 +5,15 @@
 
         <swiper-slide class="swiper-slide" v-for="(item,index) in list" :key="index">
           <div class="tag" v-for="(item2,index) in item.list1" :key="index">
-            <ul class="btn">
-              <li class="tag_name">{{item2.name}}</li>
+            <ul class="btn-03 btn"
+                @click="choose_btn_func(index)"
+                :class="{active_btn: chooseindex === index}">
+                <li>
+                  <span class="tag_name">{{item2.name}}</span>
+                  <i :class="[{'el-icon-close': chooseindex === index},{'animated flipInX':  chooseindex === index}]"
+                     style="margin-left: 7px"
+                  @click.stop="cancel_choose_btn_func"></i>
+                </li>
             </ul>
           </div>
         </swiper-slide>
@@ -35,6 +42,7 @@
     name: "index",
     data(){
       return {
+        chooseindex: '',
         list: [
           {
             list1: [
@@ -118,6 +126,16 @@
           loop: false
         }
       }
+    },
+    methods: {
+      //选中btn
+      choose_btn_func (index) {
+        this.chooseindex = index
+      },
+      //取消选中btn
+      cancel_choose_btn_func () {
+        this.chooseindex = -1
+      }
     }
   }
 </script>
@@ -145,31 +163,30 @@
     }
   }
 
+  /*每个btn tag标签*/
   .tag {
     display: inline-block;
     margin: 4px;
     .btn {
       border-radius: 2px;
-      height: 30px;
-      padding: 0 14px;
-      text-align: center;
-      text-transform: capitalize;
-      color: #8c95a5;
-      font-size: 14px;
-      font-weight: 400;
-      line-height: 28px;
-      -webkit-transition: all .2s ease;
-      transition: all .2s ease;
+      background: #f5f5f5;
       .tag-name {
         cursor: pointer;
       }
     }
-    .btn:active {
-      color: white;
-      background: #4292e3;
-    }
   }
-
+  /*鼠标经过*/
+  .btn:hover {
+    color: white;
+    background: #1a68e3;
+    cursor: pointer;
+  }
+  /*选中 btn 激活*/
+  .active_btn {
+    color: white!important;
+    background: #4292e3!important;
+  }
+  /*swiper 左右箭头*/
   .swiper-button-next, .swiper-button-prev {
     position: absolute;
     top: 23px;
@@ -182,5 +199,12 @@
   }
   .next , .pre {
     color: #000;
+  }
+</style>
+
+<style scoped>
+  .tags-wrap >>> .swiper-container {
+    margin-left: 20px;
+    margin-right: 20px;
   }
 </style>
