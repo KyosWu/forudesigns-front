@@ -2,7 +2,7 @@
   <div class="design-wrapper" style="width: 1280px;">
     <h2 class="design-title">Hot Products</h2>
     <ul class="design-ul">
-      <li v-for="(item,index) in list" :key="index" style="width: 310px;height: 345px;">
+      <li v-for="(item,index) in list" :key="index">
         <nuxt-link to="" style="width: 310px;">
           <div class="img-container" style="width: 265px;height: 265px;">
             <div class="image-outer triangle-tag"
@@ -67,16 +67,16 @@
       -webkit-box-pack: start;
       justify-content: center;
       li:nth-child(4) {
-        margin: 0;
+        margin-right: 0;
       }
       li:nth-child(8) {
-        margin: 0;
+        margin-right: 0;
       }
       li:nth-child(12) {
-        margin: 0;
+        margin-right: 0;
       }
       li:nth-child(16) {
-        margin: 0;
+        margin-right: 0;
       }
       li {
         flex-basis: 310px;
@@ -138,7 +138,7 @@
       text-align: center;
       text-transform: uppercase;
       color: #fff;
-      background-color: #fa8d14;
+      background-color: #fa2309;
       font-size: 14px;
       line-height: 125px;
     }

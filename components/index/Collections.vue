@@ -11,6 +11,9 @@
             <div class="img-outer">
               <img v-lazy="item.src" alt="" class="img-inner">
             </div>
+            <span class="collection-name">
+              {{item.name}}
+            </span>
           </div>
         </nuxt-link>
       </li>
@@ -24,18 +27,18 @@
         data () {
           return {
             list: [
-              {src: require("../../assets/images/index/collections/1.jpeg")},
-              {src: require("../../assets/images/index/collections/1.jpeg")},
-              {src: require("../../assets/images/index/collections/1.jpeg")},
-              {src: require("../../assets/images/index/collections/1.jpeg")},
-              {src: require("../../assets/images/index/collections/1.jpeg")},
-              {src: require("../../assets/images/index/collections/1.jpeg")},
-              {src: require("../../assets/images/index/collections/1.jpeg")},
-              {src: require("../../assets/images/index/collections/1.jpeg")},
-              {src: require("../../assets/images/index/collections/1.jpeg")},
-              {src: require("../../assets/images/index/collections/1.jpeg")},
-              {src: require("../../assets/images/index/collections/1.jpeg")},
-              {src: require("../../assets/images/index/collections/1.jpeg")}
+              {name: 'animals', src: require("../../assets/images/index/collections/1.jpeg")},
+              {name: 'art styles', src: require("../../assets/images/index/collections/1.jpeg")},
+              {name: 'colors', src: require("../../assets/images/index/collections/1.jpeg")},
+              {name: 'countries', src: require("../../assets/images/index/collections/1.jpeg")},
+              {name: 'food', src: require("../../assets/images/index/collections/1.jpeg")},
+              {name: 'funny', src: require("../../assets/images/index/collections/1.jpeg")},
+              {name: 'big day', src: require("../../assets/images/index/collections/1.jpeg")},
+              {name: 'home decor', src: require("../../assets/images/index/collections/1.jpeg")},
+              {name: 'love', src: require("../../assets/images/index/collections/1.jpeg")},
+              {name: 'nature', src: require("../../assets/images/index/collections/1.jpeg")},
+              {name: 'pop culture', src: require("../../assets/images/index/collections/1.jpeg")},
+              {name: 'view all collections', src: require("../../assets/images/index/collections/1.jpeg")}
             ]
           }
         }
@@ -79,23 +82,23 @@
           justify-content: center;
           width: 100%;
           height: 100%;
-          .img-outer {
-            display: -webkit-box;
-            display: flex;
-            -webkit-box-align: center;
-            align-items: center;
-            -webkit-box-pack: center;
-            justify-content: center;
-            width: 100%;
-            height: 100%;
-            .img-inner {
-              width: 100%;
-              height: 100%;
-              vertical-align: middle;
-            }
-          }
         }
       }
     }
+  }
+
+  .collection-name {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 40px;
+    text-align: center;
+    text-transform: uppercase;
+    color: #40354e;
+    font-size: 16px;
+    font-weight: 700;
+    line-height: 40px;
   }
 </style>

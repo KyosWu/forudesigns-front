@@ -182,18 +182,48 @@ const state = {
     //     {name: ''}
     //   ]
     // },
-  ]
+  ],
+  isContent: false,
+  isNotice: false,
+  isCart: false,
+  isUser: false
 }
 
 const getters = {
+  isContent: state => state.isContent,
+  isNotice: state => state.isNotice,
+  isCart: state => state.isCart,
+  isUser: state => state.isUser
 }
 
 const mutations = {
-
+  ISCONTENT (state, params) {
+    state.isContent = params
+  },
+  ISNOTICE (state, params) {
+    state.isNotice = params
+  },
+  ISCART (state, params) {
+    state.isCart = params
+  },
+  ISUSER (state, params) {
+    state.isUser = params
+  }
 }
 
 const actions = {
-
+  set_content (store, params) {
+    store.commit('ISCONTENT', params)
+  },
+  set_notice (store, params) {
+    store.commit('ISNOTICE', params)
+  },
+  set_cart (store, params) {
+    store.commit('ISCART', params)
+  },
+  set_user (store, params) {
+    store.commit('ISUSER', params)
+  }
 }
 
 

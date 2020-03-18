@@ -1,45 +1,45 @@
 <template>
 
   <!--购物车提示面板-->
-  <div class="base-popover__content">
+  <div class="base-popover__content"
+       @mouseenter="enter_content_func"
+       @mouseleave="leave_content_func">
     <!--加载效果-->
     <div class="base-popover__content__loading">
       <i></i>
     </div>
     <!--主面板内容-->
-    <div class="">
-      <div class="the-cart__popover">
-        <!--无订单，空的情况下-->
-        <div class="cart-empty" style="display: block">
-          <h3 class="cart-empty__title">
-            You have no items in your cart...
-          </h3>
-          <p class="cart-empty__notice">
-            You can go to shopping right now!
-          </p>
-          <div class="cart-empty__link">
-            <nuxt-link to="#">
-              <button class="cart-empty__link__btn btn_02">Shop Now</button>
-            </nuxt-link>
-          </div>
+    <div class="the-cart__popover">
+      <!--无订单，空的情况下-->
+      <div class="cart-empty" style="display: block">
+        <h3 class="cart-empty__title">
+          You have no items in your cart...
+        </h3>
+        <p class="cart-empty__notice">
+          You can go to shopping right now!
+        </p>
+        <div class="cart-empty__link">
+          <nuxt-link to="#">
+            <button class="cart-empty__link__btn btn_02">Shop Now</button>
+          </nuxt-link>
         </div>
-        <!--有订单情况下，确认结算-->
-        <div class="cart-list" style="display: none">
-          <div class="cart-list__content">
-            <ul></ul>
-          </div>
-          <div class="cart-list__btns">
-            <a href="">
-              <button class="cart-list__btns__left btn_01">
-                More in Cart
-              </button>
-            </a>
-            <a href="">
-              <button class="cart-list__btns__right btn_01">
-                Check Out
-              </button>
-            </a>
-          </div>
+      </div>
+      <!--有订单情况下，确认结算-->
+      <div class="cart-list" style="display: none">
+        <div class="cart-list__content">
+          <ul></ul>
+        </div>
+        <div class="cart-list__btns">
+          <a href="">
+            <button class="cart-list__btns__left btn_01">
+              More in Cart
+            </button>
+          </a>
+          <a href="">
+            <button class="cart-list__btns__right btn_01">
+              Check Out
+            </button>
+          </a>
         </div>
       </div>
     </div>
@@ -47,8 +47,27 @@
 </template>
 
 <script>
+  import { mapGetters, mapActions } from 'vuex'
     export default {
-        name: "Cart"
+        name: "Cart",
+      methods: {
+        ...mapActions([
+          'set_content',
+          'set_cart'
+        ]),
+        handleClick(tab, event) {
+          console.log(tab, event);
+        },
+        enter_content_func () {
+          this.set_cart(true)
+          this.set_content(true)
+        },
+        // 鼠标离开content
+        leave_content_func () {
+          this.set_cart(false)
+          this.set_content(false)
+        },
+      }
     }
 </script>
 
@@ -90,6 +109,7 @@
   .base-popover__content {
     position: absolute;
     top: 100%;
+    margin-top: 10px;
     width: 500px;
     right: 0;
     left: auto;

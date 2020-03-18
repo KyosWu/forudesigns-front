@@ -1,6 +1,8 @@
 <template>
   <div class="notify-wrapper__header"
-       style="width: 350px; transform-origin: center top; z-index: 2033; position: fixed; top: 47px; left: 1011px;">
+       @mouseenter="enter_content_func"
+       @mouseleave="leave_content_func"
+       style="width: 350px; transform-origin: center top; z-index: 2015; position: fixed; top: 58px; left: 1350px;">
     <div class="mark-all-read">
       Mark All Read
     </div>
@@ -12,8 +14,10 @@
           <div class="no-data-wrap">
             <!--没有数据的图片提示-->
             <div class="img-wrap small-img">
-              <div class="img-outer">
-                <img src="" alt="" class="ing-inner">
+              <div class="img-outer" style="width: 100%; height: 100%;">
+                <img src="../../../../assets/images/public/no-data/message-empty.jpg"
+                     style="object-fit: contain;"
+                     alt="No Data Icon Image" class="img-inner">
               </div>
             </div>
             <div class="no-data-info">
@@ -24,41 +28,45 @@
           </div>
         </div>
         <!--信息-->
-        <li class="message__entrance">
-                <span class="message__entrance-name">
-                  message__entrance-name
-                </span>
-        </li>
+        <div class="message__entrance">
+          <span class="message__entrance-name">
+            See All Notifications
+          </span>
+        </div>
+
         <div class="el-loading-mask" style="display: none;">
           <div class="el-loading-spinner"></div>
         </div>
       </el-tab-pane>
+
       <el-tab-pane label="Unread" name="second">
-        <div role="tabpane1" class="el-tab-pane">
-          <ul>
-            <!--没有数据-->
-            <div class="no-data">
-              <div class="no-data-wrap">
-                <!--没有数据的图片提示-->
-                <div class="img-wrap small-img">
-                  <div class="img-outer">
-                    <img src="" alt="" class="ing-inner">
-                  </div>
-                </div>
-                <div class="no-data-info">
-                  <p>
-                    There is no data...
-                  </p>
-                </div>
+        <!--没有数据-->
+        <div class="no-data">
+          <div class="no-data-wrap">
+            <!--没有数据的图片提示-->
+            <div class="img-wrap small-img">
+              <div class="img-outer" style="width: 100%; height: 100%;">
+                <img src="../../../../assets/images/public/no-data/message-empty.jpg"
+                     style="object-fit: contain;"
+                     alt="No Data Icon Image" class="img-inner">
               </div>
             </div>
-            <!--信息-->
-            <li class="message__entrance">
-                <span class="message__entrance-name">
-                  message__entrance-name
-                </span>
-            </li>
-          </ul>
+            <div class="no-data-info">
+              <p>
+                There is no data...
+              </p>
+            </div>
+          </div>
+        </div>
+        <!--信息-->
+        <div class="message__entrance">
+      <span class="message__entrance-name">
+        See All Notifications
+      </span>
+        </div>
+
+        <div class="el-loading-mask" style="display: none;">
+          <div class="el-loading-spinner"></div>
         </div>
       </el-tab-pane>
     </el-tabs>
@@ -69,6 +77,7 @@
 </template>
 
 <script>
+  import { mapGetters, mapActions } from 'vuex'
     export default {
         name: "Notice",
       data () {
@@ -77,9 +86,22 @@
           }
       },
       methods: {
+        ...mapActions([
+          'set_content',
+          'set_notice'
+        ]),
         handleClick(tab, event) {
           console.log(tab, event);
-        }
+        },
+        enter_content_func () {
+          this.set_notice(true)
+          this.set_content(true)
+        },
+        // 鼠标离开content
+        leave_content_func () {
+          this.set_notice(false)
+          this.set_content(false)
+        },
       }
     }
 </script>
@@ -92,6 +114,7 @@
       position: absolute;
       z-index: 9999;
       top: 14px;
+      /*top: 100%;*/
       right: 11px;
       cursor: pointer;
       color: #4292e3;
@@ -100,39 +123,48 @@
     .mark-all-read:hover {
       text-decoration: underline;
     }
-    .el-tabs__header {
-      margin: -10px 0 10px;
-      .el-tabs__nav-wrap {
-        overflow: hidden;
-        margin-bottom: -1px;
-        position: relative;
-        .el-tabs__nav-scroll {
-          overflow: hidden;
-          .el-tabs__nav {
-            white-space: nowrap;
-            position: relative;
-            -webkit-transition: -webkit-transform .3s;
-            transition: -webkit-transform .3s;
-            transition: transform .3s;
-            transition: transform .3s,-webkit-transform .3s;
-            float: left;
-            z-index: 2;
-          }
-        }
-      }
-    }
   }
 
 
   /* 没有数据 */
   .no-data {
-    .no-data-warp {
-      display: -webkit-box;
-      display: flex;
+    width: 100%;
+    -webkit-animation: show .5s linear;
+    animation: show .5s linear;
+    .no-data-wrap {
+      /*display: -webkit-box;*/
+      /*display: flex;*/
       -webkit-box-orient: vertical;
       -webkit-box-direction: normal;
       flex-direction: column;
       padding: 30px 0!important;
+      display: flex;
+      /*display: -webkit-box;*/
+      .small-img {
+        /*width: 148px;*/
+        height: 148px;
+      }
+      .no-data-info {
+        margin: 20px 0 0!important;
+        /*margin-left: 40px;*/
+        color: #8c95a5;
+        font-size: 16px;
+        text-align: center;
+      }
+    }
+  }
+  .message__entrance {
+    text-align: center;
+    color: #8c95a5;
+    font-size: 14px;
+    line-height: 16px;
+    margin-bottom: 10px;
+    .message__entrance-name {
+      cursor: pointer;
+      text-align: center;
+      color: #8c95a5;
+      font-size: 14px;
+      line-height: 16px;
     }
   }
 </style>

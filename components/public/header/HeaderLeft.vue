@@ -15,10 +15,10 @@
         <!--nav-->
         <li class="menu-item" v-for="(item, j) in nav" :key="j">
           <div class="base-popover">
-            <div class="base-popover__target" :class="{active: chooseindex === j}"
+            <div class="base-popover__target"
                  @mouseenter="enter_func(j)" @mouseleave="leave_func(j)"
                  @click="chooseItem(j)">
-              <nuxt-link :to="item.to" class="menu-item__title">
+              <nuxt-link :to="item.to" class="menu-item__title" :class="{active_Nav_Index: chooseindex === j}">
                 {{item.name}}
               </nuxt-link>
               <span style="display: none" class="base-popover__target-arrow"></span>
@@ -44,9 +44,9 @@
                         @mouseenter="enter_col_menu_func(menuitem.type, k)" @mouseleave="leave_col_menu_func">
                       <li class="shop-submenu__side-menu-item">
                         <nuxt-link to="">
-                                <span class="shop-submenu__side-menu-item__title" :class="{active_menu_item: menuindex === k}">
-                                  {{menuitem.name}}
-                                </span>
+                          <span class="shop-submenu__side-menu-item__title" :class="{active_menu_item: menuindex === k}">
+                            {{menuitem.name}}
+                          </span>
                           <!--图标-->
                           <span class="shop-submenu__side-menu-item__arrow" v-show="menuindex === k">
                             <i class="el-icon-arrow-right"></i>
@@ -272,22 +272,16 @@
       },
       // 鼠标离开nav
       leave_func (index) {
+        this.chooseindex = ''
         if(index === 0 && this.isContent === false) {
           this.isshop = false
         }
         if(index === 1 && this.isContent === false) {
           this.iscol = false
         }
-        // if(this.isShopContent === false) {
-        //   this.isshop = false
-        // }
-        // if(this.isColContent === false) {
-        //   this.iscol = false
-        // }
       },
       // 鼠标进入content
       enter_content_func (index) {
-        this.isContent = true
         this.isContent = true
       },
       // 鼠标离开content
@@ -306,7 +300,7 @@
       // 选中nav 的item
       chooseItem (j) {
         // 选中的索引
-        this.chooseindex = j
+        // this.chooseindex = j
         // this.ischoose = true
       }
     }
@@ -478,8 +472,8 @@
   }
 
   /*选择每个item 地下新增下划线*/
-  .active {
-    border-bottom: 3px solid red;
+  .active_Nav_Index {
+    border-bottom: 4px solid red!important;
   }
   /*menu 进入的item 效果*/
   .active_menu_item {

@@ -2,12 +2,14 @@
   <div class="feed" style="width: 1280px;">
     <h2 class="feed-title">Featured Artists</h2>
     <div class="feed-line">
-      <!--<el-carousel height="680px" direction="vertical" :autoplay="false">-->
       <el-carousel direction="vertical" :autoplay="false"
                    style="height: 680px">
         <el-carousel-item v-for="(item,index) in list" :key="index" class="carousel-wrapper" style="height: 680px;">
           <ul v-for="(item1,j) in item.all" :key="j" style="width: 308.75px;">
-              <li v-for="(item2,k) in item1.all2" :key="k" style="width: 308.75px;">
+              <li v-for="(item2, k) in item1.all2" :key="k"
+                  @mouseenter="enter_feature_func(j)"
+                  @mouseleave="leave_feature_func"
+                  style="width: 308.75px;">
                 <div class="img-list" v-for="(item3,f) in item2.conner" :key="f" style="width: 152px; height: 152px;">
                   <div style="width: 98px; height: 98px;">
                     <img v-lazy="item3.src" alt="" class="img_inner">
@@ -18,7 +20,7 @@
                     <img v-lazy="item4.src" alt="" class="img_inner">
                   </div>
                 </div>
-                <div class="bg-hover" style="display: block">
+                <div class="bg_hover" v-if="chooseitem === j">
                   <nuxt-link to="">
                     <button class="btn-01 get-it-now"
                             style="width: 170px;height: 48px;font-size: 20px;">
@@ -317,11 +319,19 @@
                 ],
               }
             ],
-
-
-
+            chooseitem: ''
           }
+        },
+      methods: {
+        //  进入每个li
+        enter_feature_func (index) {
+          this.chooseitem = index
+        },
+      //  离开每个li
+        leave_feature_func () {
+          this.chooseitem = ''
         }
+      }
     }
 </script>
 
@@ -402,7 +412,7 @@
                 }
               }
             }
-            .bg-hover {
+            .bg_hover {
               position: absolute;
               z-index: 999;
               top: 0;
@@ -419,6 +429,9 @@
                 transform: translate(-50%,-50%);
                 color: #fff;
                 background: #4292e3;
+              }
+              .get-it-now:hover {
+                background-color: #1a6aff;
               }
             }
           }
