@@ -1,6 +1,5 @@
 <template>
   <div>
-
     <form class="search">
       <input type="text" placeholder="Enter the artist name" class="search-input">
       <i class="el-icon-search"></i>
@@ -37,6 +36,13 @@
       border: 1px solid #dfdfeb;
       transition: all .2s ease;
     }
+    .search-input:focus {
+      border: 1px solid black;
+    }
+    input:focus::placeholder {
+      color: #d7d7d7;
+    }
+
     i {
       position: absolute;
       /*right: 23px;*/

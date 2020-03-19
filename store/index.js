@@ -9,6 +9,8 @@ import title from './modules/title'
 import login from './modules/login'
 // 导航nav model
 import nav from './modules/nav'
+// 商品cards
+import cards from './modules/cards'
 
 Vue.use(Vuex)
 
@@ -16,7 +18,8 @@ const modules = {
   index,
   title,
   login,
-  nav
+  nav,
+  cards
 }
 
 const store = () => {  // 返回store为一个函数就行了

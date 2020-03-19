@@ -132,7 +132,7 @@
           return {
             isNormal: true,
             list: [
-              {id: 1, src: require('../../../assets/images/shop/_goods/1.jpg')},
+              {id: 1, src: require('../../../assets/images/shop/_goods/111.png')},
               {id: 2, src: require('../../../assets/images/shop/_goods/2.jpg')},
               {id: 3, src: require('../../../assets/images/shop/_goods/3.jpg')},
               {id: 4, src: require('../../../assets/images/shop/_goods/4.jpg')},
@@ -230,8 +230,8 @@
             }
           }
           // 鼠标混动值除2
-          this.x = -evt.getPageX(e)/2+ 400 + "px"
-          this.y = -evt.getPageY(e)/2+ 400 + "px"
+          this.x = -evt.getPageX(e)/2+ 250 + "px"
+          this.y = -evt.getPageY(e)/2+ 250 + "px"
         },
         // 重置需要放大的图片的值
         resetImgZooming () {
@@ -601,7 +601,8 @@
     max-height: 1000px;
     width: 1000px;
     height: 1000px;
-    margin-left: -183.5px;
-    margin-top: -183.5px;
+    transform: scale(1.5);
+    /*margin-left: -183.5px;*/
+    /*margin-top: -183.5px;*/
   }
 </style>

@@ -42,6 +42,9 @@
           document.title = this.title
         }
       },
+      mounted () {
+
+      },
       destroyed() {
         if (process.client) {
           //  离开时销毁title

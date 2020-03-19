@@ -21,7 +21,7 @@
     components:{
       MyHeader,
       MyFooter
-    }
+    },
   }
 </script>
 

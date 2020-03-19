@@ -3,7 +3,7 @@
     <header class="header-wrapper">
       <div class="header-inner-wrapper">
         <div class="the-logo">
-          <nuxt-link to="" class="logo-link">
+          <nuxt-link to="/" class="logo-link">
             <img src="../../../assets/images/public/my.jpg" alt="">
           </nuxt-link>
           <h1 class="web-name">

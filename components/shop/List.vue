@@ -9,9 +9,9 @@
 <script>
   import ListTotalWrap from './list/List-total-wrap'
   import Cards from './list/Cards'
-  import Pagination from './list/Pagination'
+  import Pagination from '../public/pagination/index'
     export default {
-        name: "List",
+        name: "index",
       components: {
           ListTotalWrap,
         Cards,

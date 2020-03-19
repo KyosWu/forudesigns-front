@@ -29,19 +29,43 @@
           </span>
       </div>
     </div>
-    <!--右边-->
+    <!--右边按钮选择-->
     <div class="list-style-wrap">
       <div class="list-style">
-        <button class="multiple"></button>
-        <button class="single"></button>
+
+        <!--li块状-->
+        <button class="animated bounceIn" :class="[{multiple:isMultiple,multiple2:!isMultiple}]" @click="to_multiple_func"></button>
+        <!--li条状-->
+        <button class="animated bounceIn" :class="[{single:!isSingle, single2:isSingle}]" @click="to_single_func"></button>
       </div>
     </div>
   </div>
 </template>
 
 <script>
+  import { mapGetters, mapActions } from 'vuex'
     export default {
-        name: "List-total-wrap"
+        name: "List-total-wrap",
+      computed: {
+          ...mapGetters([
+            'isMultiple',
+            'isSingle'
+          ])
+      },
+      methods: {
+          ...mapActions([
+            'set_multiple',
+            'set_single'
+          ]),
+        to_multiple_func () {
+          this.set_multiple(true)
+          this.set_single(false)
+        },
+        to_single_func () {
+          this.set_single(true)
+          this.set_multiple(false)
+        }
+      }
     }
 </script>
 
@@ -144,14 +168,28 @@
         width: 25px;
         height: 25px;
         @include common_img_center_contain;
-        background-image: url("../../../assets/images/shop/list/多行展开.svg");
+        background-image: url("../../../assets/images/public/tools/盒子展开.svg");
+      }
+      .multiple2 {
+        margin-right: 5px;
+        width: 25px;
+        height: 25px;
+        @include common_img_center_contain;
+        background-image: url("../../../assets/images/public/tools/盒子-未.svg");
       }
       .single {
         margin-right: 5px;
         width: 25px;
         height: 25px;
         @include common_img_center_contain;
-        background-image: url("../../../assets/images/shop/list/单行展开2-未.svg");
+        background-image: url("../../../assets/images/public/tools/单行展开-未.svg");
+      }
+      .single2 {
+        margin-right: 5px;
+        width: 25px;
+        height: 25px;
+        @include common_img_center_contain;
+        background-image: url("../../../assets/images/public/tools/单行展开.svg");
       }
     }
   }

@@ -1,6 +1,14 @@
 <template>
-  <div class="pagination">
+  <div class="pagination showTop">
     <ul class="pagination-content">
+      <!--回到顶部-->
+      <li>
+        <el-button class="back-to-top-button"
+                   @click="to_Top_func">
+          <i class="el-icon-arrow-up"></i>
+        </el-button>
+        <span class="back-to-top">Back-to-top</span>
+      </li>
       <!--左 加-->
       <li>
         <button @click="left_second()">
@@ -19,15 +27,15 @@
       <li class="pagination-input">
         <input :max="total" min="1" type="number" class="page-to"
                @click="choose_page"
-               @blur="lose_choose_page">
+        @blur="lose_choose_page">
         <span class="pagination-info" v-show="!choosepage">{{page}} of {{total}}</span>
       </li>
       <!--右-->
       <li>
         <button @click="right_first()">
-          <i class="el-icon-arrow-right">
-          </i>
-        </button>
+        <i class="el-icon-arrow-right">
+        </i>
+      </button>
       </li>
       <!--右 加-->
       <li>
@@ -41,20 +49,37 @@
 </template>
 
 <script>
+  import { mapActions } from 'vuex'
   export default {
-    name: "pagination",
+    name: "index",
     data () {
       return {
         //总页数
         total: 15,
-        //  当前页数
+      //  当前页数
         page: 2,
-        //  一页数目
+      //  一页数目
         pagesize: 16,
         choosepage: false
       }
     },
-    methods : {
+    methods: {
+      ...mapActions([
+        'is_Top'
+      ]),
+      // 回到顶部
+      to_Top_func () {
+        let timer = setInterval(function(){
+          let Top = document.documentElement.scrollTop || document.body.scrollTop;
+          // console.log(Top)
+          let speed = Math.floor(Top / 3);
+          // console.log(speed)
+          document.documentElement.scrollTop = document.body.scrollTop = Top - speed;
+          if(Top <= 50){
+            clearInterval(timer);
+          }
+        },50)
+      },
       //页面按钮左右
       left_second () {
         this.to_Top_func()
@@ -85,7 +110,7 @@
     display: -webkit-inline-box;
     display: inline-flex;
     -webkit-box-pack: end;
-    justify-content: center;
+    justify-content: flex-end;
     width: 100%;
     .pagination-content {
       display: -webkit-inline-box;
@@ -104,6 +129,12 @@
           border: 1px solid #dfdfeb;
           background: #fff;
           line-height: 37px;
+        }
+        .back-to-top {
+          margin-left: 11px;
+          color: #40354e;
+          font-size: 14px;
+          font-weight: 700;
         }
         button {
           width: 37px;
@@ -160,3 +191,4 @@
     }
   }
 </style>
+

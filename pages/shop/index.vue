@@ -37,7 +37,7 @@
         },
       computed: {
         ...mapGetters([
-          'Shop_Head_Title'
+          'Shop_Head_Title',
         ])
       },
       created () {

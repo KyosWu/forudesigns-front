@@ -33,8 +33,30 @@
             </div>
           </div>
         </div>
-
       </div>
+      <!--loading 加载-->
+      <div class="loading">
+        <i class="el-icon-loading"></i>
+        <el-button class="more btn-02">read more</el-button>
+      </div>
+    </div>
+
+    <div v-show="isHalf">
+      <el-backtop target="" :bottom="100">
+        <div
+          style="{
+        height: 100%;
+        width: 100%;
+        border-radius: 100%;
+        background-color: #0f95ff;
+        text-align: center;
+        line-height: 40px;
+        color: #ffffff;
+      }"
+        >
+          <i class="el-icon-arrow-up"></i>
+        </div>
+      </el-backtop>
     </div>
   </div>
 </template>
@@ -48,20 +70,29 @@
             newWaterfallData: '',
             waterfallDataNumber:'',
             list: [
-              {id: 1, name: 'hah', src: require("../../assets/images/artworks/content/1.jpeg"),width:320,height:456},
-              {id: 2, name: 'hah', src: require("../../assets/images/artworks/content/2.jpeg"),width:320,height:426},
-              {id: 3, name: 'hah', src: require("../../assets/images/artworks/content/3.jpeg"),width:320,height:303},
-              {id: 4, name: 'hah', src: require("../../assets/images/artworks/content/4.jpeg"),width:320,height:456},
-              {id: 5, name: 'hah', src: require("../../assets/images/artworks/content/5.jpeg"),width:320,height:456},
-              {id: 6, name: 'hah', src: require("../../assets/images/artworks/content/6.png"),width:320,height:426},
-              {id: 7, name: 'hah', src: require("../../assets/images/artworks/content/7.jpeg"),width:320,height:303},
-              {id: 8, name: 'hah', src: require("../../assets/images/artworks/content/8.jpeg"),width:320,height:456},
+              {id: 1, name: 'hah', src: require("../../assets/images/artworks/content/1.jpeg")},
+              {id: 2, name: 'hah', src: require("../../assets/images/artworks/content/2.jpeg")},
+              {id: 3, name: 'hah', src: require("../../assets/images/artworks/content/3.jpeg")},
+              {id: 4, name: 'hah', src: require("../../assets/images/artworks/content/4.jpeg")},
+              {id: 5, name: 'hah', src: require("../../assets/images/artworks/content/5.jpeg")},
+              {id: 6, name: 'hah', src: require("../../assets/images/artworks/content/6.png")},
+              {id: 7, name: 'hah', src: require("../../assets/images/artworks/content/7.jpeg")},
+              {id: 8, name: 'hah', src: require("../../assets/images/artworks/content/8.jpeg")},
+              {id: 9, name: 'hah', src: require("../../assets/images/artworks/content/9.jpeg")},
+              {id: 10, name: 'hah', src: require("../../assets/images/artworks/content/10.jpeg")},
+              {id: 11, name: 'hah', src: require("../../assets/images/artworks/content/11.jpeg")},
+              {id: 12, name: 'hah', src: require("../../assets/images/artworks/content/12.jpeg")},
+              {id: 13, name: 'hah', src: require("../../assets/images/artworks/content/13.jpeg")},
+              {id: 14, name: 'hah', src: require("../../assets/images/artworks/content/14.jpeg")},
+              {id: 15, name: 'hah', src: require("../../assets/images/artworks/content/15.jpeg")},
+              {id: 16, name: 'hah', src: require("../../assets/images/artworks/content/16.jpeg")},
             ]
           }
         },
       computed: {
         ...mapGetters([
-          'isShowModel'
+          'isShowModel',
+          'isHalf'
         ]),
       },
       created() {
@@ -90,9 +121,11 @@
         //  显示艺术作者详细内容
         ShowModel_ArtworkDetail_Func (index) {
             // 根据点击的图片ID值，向后端发送那个请求，得到的数据，存储到model渲染
-            console.log(index)
+            // console.log(index)
           this.ShowModel(!this.isShowModel)
-        }
+        },
+        // loading 加载
+
       }
     }
 </script>
@@ -146,10 +179,24 @@
 
   .content {
     .waterfall {
+      clear: both;
       width: 1280px;
       margin: 0 auto;
       -webkit-animation: show .5s linear;
       animation: show .5s linear;
+    }
+    .loading {
+      width: 100%;
+      text-align: center;
+    }
+    .more {
+      text-transform: capitalize;
+      width: 200px;
+      font-size: 16px;
+    }
+    .more:hover {
+      background-color: #4292e3;
+      color: white;
     }
   }
 
@@ -162,16 +209,6 @@
     background: #fff;
     cursor: pointer;
     box-shadow: 0 0 11.44px 1.56px rgba(0,0,70,.05);
-    .img-outer {
-      width: 290px;
-      margin: 10px;
-      cursor: pointer;
-      border-radius: 4px;
-      .img-inner {
-        width: 100%;
-        height: 100%;
-        vertical-align: middle;
-      }
     }
     .work-info {
       position: relative;
@@ -219,6 +256,14 @@
         height: 20px;
         background-image: url("../../assets/images/artworks/content/收藏.svg");
       }
-    }
+
+  }
+</style>
+
+
+<style scoped>
+  .loading >>> .el-icon-loading:before {
+    content: "\e6cf";
+    font-size: 30px;
   }
 </style>

@@ -25,7 +25,7 @@
 </template>
 
 <script>
-  import { mapGetters } from 'vuex'
+  import { mapGetters, mapActions} from 'vuex'
 
   import Login from '../components/model/Login-model'
   // 测试
@@ -59,6 +59,24 @@
         if (process.client) {
           //  离开时销毁title
           document.title = ''
+        }
+        window.removeEventListener('scroll', this.handleScroll)
+      },
+      mounted () {
+        window.addEventListener('scroll',this.handleScroll) // 监听滚动事件，然后用handleScroll这个方法进行相应的处理
+      },
+      methods:{
+          ...mapActions([
+            'is_Half'
+          ]),
+        handleScroll(){
+          let screenHeight = window.screen.height
+          let scrollTop = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop // 滚动条偏移量
+          let half = screenHeight/2
+          // 如果超过一半页面距
+          if (scrollTop > half) {
+            this.is_Half(true)
+          }
         }
       }
     }
