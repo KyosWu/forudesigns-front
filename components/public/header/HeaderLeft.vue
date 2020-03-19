@@ -312,7 +312,7 @@
   @import '../../../assets/css/public/header/left.scss';
   .the-logo_link {
     width: 50px;
-    height: 50px;
+    /*height: 50px;*/
     border-radius: 50%;
     @include common_img_center_contain;
   }

@@ -92,12 +92,12 @@ export default {
     */
     extend (config, ctx) {
     },
-    postcss: [
-      require("postcss-px2rem")({
-        remUnit: 192
-      }),
-      require('autoprefixer')
-    ],
+    // postcss: [
+    //   require("postcss-px2rem")({
+    //     remUnit: 192
+    //   }),
+    //   require('autoprefixer')
+    // ],
     vendor: ['axios'] // 为防止重复打包
   }
 }
