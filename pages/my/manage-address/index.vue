@@ -8,20 +8,20 @@
           enter-active-class="animated fadeIn"
           leave-active-class="animated fadeOut"
         >
-          <el-checkbox v-model="checked" v-if="ismanage">All</el-checkbox>
+          <el-checkbox v-model="checked" v-if="isManage">All</el-checkbox>
         </transition>
         <transition
           enter-active-class="animated fadeIn"
           leave-active-class="animated fadeOut"
         >
-          <span class="manage-address__tools__delete" v-if="ismanage">
+          <span class="manage-address__tools__delete" v-if="isManage">
           <i class="el-icon-delete"></i>
           Delete
         </span>
         </transition>
 
-        <el-button class="btn-01" @click="no_manage_func" v-if="ismanage">Cancel</el-button>
-        <el-button class="btn-01" @click="manage_func" v-if="!ismanage">Manage</el-button>
+        <el-button class="btn-01" @click="no_manage_func" v-if="isManage">Cancel</el-button>
+        <el-button class="btn-01" @click="manage_func" v-if="!isManage">Manage</el-button>
         <el-button class="btn-01" @click="add_address_func">Add Address</el-button>
       </div>
       <!--数据组-->
@@ -59,22 +59,28 @@
             width="350">
             <template slot-scope="scope">
               <el-button
-   el-button
-   size="mini"
+                 el-button
+                 size="mini"
                 @click="handleEdit(scope.$index, scope.row)">Edit</el-button>
               <el-button
                 size="mini"
                 type="danger"
                 @click="handleDelete(scope.$index, scope.row)">Delete</el-button>
               <el-button
+                v-if="scope.$index !== tableIndex"
                 size="mini"
                 type="danger"
                 @click="handleDefault(scope.$index, scope.row)">Select As Default</el-button>
+              <el-button
+                v-if="scope.$index === tableIndex"
+                size="mini"
+                disabled>Default Address</el-button>
+
               <transition
                 enter-active-class="animated fadeIn"
                 leave-active-class="animated fadeOut"
               >
-                <el-checkbox v-model="checked" v-if="ismanage"></el-checkbox>
+                <el-checkbox v-model="checked" v-if="isManage"></el-checkbox>
               </transition>
             </template>
           </el-table-column>
@@ -82,11 +88,18 @@
 
       </div>
       <!--分页-->
+      <!--<div class="page">-->
+        <!--<el-pagination-->
+          <!--@size-change="handleSizeChange"-->
+          <!--@current-change="handleCurrentChange"-->
+          <!--:current-page.sync="currentPage3"-->
+          <!--:page-size="100"-->
+          <!--layout="prev, pager, next, jumper"-->
+          <!--:total="100">-->
+        <!--</el-pagination>-->
+      <!--</div>-->
       <div class="page">
         <el-pagination
-          @size-change="handleSizeChange"
-          @current-change="handleCurrentChange"
-          :current-page.sync="currentPage3"
           :page-size="100"
           layout="prev, pager, next, jumper"
           :total="100">
@@ -98,16 +111,21 @@
     <transition
       enter-active-class="animated fadeIn"
       leave-active-class="animated fadeOut">
-      <Address v-if="isaddress"/>
+      <Address v-if="isAddress"/>
     </transition>
 
     <!--delete消息通知-->
-    <Messages v-if="ismessage"/>
+    <transition
+    name="message">
+      <Messages v-if="isMessage" :tableData="tableData"/>
+    </transition>
+
 
   </div>
 </template>
 
 <script>
+  import { mapGetters, mapActions } from 'vuex'
   import Messages from '../../../components/model/message-box'
   import Address from '../../../components/my/Address'
     export default {
@@ -119,51 +137,64 @@
       data () {
           return {
             tableData: [{
-              name: '王小虎',
-              address: '上海市普陀区金沙江路 1518 弄',
+              name: 'Henry',
+              address: 'Beijing chaoyang',
               phone: '2016-05-02',
               zipcode: '123'
             }, {
-              name: '王小虎',
-              address: '上海市普陀区金沙江路 1518 弄',
+              name: 'Tom',
+              address: 'Shanghai jinsha',
               phone: '2016-05-02',
               zipcode: '123'
             }],
-            isaddress: false,
-            ismessage: false,
-            ismanage: false,
-            checked: true
+            checked: false,
           }
       },
+      computed: {
+        ...mapGetters([
+          'isAddress',
+          'isMessage',
+          'isManage',
+          'isConfirm',
+          'tableIndex'
+        ])
+      },
       methods: {
+          ...mapActions([
+            'set_address',
+            'set_message',
+            'set_manage',
+            'set_default'
+          ]),
         //  取消修改
         no_manage_func () {
-          this.ismanage = !this.ismanage
+          this.set_manage(false)
         },
         //  管理地址
         manage_func () {
-          this.ismanage = !this.ismanage
+          this.set_manage(true)
         },
         // 添加新地址
         add_address_func () {
-          this.isaddress  = !this.isaddress
+          this.set_address(true)
         },
         //  修改地址
         handleEdit () {
-          this.isaddress  = !this.isaddress
+          this.set_address(true)
         },
         // 删除地址
-        handleDelete () {
-          this.ismessage  = !this.ismessage
+        handleDelete (index) {
+          this.set_message([true, index])
         },
       //  设置默认地址
-        handleDefault () {
+        handleDefault (index) {
+          this.set_default(index)
           this.$message({
             type: 'success',
             dangerouslyUseHTMLString: true,
             showClose: true,
             message: 'Successful'
-          });
+          })
         }
       }
     }
@@ -205,6 +236,17 @@
     color: #40354e;
     font-size: 20px;
     font-weight: 700;
+  }
+  .message-enter-active {
+    transition: all .3s ease;
+  }
+  .message-leave-active {
+    transition: all .8s cubic-bezier(1.0, 0.5, 0.8, 1.0);
+  }
+  .message-enter, .message-leave-to
+    /* .slide-fade-leave-active for below version 2.1.8 */ {
+    transform: translateY(-10px);
+    opacity: 0;
   }
 </style>
 

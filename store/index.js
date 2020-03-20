@@ -11,6 +11,8 @@ import login from './modules/login'
 import nav from './modules/nav'
 // 商品cards
 import cards from './modules/cards'
+// my 我的和人中心
+import my from './modules/my'
 
 Vue.use(Vuex)
 
@@ -19,7 +21,8 @@ const modules = {
   title,
   login,
   nav,
-  cards
+  cards,
+  my
 }
 
 const store = () => {  // 返回store为一个函数就行了

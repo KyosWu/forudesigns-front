@@ -11,7 +11,7 @@
                 <h2 class="menu-list__title">My Account</h2>
                 <ul class="menu-list__list">
                   <!--一共13个li display none 为artist 才拥有 -->
-                  <li style="display: none;"><nuxt-link to="/my/dashboard">dashboard</nuxt-link></li>
+<!--                  <li style="display: none;"><nuxt-link to="/my/dashboard">dashboard</nuxt-link></li>
                   <li style="display: none;"><nuxt-link to="/my/wallet">My Wallet</nuxt-link></li>
                   <li style="display: none;"><nuxt-link to="/my/images">My Images</nuxt-link></li>
                   <li style="display: none;"><nuxt-link to="/my/products">My Products</nuxt-link></li>
@@ -23,7 +23,15 @@
                   <li style="display: none"><nuxt-link to="/my/homepage">Artist Homepage</nuxt-link></li>
                   <li><nuxt-link to="/my/security">Security</nuxt-link></li>
                   <li><nuxt-link to="/my/message">Notification Center</nuxt-link></li>
-                  <li><nuxt-link to="/my/setting">Notification Settings</nuxt-link></li>
+                  <li><nuxt-link to="/my/setting">Notification Settings</nuxt-link></li>-->
+                  <li  v-for="(item, index) in list" :key="index"
+                       @click="chooseitem(index)">
+                    <nuxt-link :to="item.to"
+                               class="all"
+                               :class="{active: chooseindex === index}">
+                      {{item.name}}
+                    </nuxt-link>
+                  </li>
                 </ul>
               </div>
             </div>
@@ -46,6 +54,20 @@
   export default {
     // 中间件测试
     middleware: 'test',
+    data () {
+      return {
+        list: [
+          {to: '/my', name: 'My Profile'},
+          {to: '/my/viewed', name: 'My Viewed'},
+          {to: '/my/collections', name: 'My Collection'},
+          {to: '/my/orders', name: 'My Orders'},
+          {to: '/my/security', name: 'Security'},
+          {to: '/my/message', name: 'Notification Center'},
+          {to: '/my/setting', name: 'Notification Settings'},
+        ],
+        chooseindex: 0
+      }
+    },
     computed: {
       ...mapGetters([
         'isModelShow'
@@ -54,6 +76,11 @@
     components:{
       MyHeader,
       MyFooter
+    },
+    methods: {
+      chooseitem (index) {
+        this.chooseindex = index
+      }
     }
   }
 </script>
@@ -114,5 +141,14 @@
         }
       }
     }
+  }
+
+  .active {
+    color: #4292e3!important;
+    font-weight: 700!important;
+  }
+  .all:hover {
+    color: #4292e3!important;
+    font-weight: 700!important;
   }
 </style>

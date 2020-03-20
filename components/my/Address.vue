@@ -2,7 +2,7 @@
   <div class="modal-wrap address-modal">
     <div class="modal">
       <h2 class="modal-title">Edit Address</h2>
-      <form action="" class="address-modal__form">
+      <form action="" v-model="tableForm" class="address-modal__form">
         <ul class="clear-both">
           <!--First Name-->
           <li class="item-group field">
@@ -12,6 +12,7 @@
             </label>
             <el-input id="first_name"
                       maxlength="50"
+                      v-model="tableForm.first_name"
                       show-word-limit></el-input>
           </li>
           <!--Last Name-->
@@ -22,6 +23,7 @@
             </label>
             <el-input id="last_name"
                       maxlength="50"
+                      v-model="tableForm.last_name"
                       show-word-limit></el-input>
           </li>
           <!--Phone-->
@@ -32,6 +34,7 @@
             </label>
             <el-input id="phone-number"
                       maxlength="50"
+                      v-model="tableForm.phone"
                       show-word-limit></el-input>
           </li>
           <!--email-->
@@ -42,6 +45,7 @@
             </label>
             <el-input id="email"
                       maxlength="50"
+                      v-model="tableForm.email"
                       show-word-limit></el-input>
           </li>
           <!--Country-->
@@ -50,9 +54,9 @@
               Country
               <span class="red">*</span>
             </label>
-            <el-select v-model="country_value" placeholder="请选择">
+            <el-select v-model="tableForm.country" placeholder="请选择">
               <el-option
-                v-for="item in countries"
+                v-for="item in country"
                 :key="item.value"
                 :label="item.label"
                 :value="item.value">
@@ -65,9 +69,9 @@
               State
               <span class="red">*</span>
             </label>
-            <el-select v-model="country_value" placeholder="请选择">
+            <el-select v-model="tableForm.state" placeholder="请选择">
               <el-option
-                v-for="item in countries"
+                v-for="item in state"
                 :key="item.value"
                 :label="item.label"
                 :value="item.value">
@@ -82,41 +86,80 @@
             </label>
             <el-input id="city"
                       maxlength="100"
+                      v-model="tableForm.city"
                       show-word-limit></el-input>
           </li>
           <!--zip code-->
           <li class="item-group field">
             <label for="zip-code" class="personal-label">
-              Email
+              Zip Code
               <span class="red">*</span>
             </label>
             <el-input id="zip-code"
                       maxlength="8"
+                      v-model="tableForm.zip_code"
                       show-word-limit></el-input>
           </li>
           <!--Address-->
           <li class="textarea field">
             <label for="address" class="personal-label">
-              Email
+              Address
               <span class="red">*</span>
             </label>
             <el-input id="address" type="textarea"
                       maxlength="255"
+                      v-model="tableForm.address"
                       show-word-limit></el-input>
           </li>
         </ul>
       </form>
       <div class="tools">
-        <el-button class="btn-02">Cancel</el-button>
-        <el-button class="btn-01">Confirm</el-button>
+        <el-button class="btn-02" @click="cancel">Cancel</el-button>
+        <el-button class="btn-01" @click="confirm">Confirm</el-button>
       </div>
     </div>
   </div>
 </template>
 
 <script>
+  // 表单里的数据建议重新发送后台请求数据，根据父组件传来的用户ID请求
+  import { mapActions } from 'vuex'
     export default {
-        name: "Address"
+        name: "Address",
+      data () {
+        return {
+          tableForm: {
+            first_name: '',
+            last_name: '',
+            phone: '',
+            email: '',
+            country: '',
+            state: '',
+            city: '',
+            zip_code: '',
+            address: '',
+          },
+          country: [
+            { value: '选项1', label: 'China'}
+          ],
+          state: [
+            { value: '选项1', label: 'Fujian'}
+          ],
+        }
+      },
+      methods: {
+        ...mapActions([
+          'set_address',
+        ]),
+        //  取消添加
+        cancel () {
+          this.set_address(false)
+        },
+      //  确认添加
+        confirm () {
+          this.set_address(false)
+        }
+      }
     }
 </script>
 

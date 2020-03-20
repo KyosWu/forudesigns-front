@@ -1,7 +1,7 @@
 <template>
   <div class="message-box">
     <div class="message-box-wrap">
-      <span class="message-box-close">
+      <span class="message-box-close" @click="close">
         <i class="el-icon-close"></i>
       </span>
       <div class="message-box-title">
@@ -18,14 +18,13 @@
       </div>
       <div class="message-box-botttom">
         <div class="message-box-btns">
-          <el-button class="btn-01">
+          <el-button class="btn-01" @click="confirm">
             Confirm
           </el-button>
-          <el-button class="btn-02">
+          <el-button class="btn-02" @click="cancel">
             Cancel
           </el-button>
         </div>
-
       </div>
     </div>
   </div>
@@ -33,8 +32,35 @@
 </template>
 
 <script>
+  import { mapGetters, mapActions } from 'vuex'
     export default {
-        name: "message-box"
+    props:["tableData"],
+        name: "index",
+      computed: {
+        ...mapGetters([
+          'tableIndex'
+        ])
+      },
+      methods: {
+        ...mapActions([
+          'set_message',
+          'set_confirm',
+        ]),
+        //  取消
+        close () {
+          this.set_message(false)
+        },
+        //  取消
+        cancel () {
+          this.set_message(false)
+        },
+        //  确认删除
+        confirm () {
+          this.tableData.splice(this.tableIndex, 1)
+          this.set_confirm(true)
+          this.set_message(false)
+        }
+      }
     }
 </script>
 
