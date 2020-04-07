@@ -3,12 +3,12 @@
     <transition
       name="search"
       enter-active-class="animated fadeIn">
-      <div class="el-input" style="display: block;" v-if="issearch"
-           :class="{active: issearch2}">
-        <input type="text" autocomplete="off"
-               placeholder="Enter the keyword of product likes High Top Shoes、Bottle Carrier Bag"
-               class="el-input__inner">
-      </div>
+        <el-input type="text" autocomplete="off"
+                  style="display: block;"
+                  v-if="issearch"
+                  :class="{active: issearch2}"
+               placeholder="Enter the keyword of product likes High Top Shoes、Bottle Carrier Bag">
+        </el-input>
     </transition>
 
     <div class="the-search_right">
@@ -43,21 +43,11 @@
   @import "../../../assets/css/public/header/center.scss";
   .the-search {
     position: relative;
-    width: 600px;
+    width: 30%;
     height: 40px;
     border-radius: 25px;
     overflow: hidden;
     @include common_center;
-    .el-input {
-      position: relative;
-      font-size: 14px;
-      display: inline-block;
-      width: 100%;
-      .el-input__inner {
-        padding-right: 50px;
-        border-radius: 25px;
-      }
-    }
   }
 
   .the-search_right {
@@ -82,5 +72,18 @@
   .active {
     margin-left: 600px;
     transition: margin-left 0.3s ease-in-out;
+  }
+</style>
+
+<style scoped>
+  .the-search >>> .el-input {
+    position: relative;
+    font-size: 14px;
+    display: inline-block;
+    width: 100%;
+    .el-input__inner {
+      padding-right: 50px;
+      border-radius: 25px;
+    }
   }
 </style>

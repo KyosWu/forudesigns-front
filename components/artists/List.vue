@@ -1,5 +1,5 @@
 <template>
-  <div class="artists-list">
+  <div class="artists-list" style="width: 1280px;">
     <div class="artists-list-content">
       <ul class="card-ul" style="width: 1280px">
         <li class="artist-card" v-for="(item, index) in list" :key="index" style="width: 413px;height: 228px;">
@@ -133,6 +133,66 @@
                   {src: require('../../assets/images/artists/list/4.jpeg')},
                 ]
               },
+              {
+                avatar: [
+                  {src: require('../../assets/images/artists/list/1.jpeg')}
+                ],
+                cards: [
+                  {src: require('../../assets/images/artists/list/2.jpeg')},
+                  {src: require('../../assets/images/artists/list/3.png')},
+                  {src: require('../../assets/images/artists/list/4.jpeg')},
+                ]
+              },
+              {
+                avatar: [
+                  {src: require('../../assets/images/artists/list/1.jpeg')}
+                ],
+                cards: [
+                  {src: require('../../assets/images/artists/list/2.jpeg')},
+                  {src: require('../../assets/images/artists/list/3.png')},
+                  {src: require('../../assets/images/artists/list/4.jpeg')},
+                ]
+              },
+              {
+                avatar: [
+                  {src: require('../../assets/images/artists/list/1.jpeg')}
+                ],
+                cards: [
+                  {src: require('../../assets/images/artists/list/2.jpeg')},
+                  {src: require('../../assets/images/artists/list/3.png')},
+                  {src: require('../../assets/images/artists/list/4.jpeg')},
+                ]
+              },
+              {
+                avatar: [
+                  {src: require('../../assets/images/artists/list/1.jpeg')}
+                ],
+                cards: [
+                  {src: require('../../assets/images/artists/list/2.jpeg')},
+                  {src: require('../../assets/images/artists/list/3.png')},
+                  {src: require('../../assets/images/artists/list/4.jpeg')},
+                ]
+              },
+              {
+                avatar: [
+                  {src: require('../../assets/images/artists/list/1.jpeg')}
+                ],
+                cards: [
+                  {src: require('../../assets/images/artists/list/2.jpeg')},
+                  {src: require('../../assets/images/artists/list/3.png')},
+                  {src: require('../../assets/images/artists/list/4.jpeg')},
+                ]
+              },
+              {
+                avatar: [
+                  {src: require('../../assets/images/artists/list/1.jpeg')}
+                ],
+                cards: [
+                  {src: require('../../assets/images/artists/list/2.jpeg')},
+                  {src: require('../../assets/images/artists/list/3.png')},
+                  {src: require('../../assets/images/artists/list/4.jpeg')},
+                ]
+              },
             ]
           }
       },
@@ -156,7 +216,7 @@
     width: 100%;
     padding: 47px 0 34px;
     .card-ul {
-      display: -webkit-box;
+      display: flex;
       /*display: flex;*/
       flex-wrap: wrap;
       width: 100%;

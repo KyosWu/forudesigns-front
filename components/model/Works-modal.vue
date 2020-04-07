@@ -142,6 +142,7 @@
     position: fixed;
     right: 0;
     left: 0;
+    bottom: 50%;
     margin: auto;
     background-color: white;
     @include common_center;

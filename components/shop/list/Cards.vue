@@ -119,6 +119,66 @@
                 name: 'red Mesh Heightening Rocking Shoes',
                 price: 2.5
               },
+              {
+                id: 9,
+                src: require('../../../assets/images/shop/list/cards/1.jpg'),
+                name: 'red Mesh Heightening Rocking Shoes',
+                price: 2.5
+              },
+              {
+                id: 10,
+                src: require('../../../assets/images/shop/list/cards/1.jpg'),
+                name: 'red Mesh Heightening Rocking Shoes',
+                price: 2.5
+              },
+              {
+                id: 11,
+                src: require('../../../assets/images/shop/list/cards/1.jpg'),
+                name: 'red Mesh Heightening Rocking Shoes',
+                price: 2.5
+              },
+              {
+                id: 12,
+                src: require('../../../assets/images/shop/list/cards/1.jpg'),
+                name: 'red Mesh Heightening Rocking Shoes',
+                price: 2.5
+              },
+              {
+                id: 13,
+                src: require('../../../assets/images/shop/list/cards/1.jpg'),
+                name: 'red Mesh Heightening Rocking Shoes',
+                price: 2.5
+              },
+              {
+                id: 14,
+                src: require('../../../assets/images/shop/list/cards/1.jpg'),
+                name: 'red Mesh Heightening Rocking Shoes',
+                price: 2.5
+              },
+              {
+                id: 15,
+                src: require('../../../assets/images/shop/list/cards/1.jpg'),
+                name: 'red Mesh Heightening Rocking Shoes',
+                price: 2.5
+              },
+              {
+                id: 16,
+                src: require('../../../assets/images/shop/list/cards/1.jpg'),
+                name: 'red Mesh Heightening Rocking Shoes',
+                price: 2.5
+              },
+              {
+                id: 17,
+                src: require('../../../assets/images/shop/list/cards/1.jpg'),
+                name: 'red Mesh Heightening Rocking Shoes',
+                price: 2.5
+              },
+              {
+                id: 18,
+                src: require('../../../assets/images/shop/list/cards/1.jpg'),
+                name: 'red Mesh Heightening Rocking Shoes',
+                price: 2.5
+              }
             ]
           }
         },
@@ -149,7 +209,7 @@
       flex-wrap: wrap;
       width: 100%;
       li {
-        margin: auto;
+        /*margin: auto;*/
         width: 250px;
         cursor: pointer;
         border-radius: 4px;

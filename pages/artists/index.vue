@@ -14,7 +14,7 @@
         <Search/>
         <List/>
         <JoinUs/>
-        <CardsPanel/>
+        <!--<CardsPanel/>-->
       </div>
     </main>
     <!--测试login登录框-->

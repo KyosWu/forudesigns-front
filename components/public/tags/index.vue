@@ -151,6 +151,7 @@
     width: 1280px;
     max-width: 1280px;
     height: 58px;
+    line-height: 1px;
     margin: 10px auto;
     background: #fff;
     .tags {

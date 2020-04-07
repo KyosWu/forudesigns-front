@@ -2,6 +2,7 @@
   <div>
     <header class="header-wrapper">
       <div class="header-inner-wrapper">
+        <!--logo 部分-->
         <div class="the-logo">
           <nuxt-link to="/" class="logo-link">
             <img src="../../../assets/images/public/my.jpg" alt="">
@@ -17,14 +18,16 @@
         <div class="right-dropdown">
           <div class="language-swicher">
             <el-dropdown>
-            <span class="el-dropdown-link">
-              English<i class="el-icon-arrow-down el-icon--right"></i>
-            </span>
-              <el-dropdown-menu slot="dropdown">
-                <el-dropdown-item>English</el-dropdown-item>
-                <el-dropdown-item>中外文</el-dropdown-item>
-                <el-dropdown-item>日本语</el-dropdown-item>
-              </el-dropdown-menu>
+              <span class="el-dropdown-link">
+                English
+                <i class="el-icon-arrow-down el-icon--right">
+                </i>
+              </span>
+                <el-dropdown-menu slot="dropdown">
+                  <el-dropdown-item>English</el-dropdown-item>
+                  <el-dropdown-item>中外文</el-dropdown-item>
+                  <el-dropdown-item>日本语</el-dropdown-item>
+                </el-dropdown-menu>
             </el-dropdown>
           </div>
           <div class="login-btn">
@@ -303,7 +306,7 @@
         white-space: nowrap;
         a {
           text-decoration: none;
-          color: #4292e3;
+          /*color: #4292e3;*/
           img {
             width: 33px;
             height: 33px;
@@ -313,11 +316,9 @@
           margin-right: 5px;
         }
         .web-name {
-          a {
-            color: #40354e!important;
-            font-size: 22px;
-            font-weight: 700;
-          }
+          color: #40354e!important;
+          font-size: 22px;
+          font-weight: 700;
         }
       }
       .right-dropdown {
@@ -326,6 +327,10 @@
         -webkit-box-align: center;
         align-items: center;
         height: 100%;
+        line-height: 20px;
+        .language-swicher {
+          margin: 0 20px;
+        }
         .login-btn {
           button {
             padding: 5px 9px;
@@ -452,10 +457,13 @@
           padding: 40px 50px 0;
           border-radius: 4px;
           background: #4292e3;
+          /*flex: 4;*/
           li {
             float: left;
             width: 231px;
+            /*flex: 1;*/
             margin-right: 19px;
+            font-size: 14px;
             .num {
               overflow: hidden;
               width: 40px;
@@ -465,15 +473,14 @@
               color: #4292e3;
               border-radius: 20px;
               background: #fff;
-              font-size: 26px;
+              font-size: 22px;
             }
             h4 {
-              display: block;
-              margin-block-start: 1.33em;
-              margin-block-end: 1.33em;
-              margin-inline-start: 0px;
-              margin-inline-end: 0px;
-              font-weight: bold;
+              margin-bottom: 10px;
+              text-transform: uppercase;
+              text-align: left;
+              color: #fff;
+              font-size: 21px;
             }
             p {
               text-align: left;

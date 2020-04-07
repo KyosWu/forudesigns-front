@@ -1,5 +1,5 @@
 <template>
-    <main class="banner-layout__main">
+    <main class="banner-layout__main" style="width: 100%">
       <div class="banner">
         <nuxt-link to="">
           <div class="banner-image" style="width: 1920px; height: 245px;">
@@ -11,7 +11,7 @@
         <div class="clear-both">
           <!--tags标签-->
           <Tags/>
-          <div style="display: flex">
+          <div style="display: flex; margin: 10px">
             <!--分类框-->
             <Collapse/>
             <!--list商品主目录-->
@@ -86,10 +86,12 @@
     }
   }
   .banner-layout__main {
+    min-width: 1280px;
     padding-bottom: 20px;
   }
   .banner-layout__content {
     width: 1280px;
     margin: 0 auto;
+    min-height: 70%;
   }
 </style>

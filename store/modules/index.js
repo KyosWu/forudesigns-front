@@ -1,7 +1,10 @@
 // import api from '../../api/viewed'
 import {
   SHOW_MODEL,
-  SHOW_MODEL_LOGIN_OR_REGISTER
+  SHOW_MODEL_LOGIN_OR_REGISTER,
+  ISTOP,
+  ISHALF,
+  ISMOBILE
 } from '../mutation-types'
 
 const state = {
@@ -10,15 +13,18 @@ const state = {
   isShowLoginOrRegisterModel: false,
   //返回顶部
   isTop: '',
-//  超过页面一半距离
-  isHalf: ''
+  // 超过页面一半距离
+  isHalf: '',
+  // 移动端
+  isMobile: ''
 }
 
 const getters = {
   isShowModel: state => state.isShowModel,
   isShowLoginOrRegisterModel: state => state.isShowLoginOrRegisterModel,
   isTop: state => state.isTop,
-  isHalf: state => state.isHalf
+  isHalf: state => state.isHalf,
+  isMobile: state => state.isMobile
 }
 
 const mutations = {
@@ -28,12 +34,15 @@ const mutations = {
   [SHOW_MODEL_LOGIN_OR_REGISTER] (state, data) {
     state.isShowLoginOrRegisterModel = data
   },
-  ISTOP (state, params) {
+  [ISTOP] (state, params) {
     state.isTop = params
   },
-  ISHALF (state, params) {
+  [ISHALF] (state, params) {
     state.isHalf = params
-  }
+  },
+  [ISMOBILE](state, params) {
+    state.isMobile = params
+  },
 }
 
 const actions = {

@@ -42,6 +42,18 @@
               {src: require('../../../assets/images/shop/list/cards/1.jpg'), name: 'red Mesh Heightening Rocking Shoes', price: 2.5},
               {src: require('../../../assets/images/shop/list/cards/1.jpg'), name: 'red Mesh Heightening Rocking Shoes', price: 2.5},
               {src: require('../../../assets/images/shop/list/cards/1.jpg'), name: 'red Mesh Heightening Rocking Shoes', price: 2.5},
+              {src: require('../../../assets/images/shop/list/cards/1.jpg'), name: 'red Mesh Heightening Rocking Shoes', price: 2.5},
+              {src: require('../../../assets/images/shop/list/cards/1.jpg'), name: 'red Mesh Heightening Rocking Shoes', price: 2.5},
+              {src: require('../../../assets/images/shop/list/cards/1.jpg'), name: 'red Mesh Heightening Rocking Shoes', price: 2.5},
+              {src: require('../../../assets/images/shop/list/cards/1.jpg'), name: 'red Mesh Heightening Rocking Shoes', price: 2.5},
+              {src: require('../../../assets/images/shop/list/cards/1.jpg'), name: 'red Mesh Heightening Rocking Shoes', price: 2.5},
+              {src: require('../../../assets/images/shop/list/cards/1.jpg'), name: 'red Mesh Heightening Rocking Shoes', price: 2.5},
+              {src: require('../../../assets/images/shop/list/cards/1.jpg'), name: 'red Mesh Heightening Rocking Shoes', price: 2.5},
+              {src: require('../../../assets/images/shop/list/cards/1.jpg'), name: 'red Mesh Heightening Rocking Shoes', price: 2.5},
+              {src: require('../../../assets/images/shop/list/cards/1.jpg'), name: 'red Mesh Heightening Rocking Shoes', price: 2.5},
+              {src: require('../../../assets/images/shop/list/cards/1.jpg'), name: 'red Mesh Heightening Rocking Shoes', price: 2.5},
+              {src: require('../../../assets/images/shop/list/cards/1.jpg'), name: 'red Mesh Heightening Rocking Shoes', price: 2.5},
+              {src: require('../../../assets/images/shop/list/cards/1.jpg'), name: 'red Mesh Heightening Rocking Shoes', price: 2.5}
             ]
           }
         }
@@ -77,7 +89,6 @@
   }
 
   .img-wrap {
-    display: -webkit-inline-box;
     display: inline-flex;
     overflow: hidden;
     -webkit-box-pack: center;

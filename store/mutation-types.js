@@ -19,3 +19,8 @@ export const BUSINESS_HEAD_TITLE = 'BUSINESS_HEAD_TITLE';
 export const CART_HEAD_TITLE = 'CART_HEAD_TITLE';
 export const ARTIST_USERS_HEAD_TITLE = 'ARTIST_USERS_HEAD_TITLE';
 
+
+export const ISTOP = 'ISTOP';
+export const ISHALF = 'ISHALF';
+// 是是移动端
+export const ISMOBILE = 'ISMOBILE';

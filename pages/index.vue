@@ -1,6 +1,6 @@
 <template>
   <main class="defalut-layout__main">
-    <div>
+    <div class="home-wrapper clear-both">
       <!--首页轮播图区域-->
       <Carousel/>
       <!--collections-->
@@ -31,13 +31,6 @@ export default {
     ...mapGetters([
       'Index_Head_Title'
     ])
-  },
-  created () {
-    //  需要判断是否是客户端
-    if (process.client) {
-      // 进入前创造title
-      document.title = this.Index_Head_Title
-    }
   },
   destroyed() {
     //  需要判断是否是客户端

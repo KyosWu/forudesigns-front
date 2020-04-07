@@ -36,6 +36,7 @@
 
 <style lang="scss" scoped>
   .the-footer {
+    bottom: 0;
     width: 100%;
     min-width: 1280px;
     padding-top: 40px;

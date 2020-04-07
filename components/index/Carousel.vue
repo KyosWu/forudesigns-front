@@ -1,13 +1,11 @@
 <template>
-  <div class="foru-carousel" style="height: 480px">
-    <div class="block">
-      <el-carousel trigger="click" height="480px" :autoplay="true">
-        <el-carousel-item v-for="(item,index) in list" :key="index">
-          <img v-lazy="item.src" alt="">
+  <div class="carousel" style="width: 100%">
+      <el-carousel trigger="click" style="height: 100%" :autoplay="false">
+        <el-carousel-item v-for="(item,index) in list" :key="index" class="img-outer">
+          <img v-lazy="item.src" alt="" class="img-inner">
         </el-carousel-item>
       </el-carousel>
     </div>
-  </div>
 </template>
 
 <script>
@@ -28,8 +26,9 @@
 </script>
 
 <style>
-  .foru-carousel {
+  .carousel {
     height: 480px;
+    min-width: 1280px;
     background: #e6e6e6;
   }
   .el-carousel__button {
@@ -39,5 +38,8 @@
     border-radius: 4px;
     outline: none;
     background: #fff;
+  }
+  .el-carousel__container {
+    height: 100%;
   }
 </style>

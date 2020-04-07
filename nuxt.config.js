@@ -1,6 +1,7 @@
 
 export default {
-  mode: 'universal',
+  // mode: 'universal',
+  mode: 'spa',
   /*
   ** Headers of the page
   */
@@ -81,6 +82,10 @@ export default {
         '^/api': '', //将 /api 替换掉
       }
     }
+  },
+  server: {
+    port: 3000, // default: 3000
+    host: '0.0.0.0', // default: localhost,
   },
   /*
   ** Build configuration
