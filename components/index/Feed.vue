@@ -37,302 +37,324 @@
 </template>
 
 <script>
-    export default {
-        name: "feed",
-        data () {
-          return {
-            list: [
-              {
-                all: [
-                  {all2: [
-                      {conner: [
-                          {src: require("../../assets/images/index/feed/1.jpeg")},
-                          {src: require("../../assets/images/index/feed/2.jpeg")},
-                          {src: require("../../assets/images/index/feed/3.jpeg")},
-                          {src: require("../../assets/images/index/feed/4.jpeg")}
-                        ],
-                        center: [
-                          {src: require("../../assets/images/index/feed/5.jpeg")},
-                        ]}
-                    ]},
-                  {all2: [
-                      {conner: [
-                          {src: require("../../assets/images/index/feed/1.jpeg")},
-                          {src: require("../../assets/images/index/feed/2.jpeg")},
-                          {src: require("../../assets/images/index/feed/3.jpeg")},
-                          {src: require("../../assets/images/index/feed/4.jpeg")}
-                        ],
-                        center: [
-                          {src: require("../../assets/images/index/feed/5.jpeg")},
-                        ]}
-                    ]},
-                  {all2: [
-                      {conner: [
-                          {src: require("../../assets/images/index/feed/1.jpeg")},
-                          {src: require("../../assets/images/index/feed/2.jpeg")},
-                          {src: require("../../assets/images/index/feed/3.jpeg")},
-                          {src: require("../../assets/images/index/feed/4.jpeg")}
-                        ],
-                        center: [
-                          {src: require("../../assets/images/index/feed/5.jpeg")},
-                        ]}
-                    ]},
-                  {all2: [
-                      {conner: [
-                          {src: require("../../assets/images/index/feed/1.jpeg")},
-                          {src: require("../../assets/images/index/feed/2.jpeg")},
-                          {src: require("../../assets/images/index/feed/3.jpeg")},
-                          {src: require("../../assets/images/index/feed/4.jpeg")}
-                        ],
-                        center: [
-                          {src: require("../../assets/images/index/feed/5.jpeg")},
-                        ]}
-                    ]},
-                  {all2: [
-                      {conner: [
-                          {src: require("../../assets/images/index/feed/1.jpeg")},
-                          {src: require("../../assets/images/index/feed/2.jpeg")},
-                          {src: require("../../assets/images/index/feed/3.jpeg")},
-                          {src: require("../../assets/images/index/feed/4.jpeg")}
-                        ],
-                        center: [
-                          {src: require("../../assets/images/index/feed/5.jpeg")},
-                        ]}
-                    ]},
-                  {all2: [
-                      {conner: [
-                          {src: require("../../assets/images/index/feed/1.jpeg")},
-                          {src: require("../../assets/images/index/feed/2.jpeg")},
-                          {src: require("../../assets/images/index/feed/3.jpeg")},
-                          {src: require("../../assets/images/index/feed/4.jpeg")}
-                        ],
-                        center: [
-                          {src: require("../../assets/images/index/feed/5.jpeg")},
-                        ]}
-                    ]},
-                  {all2: [
-                      {conner: [
-                          {src: require("../../assets/images/index/feed/1.jpeg")},
-                          {src: require("../../assets/images/index/feed/2.jpeg")},
-                          {src: require("../../assets/images/index/feed/3.jpeg")},
-                          {src: require("../../assets/images/index/feed/4.jpeg")}
-                        ],
-                        center: [
-                          {src: require("../../assets/images/index/feed/5.jpeg")},
-                        ]}
-                    ]},
-                  {all2: [
-                      {conner: [
-                          {src: require("../../assets/images/index/feed/1.jpeg")},
-                          {src: require("../../assets/images/index/feed/2.jpeg")},
-                          {src: require("../../assets/images/index/feed/3.jpeg")},
-                          {src: require("../../assets/images/index/feed/4.jpeg")}
-                        ],
-                        center: [
-                          {src: require("../../assets/images/index/feed/5.jpeg")},
-                        ]}
-                    ]}
-                ],
-              },
-              {
-                all: [
-                  {all2: [
-                      {conner: [
-                          {src: require("../../assets/images/index/feed/1.jpeg")},
-                          {src: require("../../assets/images/index/feed/2.jpeg")},
-                          {src: require("../../assets/images/index/feed/3.jpeg")},
-                          {src: require("../../assets/images/index/feed/4.jpeg")}
-                        ],
-                        center: [
-                          {src: require("../../assets/images/index/feed/5.jpeg")},
-                        ]}
-                    ]},
-                  {all2: [
-                      {conner: [
-                          {src: require("../../assets/images/index/feed/1.jpeg")},
-                          {src: require("../../assets/images/index/feed/2.jpeg")},
-                          {src: require("../../assets/images/index/feed/3.jpeg")},
-                          {src: require("../../assets/images/index/feed/4.jpeg")}
-                        ],
-                        center: [
-                          {src: require("../../assets/images/index/feed/5.jpeg")},
-                        ]}
-                    ]},
-                  {all2: [
-                      {conner: [
-                          {src: require("../../assets/images/index/feed/1.jpeg")},
-                          {src: require("../../assets/images/index/feed/2.jpeg")},
-                          {src: require("../../assets/images/index/feed/3.jpeg")},
-                          {src: require("../../assets/images/index/feed/4.jpeg")}
-                        ],
-                        center: [
-                          {src: require("../../assets/images/index/feed/5.jpeg")},
-                        ]}
-                    ]},
-                  {all2: [
-                      {conner: [
-                          {src: require("../../assets/images/index/feed/1.jpeg")},
-                          {src: require("../../assets/images/index/feed/2.jpeg")},
-                          {src: require("../../assets/images/index/feed/3.jpeg")},
-                          {src: require("../../assets/images/index/feed/4.jpeg")}
-                        ],
-                        center: [
-                          {src: require("../../assets/images/index/feed/5.jpeg")},
-                        ]}
-                    ]},
-                  {all2: [
-                      {conner: [
-                          {src: require("../../assets/images/index/feed/1.jpeg")},
-                          {src: require("../../assets/images/index/feed/2.jpeg")},
-                          {src: require("../../assets/images/index/feed/3.jpeg")},
-                          {src: require("../../assets/images/index/feed/4.jpeg")}
-                        ],
-                        center: [
-                          {src: require("../../assets/images/index/feed/5.jpeg")},
-                        ]}
-                    ]},
-                  {all2: [
-                      {conner: [
-                          {src: require("../../assets/images/index/feed/1.jpeg")},
-                          {src: require("../../assets/images/index/feed/2.jpeg")},
-                          {src: require("../../assets/images/index/feed/3.jpeg")},
-                          {src: require("../../assets/images/index/feed/4.jpeg")}
-                        ],
-                        center: [
-                          {src: require("../../assets/images/index/feed/5.jpeg")},
-                        ]}
-                    ]},
-                  {all2: [
-                      {conner: [
-                          {src: require("../../assets/images/index/feed/1.jpeg")},
-                          {src: require("../../assets/images/index/feed/2.jpeg")},
-                          {src: require("../../assets/images/index/feed/3.jpeg")},
-                          {src: require("../../assets/images/index/feed/4.jpeg")}
-                        ],
-                        center: [
-                          {src: require("../../assets/images/index/feed/5.jpeg")},
-                        ]}
-                    ]},
-                  {all2: [
-                      {conner: [
-                          {src: require("../../assets/images/index/feed/1.jpeg")},
-                          {src: require("../../assets/images/index/feed/2.jpeg")},
-                          {src: require("../../assets/images/index/feed/3.jpeg")},
-                          {src: require("../../assets/images/index/feed/4.jpeg")}
-                        ],
-                        center: [
-                          {src: require("../../assets/images/index/feed/5.jpeg")},
-                        ]}
-                    ]},
-                ],
-              },
-              {
-                all: [
-                  {all2: [
-                      {conner: [
-                          {src: require("../../assets/images/index/feed/1.jpeg")},
-                          {src: require("../../assets/images/index/feed/2.jpeg")},
-                          {src: require("../../assets/images/index/feed/3.jpeg")},
-                          {src: require("../../assets/images/index/feed/4.jpeg")}
-                        ],
-                        center: [
-                          {src: require("../../assets/images/index/feed/5.jpeg")},
-                        ]}
-                    ]},
-                  {all2: [
-                      {conner: [
-                          {src: require("../../assets/images/index/feed/1.jpeg")},
-                          {src: require("../../assets/images/index/feed/2.jpeg")},
-                          {src: require("../../assets/images/index/feed/3.jpeg")},
-                          {src: require("../../assets/images/index/feed/4.jpeg")}
-                        ],
-                        center: [
-                          {src: require("../../assets/images/index/feed/5.jpeg")},
-                        ]}
-                    ]},
-                  {all2: [
-                      {conner: [
-                          {src: require("../../assets/images/index/feed/1.jpeg")},
-                          {src: require("../../assets/images/index/feed/2.jpeg")},
-                          {src: require("../../assets/images/index/feed/3.jpeg")},
-                          {src: require("../../assets/images/index/feed/4.jpeg")}
-                        ],
-                        center: [
-                          {src: require("../../assets/images/index/feed/5.jpeg")},
-                        ]}
-                    ]},
-                  {all2: [
-                      {conner: [
-                          {src: require("../../assets/images/index/feed/1.jpeg")},
-                          {src: require("../../assets/images/index/feed/2.jpeg")},
-                          {src: require("../../assets/images/index/feed/3.jpeg")},
-                          {src: require("../../assets/images/index/feed/4.jpeg")}
-                        ],
-                        center: [
-                          {src: require("../../assets/images/index/feed/5.jpeg")},
-                        ]}
-                    ]},
-                  {all2: [
-                      {conner: [
-                          {src: require("../../assets/images/index/feed/1.jpeg")},
-                          {src: require("../../assets/images/index/feed/2.jpeg")},
-                          {src: require("../../assets/images/index/feed/3.jpeg")},
-                          {src: require("../../assets/images/index/feed/4.jpeg")}
-                        ],
-                        center: [
-                          {src: require("../../assets/images/index/feed/5.jpeg")},
-                        ]}
-                    ]},
-                  {all2: [
-                      {conner: [
-                          {src: require("../../assets/images/index/feed/1.jpeg")},
-                          {src: require("../../assets/images/index/feed/2.jpeg")},
-                          {src: require("../../assets/images/index/feed/3.jpeg")},
-                          {src: require("../../assets/images/index/feed/4.jpeg")}
-                        ],
-                        center: [
-                          {src: require("../../assets/images/index/feed/5.jpeg")},
-                        ]}
-                    ]},
-                  {all2: [
-                      {conner: [
-                          {src: require("../../assets/images/index/feed/1.jpeg")},
-                          {src: require("../../assets/images/index/feed/2.jpeg")},
-                          {src: require("../../assets/images/index/feed/3.jpeg")},
-                          {src: require("../../assets/images/index/feed/4.jpeg")}
-                        ],
-                        center: [
-                          {src: require("../../assets/images/index/feed/5.jpeg")},
-                        ]}
-                    ]},
-                  {all2: [
-                      {conner: [
-                          {src: require("../../assets/images/index/feed/1.jpeg")},
-                          {src: require("../../assets/images/index/feed/2.jpeg")},
-                          {src: require("../../assets/images/index/feed/3.jpeg")},
-                          {src: require("../../assets/images/index/feed/4.jpeg")}
-                        ],
-                        center: [
-                          {src: require("../../assets/images/index/feed/5.jpeg")},
-                        ]}
-                    ]},
-                ],
-              }
-            ],
-            chooseitem: ''
-          }
+import { mapGetters, mapMutations, mapActions } from 'vuex'
+export default {
+  name: "feed",
+  data () {
+    return {
+      list: [
+        {
+          all: [
+            {all2: [
+                {conner: [
+                    {src: require("../../assets/images/index/feed/1.jpeg")},
+                    {src: require("../../assets/images/index/feed/2.jpeg")},
+                    {src: require("../../assets/images/index/feed/3.jpeg")},
+                    {src: require("../../assets/images/index/feed/4.jpeg")}
+                  ],
+                  center: [
+                    {src: require("../../assets/images/index/feed/5.jpeg")},
+                  ]}
+              ]},
+            {all2: [
+                {conner: [
+                    {src: require("../../assets/images/index/feed/1.jpeg")},
+                    {src: require("../../assets/images/index/feed/2.jpeg")},
+                    {src: require("../../assets/images/index/feed/3.jpeg")},
+                    {src: require("../../assets/images/index/feed/4.jpeg")}
+                  ],
+                  center: [
+                    {src: require("../../assets/images/index/feed/5.jpeg")},
+                  ]}
+              ]},
+            {all2: [
+                {conner: [
+                    {src: require("../../assets/images/index/feed/1.jpeg")},
+                    {src: require("../../assets/images/index/feed/2.jpeg")},
+                    {src: require("../../assets/images/index/feed/3.jpeg")},
+                    {src: require("../../assets/images/index/feed/4.jpeg")}
+                  ],
+                  center: [
+                    {src: require("../../assets/images/index/feed/5.jpeg")},
+                  ]}
+              ]},
+            {all2: [
+                {conner: [
+                    {src: require("../../assets/images/index/feed/1.jpeg")},
+                    {src: require("../../assets/images/index/feed/2.jpeg")},
+                    {src: require("../../assets/images/index/feed/3.jpeg")},
+                    {src: require("../../assets/images/index/feed/4.jpeg")}
+                  ],
+                  center: [
+                    {src: require("../../assets/images/index/feed/5.jpeg")},
+                  ]}
+              ]},
+            {all2: [
+                {conner: [
+                    {src: require("../../assets/images/index/feed/1.jpeg")},
+                    {src: require("../../assets/images/index/feed/2.jpeg")},
+                    {src: require("../../assets/images/index/feed/3.jpeg")},
+                    {src: require("../../assets/images/index/feed/4.jpeg")}
+                  ],
+                  center: [
+                    {src: require("../../assets/images/index/feed/5.jpeg")},
+                  ]}
+              ]},
+            {all2: [
+                {conner: [
+                    {src: require("../../assets/images/index/feed/1.jpeg")},
+                    {src: require("../../assets/images/index/feed/2.jpeg")},
+                    {src: require("../../assets/images/index/feed/3.jpeg")},
+                    {src: require("../../assets/images/index/feed/4.jpeg")}
+                  ],
+                  center: [
+                    {src: require("../../assets/images/index/feed/5.jpeg")},
+                  ]}
+              ]},
+            {all2: [
+                {conner: [
+                    {src: require("../../assets/images/index/feed/1.jpeg")},
+                    {src: require("../../assets/images/index/feed/2.jpeg")},
+                    {src: require("../../assets/images/index/feed/3.jpeg")},
+                    {src: require("../../assets/images/index/feed/4.jpeg")}
+                  ],
+                  center: [
+                    {src: require("../../assets/images/index/feed/5.jpeg")},
+                  ]}
+              ]},
+            {all2: [
+                {conner: [
+                    {src: require("../../assets/images/index/feed/1.jpeg")},
+                    {src: require("../../assets/images/index/feed/2.jpeg")},
+                    {src: require("../../assets/images/index/feed/3.jpeg")},
+                    {src: require("../../assets/images/index/feed/4.jpeg")}
+                  ],
+                  center: [
+                    {src: require("../../assets/images/index/feed/5.jpeg")},
+                  ]}
+              ]}
+          ],
         },
-      methods: {
-        //  进入每个li
-        enter_feature_func (index) {
-          this.chooseitem = index
+        {
+          all: [
+            {all2: [
+                {conner: [
+                    {src: require("../../assets/images/index/feed/1.jpeg")},
+                    {src: require("../../assets/images/index/feed/2.jpeg")},
+                    {src: require("../../assets/images/index/feed/3.jpeg")},
+                    {src: require("../../assets/images/index/feed/4.jpeg")}
+                  ],
+                  center: [
+                    {src: require("../../assets/images/index/feed/5.jpeg")},
+                  ]}
+              ]},
+            {all2: [
+                {conner: [
+                    {src: require("../../assets/images/index/feed/1.jpeg")},
+                    {src: require("../../assets/images/index/feed/2.jpeg")},
+                    {src: require("../../assets/images/index/feed/3.jpeg")},
+                    {src: require("../../assets/images/index/feed/4.jpeg")}
+                  ],
+                  center: [
+                    {src: require("../../assets/images/index/feed/5.jpeg")},
+                  ]}
+              ]},
+            {all2: [
+                {conner: [
+                    {src: require("../../assets/images/index/feed/1.jpeg")},
+                    {src: require("../../assets/images/index/feed/2.jpeg")},
+                    {src: require("../../assets/images/index/feed/3.jpeg")},
+                    {src: require("../../assets/images/index/feed/4.jpeg")}
+                  ],
+                  center: [
+                    {src: require("../../assets/images/index/feed/5.jpeg")},
+                  ]}
+              ]},
+            {all2: [
+                {conner: [
+                    {src: require("../../assets/images/index/feed/1.jpeg")},
+                    {src: require("../../assets/images/index/feed/2.jpeg")},
+                    {src: require("../../assets/images/index/feed/3.jpeg")},
+                    {src: require("../../assets/images/index/feed/4.jpeg")}
+                  ],
+                  center: [
+                    {src: require("../../assets/images/index/feed/5.jpeg")},
+                  ]}
+              ]},
+            {all2: [
+                {conner: [
+                    {src: require("../../assets/images/index/feed/1.jpeg")},
+                    {src: require("../../assets/images/index/feed/2.jpeg")},
+                    {src: require("../../assets/images/index/feed/3.jpeg")},
+                    {src: require("../../assets/images/index/feed/4.jpeg")}
+                  ],
+                  center: [
+                    {src: require("../../assets/images/index/feed/5.jpeg")},
+                  ]}
+              ]},
+            {all2: [
+                {conner: [
+                    {src: require("../../assets/images/index/feed/1.jpeg")},
+                    {src: require("../../assets/images/index/feed/2.jpeg")},
+                    {src: require("../../assets/images/index/feed/3.jpeg")},
+                    {src: require("../../assets/images/index/feed/4.jpeg")}
+                  ],
+                  center: [
+                    {src: require("../../assets/images/index/feed/5.jpeg")},
+                  ]}
+              ]},
+            {all2: [
+                {conner: [
+                    {src: require("../../assets/images/index/feed/1.jpeg")},
+                    {src: require("../../assets/images/index/feed/2.jpeg")},
+                    {src: require("../../assets/images/index/feed/3.jpeg")},
+                    {src: require("../../assets/images/index/feed/4.jpeg")}
+                  ],
+                  center: [
+                    {src: require("../../assets/images/index/feed/5.jpeg")},
+                  ]}
+              ]},
+            {all2: [
+                {conner: [
+                    {src: require("../../assets/images/index/feed/1.jpeg")},
+                    {src: require("../../assets/images/index/feed/2.jpeg")},
+                    {src: require("../../assets/images/index/feed/3.jpeg")},
+                    {src: require("../../assets/images/index/feed/4.jpeg")}
+                  ],
+                  center: [
+                    {src: require("../../assets/images/index/feed/5.jpeg")},
+                  ]}
+              ]},
+          ],
         },
-      //  离开每个li
-        leave_feature_func () {
-          this.chooseitem = ''
+        {
+          all: [
+            {all2: [
+                {conner: [
+                    {src: require("../../assets/images/index/feed/1.jpeg")},
+                    {src: require("../../assets/images/index/feed/2.jpeg")},
+                    {src: require("../../assets/images/index/feed/3.jpeg")},
+                    {src: require("../../assets/images/index/feed/4.jpeg")}
+                  ],
+                  center: [
+                    {src: require("../../assets/images/index/feed/5.jpeg")},
+                  ]}
+              ]},
+            {all2: [
+                {conner: [
+                    {src: require("../../assets/images/index/feed/1.jpeg")},
+                    {src: require("../../assets/images/index/feed/2.jpeg")},
+                    {src: require("../../assets/images/index/feed/3.jpeg")},
+                    {src: require("../../assets/images/index/feed/4.jpeg")}
+                  ],
+                  center: [
+                    {src: require("../../assets/images/index/feed/5.jpeg")},
+                  ]}
+              ]},
+            {all2: [
+                {conner: [
+                    {src: require("../../assets/images/index/feed/1.jpeg")},
+                    {src: require("../../assets/images/index/feed/2.jpeg")},
+                    {src: require("../../assets/images/index/feed/3.jpeg")},
+                    {src: require("../../assets/images/index/feed/4.jpeg")}
+                  ],
+                  center: [
+                    {src: require("../../assets/images/index/feed/5.jpeg")},
+                  ]}
+              ]},
+            {all2: [
+                {conner: [
+                    {src: require("../../assets/images/index/feed/1.jpeg")},
+                    {src: require("../../assets/images/index/feed/2.jpeg")},
+                    {src: require("../../assets/images/index/feed/3.jpeg")},
+                    {src: require("../../assets/images/index/feed/4.jpeg")}
+                  ],
+                  center: [
+                    {src: require("../../assets/images/index/feed/5.jpeg")},
+                  ]}
+              ]},
+            {all2: [
+                {conner: [
+                    {src: require("../../assets/images/index/feed/1.jpeg")},
+                    {src: require("../../assets/images/index/feed/2.jpeg")},
+                    {src: require("../../assets/images/index/feed/3.jpeg")},
+                    {src: require("../../assets/images/index/feed/4.jpeg")}
+                  ],
+                  center: [
+                    {src: require("../../assets/images/index/feed/5.jpeg")},
+                  ]}
+              ]},
+            {all2: [
+                {conner: [
+                    {src: require("../../assets/images/index/feed/1.jpeg")},
+                    {src: require("../../assets/images/index/feed/2.jpeg")},
+                    {src: require("../../assets/images/index/feed/3.jpeg")},
+                    {src: require("../../assets/images/index/feed/4.jpeg")}
+                  ],
+                  center: [
+                    {src: require("../../assets/images/index/feed/5.jpeg")},
+                  ]}
+              ]},
+            {all2: [
+                {conner: [
+                    {src: require("../../assets/images/index/feed/1.jpeg")},
+                    {src: require("../../assets/images/index/feed/2.jpeg")},
+                    {src: require("../../assets/images/index/feed/3.jpeg")},
+                    {src: require("../../assets/images/index/feed/4.jpeg")}
+                  ],
+                  center: [
+                    {src: require("../../assets/images/index/feed/5.jpeg")},
+                  ]}
+              ]},
+            {all2: [
+                {conner: [
+                    {src: require("../../assets/images/index/feed/1.jpeg")},
+                    {src: require("../../assets/images/index/feed/2.jpeg")},
+                    {src: require("../../assets/images/index/feed/3.jpeg")},
+                    {src: require("../../assets/images/index/feed/4.jpeg")}
+                  ],
+                  center: [
+                    {src: require("../../assets/images/index/feed/5.jpeg")},
+                  ]}
+              ]},
+          ],
         }
-      }
+      ],
+      chooseitem: ''
     }
+  },
+  computed: {
+    ...mapGetters([
+      'featured'
+    ])
+  },
+  created () {
+    this.getData()
+  },
+  methods: {
+      ...mapMutations([
+        'FEATURED'
+      ]),
+    ...mapActions([
+      'getArtistFeatured'
+    ]),
+    // 获取数据列表
+    getData() {
+      this.getArtistFeatured().then(res => {
+        console.log(res.data)
+        this.FEATURED(res.data)
+      })
+    },
+    //  进入每个li
+    enter_feature_func (index) {
+      this.chooseitem = index
+    },
+  //  离开每个li
+    leave_feature_func () {
+      this.chooseitem = ''
+    }
+  }
+}
 </script>
 
 <style lang="scss" scoped>

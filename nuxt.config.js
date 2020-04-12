@@ -40,8 +40,10 @@ export default {
   ** Plugins to load before mounting the App
   */
   plugins: [
+    { src: '@/plugins/route', ssr: true },
     '@/plugins/element-ui',
     '@/plugins/vue-lazyload',
+    // '@/plugins/http',
     // 持久化存储
     { src: '@/plugins/localStorage', ssr: false },
     // nprogress 加载进度条
@@ -75,7 +77,7 @@ export default {
   // 代理
   proxy: {
     '/api': {
-      target: 'http://127.0.0.1:8000/api', // 代理地址
+      target: 'http://192.168.1.19:8000/api', // 代理地址
       changeOrigin: true,
       ws: true, // 是否支持websocket
       pathRewrite: {

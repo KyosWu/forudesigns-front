@@ -1,28 +1,39 @@
 <template>
   <div class="carousel" style="width: 100%">
-      <el-carousel trigger="click" style="height: 100%" :autoplay="false">
-        <el-carousel-item v-for="(item,index) in list" :key="index" class="img-outer">
-          <img v-lazy="item.src" alt="" class="img-inner">
+      <el-carousel trigger="click" style="height: 100%" :autoplay="true">
+        <el-carousel-item v-for="(item,index) in bannerList" :key="index" class="img-outer">
+          <img v-lazy="item.image" alt="" class="img-inner">
         </el-carousel-item>
       </el-carousel>
     </div>
 </template>
 
 <script>
-    export default {
-        name: "Carousel",
-        data () {
-          return {
-            list: [
-              {src: require('../../assets/images/index/carousel/1.jpeg')},
-              {src: require('../../assets/images/index/carousel/2.jpeg')},
-              {src: require('../../assets/images/index/carousel/3.jpeg')},
-              {src: require('../../assets/images/index/carousel/4.jpeg')},
-              {src: require('../../assets/images/index/carousel/5.jpeg')}
-            ]
-          }
-        }
+import { mapGetters,mapMutations, mapActions } from 'vuex'
+export default {
+    name: "Carousel",
+    computed: {
+      ...mapGetters([
+        'bannerList'
+      ])
+    },
+    created () {
+      this.getImage()
+    },
+    methods: {
+      ...mapMutations([
+        'SETBANNER'
+      ]),
+      ...mapActions([
+        'getBanner'
+      ]),
+      getImage() {
+        this.getBanner().then(res => {
+          this.SETBANNER(res.data)
+        })
+      }
     }
+  }
 </script>
 
 <style>

@@ -47,7 +47,12 @@
     height: 40px;
     border-radius: 25px;
     overflow: hidden;
-    @include common_center;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    display: -webkit-box;
+    -webkit-box-align: center;
+    -webkit-box-pack: center;
   }
 
   .the-search_right {

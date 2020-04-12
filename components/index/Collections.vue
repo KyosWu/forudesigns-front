@@ -5,15 +5,15 @@
     </h2>
     <ul class="collections-content clear-both">
       <!--加style 保证不移动自适配-->
-      <li v-for="(item,index) in list" :key="index" style="width: 310px;height:310px">
+      <li v-for="(item,index) in categoryPri" :key="index" style="width: 310px;height:310px">
         <nuxt-link to="">
           <div class="img-warp">
             <div class="img-outer">
-              <img v-lazy="item.src" alt="" class="img-inner">
+              <img v-lazy="item.category_image" alt="" class="img-inner" style="object-fit: cover;">
             </div>
-            <span class="collection-name">
+            <div class="collection-name">
               {{item.name}}
-            </span>
+            </div>
           </div>
         </nuxt-link>
       </li>
@@ -22,27 +22,31 @@
 </template>
 
 <script>
-    export default {
-        name: "collcollections-titleections",
-        data () {
-          return {
-            list: [
-              {name: 'animals', src: require("../../assets/images/index/collections/1.jpeg")},
-              {name: 'art styles', src: require("../../assets/images/index/collections/1.jpeg")},
-              {name: 'colors', src: require("../../assets/images/index/collections/1.jpeg")},
-              {name: 'countries', src: require("../../assets/images/index/collections/1.jpeg")},
-              {name: 'food', src: require("../../assets/images/index/collections/1.jpeg")},
-              {name: 'funny', src: require("../../assets/images/index/collections/1.jpeg")},
-              {name: 'big day', src: require("../../assets/images/index/collections/1.jpeg")},
-              {name: 'home decor', src: require("../../assets/images/index/collections/1.jpeg")},
-              {name: 'love', src: require("../../assets/images/index/collections/1.jpeg")},
-              {name: 'nature', src: require("../../assets/images/index/collections/1.jpeg")},
-              {name: 'pop culture', src: require("../../assets/images/index/collections/1.jpeg")},
-              {name: 'view all collections', src: require("../../assets/images/index/collections/1.jpeg")}
-            ]
-          }
-        }
+  import { mapGetters, mapMutations, mapActions } from 'vuex'
+  export default {
+    name: "collcollections-titleections",
+    computed: {
+      ...mapGetters([
+        'categoryPri'
+      ])
+    },
+    created () {
+      this.getCat()
+    },
+    methods: {
+      ...mapMutations([
+        'SETCATPRIMARY'
+      ]),
+      ...mapActions([
+        'getCatPrimary'
+      ]),
+      getCat () {
+        this.getCatPrimary().then(res => {
+          this.SETCATPRIMARY(res.data)
+        })
+      }
     }
+  }
 </script>
 
 <style lang="scss" scoped>
@@ -50,39 +54,41 @@
     overflow: hidden;
     margin: 72px auto 0;
     background: #fff;
-    .collections-title {
-      margin-bottom: 25px;
-      text-align: center;
-      text-transform: uppercase;
-      color: #40354e;
-      font-size: 45px;
-      line-height: 45px;
+  }
+
+  .collections-title {
+    margin-bottom: 25px;
+    text-align: center;
+    text-transform: uppercase;
+    color: #40354e;
+    font-size: 45px;
+    line-height: 45px;
+  }
+
+  .collections-content {
+    width: 100%;
+    /*解决一像素问题*/
+    li:nth-child(4n) {
+      margin-right: 0;
     }
-    .collections-content {
-      width: 100%;
-      /*解决一像素问题*/
-      li:nth-child(4n) {
-        margin-right: 0;
-      }
-      li {
-        position: relative;
-        float: left;
-        overflow: hidden;
-        width: 310px;
-        height: 310px;
-        margin-right: 13px;
-        margin-bottom: 12px;
-        cursor: pointer;
-        .img-wrap {
-          display: -webkit-box;
-          display: flex;
-          -webkit-box-align: center;
-          align-items: center;
-          -webkit-box-pack: center;
-          justify-content: center;
-          width: 100%;
-          height: 100%;
-        }
+    li {
+      position: relative;
+      float: left;
+      overflow: hidden;
+      width: 310px;
+      height: 310px;
+      margin-right: 13px;
+      margin-bottom: 12px;
+      cursor: pointer;
+      .img-wrap {
+        display: -webkit-box;
+        /*display: flex;*/
+        -webkit-box-align: center;
+        align-items: center;
+        -webkit-box-pack: center;
+        justify-content: center;
+        width: 100%;
+        height: 100%;
       }
     }
   }
