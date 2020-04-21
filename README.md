@@ -1,10 +1,11 @@
 ## 本地部署安装
-服务器需要部署node环境
-
+部署django服务，地址:github.com/KyosWu/forudesigns-server
+```
 npm install
 npm run dev
-
+```
 ## 线上部署
+服务器需要部署node环境，请部署django服务
 ###上传服务器
 npm run build
 以下文件上传到服务器项目目录
@@ -22,7 +23,6 @@ nuxt.config.js
     host: '0.0.0.0', // default: localhost,
   },
 ```
-
 nginx.conf
 ```
 upstream nuxt {
@@ -45,3 +45,17 @@ server {
 ### PM2启动
 npm install pm2 -g
 pm2 start npm --name "forudesigns" -- run start
+
+
+##运行成功页面效果
+
+![](C:\Users\Kyosu\Desktop\1.PNG)
+
+![](C:\Users\Kyosu\Desktop\2.PNG)
+
+![](C:\Users\Kyosu\Desktop\3.PNG)
+
+![](C:\Users\Kyosu\Desktop\4.PNG)
+
+![5](C:\Users\Kyosu\Desktop\5.PNG)
+
