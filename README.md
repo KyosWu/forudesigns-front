@@ -49,13 +49,9 @@ pm2 start npm --name "forudesigns" -- run start
 
 ##运行成功页面效果
 
-![](C:\Users\Kyosu\Desktop\1.PNG)
-
-![](C:\Users\Kyosu\Desktop\2.PNG)
-
-![](C:\Users\Kyosu\Desktop\3.PNG)
-
-![](C:\Users\Kyosu\Desktop\4.PNG)
-
-![5](C:\Users\Kyosu\Desktop\5.PNG)
+https://github.com/KyosWu/forudesigns-front/blob/master/static/images/1.PNG
+https://github.com/KyosWu/forudesigns-front/blob/master/static/images/2.PNG
+https://github.com/KyosWu/forudesigns-front/blob/master/static/images/3.PNG
+https://github.com/KyosWu/forudesigns-front/blob/master/static/images/4.PNG
+https://github.com/KyosWu/forudesigns-front/blob/master/static/images/5.PNG
 
