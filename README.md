@@ -1,22 +1,47 @@
-# forudesigns
+## 本地部署安装
+服务器需要部署node环境
 
-> My good Nuxt.js project
+npm install
+npm run dev
 
-## Build Setup
-
-``` bash
-# install dependencies
-$ npm install
-
-# serve with hot reload at localhost:3000
-$ npm run dev
-
-# build for production and launch server
-$ npm run build
-$ npm run start
-
-# generate static project
-$ npm run generate
+## 线上部署
+###上传服务器
+npm run build
+以下文件上传到服务器项目目录
+```
+.nuxt
+nuxt.config.js
+package.json
+```
+npm run install
+### 配置nginx代理
+nuxt.config.js
+```
+ server: {
+    port: 3000, // default: 3000
+    host: '0.0.0.0', // default: localhost,
+  },
 ```
 
-For detailed explanation on how things work, check out [Nuxt.js docs](https://nuxtjs.org).
+nginx.conf
+```
+upstream nuxt {
+    #nuxt项目 监听端口与项目端口一致
+    server 127.0.0.1:3000;
+    keepalive 64;
+}
+
+server {
+    listen 3000;
+    server_name localhost;
+
+    #charset koi8-r;
+    access_log  /var/log/nginx/foru.log  main;
+
+    location / {
+		  proxy_pass http://nuxt;
+    }
+```
+### PM2启动
+npm install pm2 -g
+pm2 start npm --name "forudesigns" -- run start

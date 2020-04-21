@@ -77,7 +77,7 @@ export default {
   // 代理
   proxy: {
     '/api': {
-      target: 'http://192.168.1.105:8000/api', // 代理地址
+      target: 'http://192.168.1.59:8000/api', // 代理地址
       changeOrigin: true,
       ws: true, // 是否支持websocket
       pathRewrite: {
