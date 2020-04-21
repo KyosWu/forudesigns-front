@@ -81,7 +81,7 @@
         width: 100%;
         height: 100%;
         vertical-align: middle;
-        /*background-image: url("../assets/images/shop/1.jpeg");*/
+        /*background-image: url("../assets/image/shop/1.jpeg");*/
       }
     }
   }

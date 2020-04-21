@@ -56,7 +56,7 @@
             routeList: [
               {name: 'Dashboard', to: '/dashboard'},
               {name: 'My Wallet', to: '/wallet'},
-              {name: 'My Images', to: '/images'},
+              {name: 'My Images', to: '/image'},
               {name: 'My Products', to: '/products'},
               {name: 'My Profile', to: '/my'},
               {name: 'My Viewed', to: '/my/viewed'},

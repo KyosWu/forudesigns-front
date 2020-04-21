@@ -13,7 +13,7 @@
                   <!--一共13个li display none 为artist 才拥有 -->
 <!--                  <li style="display: none;"><nuxt-link to="/my/dashboard">dashboard</nuxt-link></li>
                   <li style="display: none;"><nuxt-link to="/my/wallet">My Wallet</nuxt-link></li>
-                  <li style="display: none;"><nuxt-link to="/my/images">My Images</nuxt-link></li>
+                  <li style="display: none;"><nuxt-link to="/my/image">My Images</nuxt-link></li>
                   <li style="display: none;"><nuxt-link to="/my/products">My Products</nuxt-link></li>
                   <li style="display: none;"><nuxt-link to="/my/orders">My Orders</nuxt-link></li>
                   <li><nuxt-link to="/my">My Profile</nuxt-link></li>
