@@ -34,10 +34,7 @@
         name: "login",
         components: {
             LoginMain
-        },
-      methods: {
-
-      }
+        }
     }
 </script>
 

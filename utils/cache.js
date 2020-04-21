@@ -40,15 +40,29 @@ class LocalStorage {
   }
 }
 
-export function saveAccessToken (token, expiredIn) {
+export function saveLocalAccessToken (token, expiredIn) {
   localStorageCache.set(KEYS.token, token, { exp: expiredIn })
 }
 
-export function getAccessToken () {
+export function getLocalAccessToken () {
   const token = localStorageCache.get(KEYS.token)
   return token
 }
 
-export function removeAccessToken () {
+export function removeLocalAccessTokenS () {
+  localStorageCache.delete(KEYS.token)
+}
+
+export function saveSessionAccessToken (token, expiredIn) {
+  sessionCache.set(KEYS.token, token, { exp: expiredIn })
+}
+
+export function getSessionAccessToken () {
+  const token = sessionCache.get(KEYS.token)
+  return token
+}
+
+export function removeSessionAccessToken () {
   sessionCache.delete(KEYS.token)
 }
+

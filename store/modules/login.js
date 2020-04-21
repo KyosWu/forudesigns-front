@@ -1,19 +1,20 @@
 import api from '../../api/login'
-// import {
-//   LocalStorage,
-//   saveAccessToken,
-//   getAccessToken,
-//   removeAccessToken
-// } from '../../api/cache'
 
 import {
+  saveSessionAccessToken,
+} from '../../utils/cache'
 
+import {Message} from 'element-ui'
+
+import {
 } from '../mutation-types'
 
 const state = {
   token: '',
   userId: '',
-  userInfo: []
+  userInfo: [],
+  user: [],
+  isLogin: false
 }
 
 const getters = {
@@ -24,28 +25,32 @@ const getters = {
 }
 
 const mutations = {
-  // [LOGIN] (state, data) {
-  //   state.isShowModel = data
-  // }
   TOKEN (state, data) {
     // console.log(data)
     state.token = data
   },
+  // 用户ID
   USERID (state, data) {
     state.userId = data
   },
+  // 用户信息
   USERINFO (state, data) {
-    state.userInfo = data
+    state.user = data.user
+    state.Token = data.token
+    state.isLogin = true
+    // 存入storage
+    saveSessionAccessToken(state.token, 1)
   }
 }
 
 const actions = {
-  // 暂废弃 axios api 相关
   toLogin (store, params) {
-    return api.LOGIN(params).then(
-      res =>
-        // token 存到state
-        store.commit('TOKEN', res)
+    return api.LOGIN(params).then(async res => {
+      if (res.status === 200) {
+        Message.success('登录成功')
+        await store.commit('USERINFO', res.data)
+        this.$router.push({path:'/'})
+      }}
     )
   },
   // 存储用户token
@@ -59,6 +64,16 @@ const actions = {
   // 存储用户基本信息
   saveUserInfo (store, params) {
     store.commit('USERINFO', params)
+  },
+  toRegister (store, params) {
+    return api.REGISTER(params).then(async res => {
+      console.log(res)
+      if (res.status === 200) {
+        Message.success('注册成功')
+        await store.commit('USERINFO', res.data)
+        this.$router.push({path: '/'})
+      }
+    })
   }
 }
 

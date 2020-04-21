@@ -81,10 +81,9 @@
 </template>
 
 <script>
-  import { Message } from 'element-ui'
   import { mapGetters, mapActions } from 'vuex'
-    export default {
-        name: "Login-main",
+  export default {
+      name: "Login-main",
       data () {
         return {
           // 绑定输入框数据
@@ -114,40 +113,8 @@
             'saveUserId',
             'saveUserInfo'
           ]),
-          async Login_Func(params) {
-            let email = params.email
-            let password = params.password
-            // await this.toLogin(params).then(res => console.log(res))
-          //  存储token
-          this.$axios.post(`/rbac/auth/login/`, {email:email,password:password})
-            .then(res => {
-              // console.log(res.data)
-              let code = res.data.code
-              // 表示登录成功
-              if (code === 2) {
-                Message.success(res.data.msg)
-                let token = res.data.token
-                let raw_userId = res.data.user_id
-                let userId = ''
-                for (let i in raw_userId) {
-                  userId = raw_userId[i][i]
-                }
-                // 存储用户ID
-                this.saveUserId(userId)
-                this.saveToken(token)
-                // console.log(token,userId)
-                this.$axios.get(`/rbac/api/users/${userId}`).then(
-                  res => {
-                    // console.log(res)
-                    // 存储用户基本信息
-                    this.saveUserInfo(res)
-                    // console.log(res)
-                    // 跳转页面, 建议跳转到来时的路由
-                    this.$router.push({path:'/'})
-                  }
-                )
-              }
-            })
+        Login_Func(params) {
+          this.toLogin(params)
         }
       }
     }
@@ -245,7 +212,6 @@
           .btn-01 {
             width: 100%;
             height: 38px;
-            display: -webkit-inline-box;
             display: inline-flex;
             -webkit-box-align: center;
             align-items: center;

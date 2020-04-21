@@ -7,7 +7,10 @@ const service = axios.create({
   baseURL: '/api', // api的base_url
   // baseURL: 'http://192.168.1.25:8000', // api的base_url
   // baseURL: process.env.BASE_API, // api的base_url
-  timeout: 15000 // 请求超时时间
+  timeout: 15000, // 请求超时时间
+  header: {
+    'Content-Type' : `application/json`
+  }
 })
 
 // // request拦截器

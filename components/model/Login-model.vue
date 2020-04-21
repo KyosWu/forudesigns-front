@@ -24,11 +24,11 @@
   import { mapGetters, mapActions } from 'vuex'
   import Masks from './Login-mask'
   import LoginMain from '../public/login/Login-main'
-    export default {
-        name: "Login-model",
+  export default {
+      name: "Login-model",
       components: {
         Masks,
-          LoginMain
+        LoginMain
       },
       computed: {
         ...mapGetters([

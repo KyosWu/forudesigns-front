@@ -38,7 +38,7 @@
            @mouseleave="leave_func(3)">
         <div class="base-popover__target">
           <!--用户头像-->
-          <nuxt-link to="/my">
+          <nuxt-link to="/my" v-if="isLogin">
             <div class="user-icon"></div>
           </nuxt-link >
           <!--三角标签-->
@@ -53,7 +53,7 @@
 
 
       <!--登录按钮-->
-      <Login/>
+      <Login v-if="!isLogin"/>
     </div>
   </div>
 </template>
@@ -73,16 +73,13 @@
       User,
       Login
     },
-    data () {
-      return {
-      }
-    },
     computed: {
       ...mapGetters([
         'isNotice',
         'isContent',
         'isCart',
-        'isUser'
+        'isUser',
+        'isLogin'
       ])
     },
     methods: {

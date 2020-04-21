@@ -86,9 +86,9 @@
     font-size: 14px;
     display: inline-block;
     width: 100%;
-    .el-input__inner {
-      padding-right: 50px;
-      border-radius: 25px;
-    }
+  }
+  .the-search >>> .el-input__inner {
+    padding-right: 50px;
+    border-radius: 25px;
   }
 </style>

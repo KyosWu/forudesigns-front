@@ -26,7 +26,7 @@
           <div class="field">
             <el-input type="password" autocomplete="off" name="password"
                       placeholder="Enter your password"
-                      v-model="formData.password1">
+                      v-model="formData.password">
             </el-input>
           </div>
           <!--密码二次验证-->
@@ -45,7 +45,7 @@
 
 
 <script>
-  import {Message} from 'element-ui'
+  import { Message } from 'element-ui'
   import { mapActions } from 'vuex'
   export default {
         name: "Register-main",
@@ -55,7 +55,7 @@
             formData: {
               username: '',
               email: '',
-              password1: '',
+              password: '',
               password2: ''
             },
             rules: { // 表单验证规则
@@ -66,46 +66,14 @@
           ...mapActions([
             'saveToken',
             'saveUserId',
-            'saveUserInfo'
+            'saveUserInfo',
+            'toRegister'
           ]),
         Register_Func (params) {
-          let {username, email, password1, password2} = params
-          if (password1 === password2) {
-            this.$axios.post(`/rbac/api/users/`, {username:username, email:email, password:password2})
-              .then(
-                res => {
-                  // 判断是由有错 重复邮箱
-                  // 如果注册失败
-                  if (res.data.code === 1) {
-                    Message.error(res.data.msg)
-                  }
-                  // 如果注册成功
-                  if (res.data.code === 2) {
-                    Message.success(res.data.msg)
-                    let token = res.data.token
-                    let raw_userId = res.data.user_id
-                    let userId = ''
-                    for (let i in raw_userId) {
-                      userId = raw_userId[i][i]
-                    }
-                    // 存储用户ID
-                    this.saveUserId(userId)
-                    this.saveToken(token)
-                    console.log(userId)
-                    // 请求数据 进行页面跳转
-                     this.$axios.get(`/rbac/api/users/${userId}`).then(
-                       res => {
-                         // 存储用户基本信息
-                         this.saveUserInfo(res)
-                         // console.log(res)
-                         // 跳转页面 建议跳转到来时的路由
-                         this.$router.push({path:'/'})
-                       }
-                     )
-                  }
-                })
-          } else {
-            Message.error('password error !!!')
+          let {username, email, password, password2} = params
+          if(password === password2) {
+            params = {username, email, password}
+            this.toRegister(params)
           }
         }
       }
